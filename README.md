@@ -1,16 +1,17 @@
 ### Webseclab
 
-Webseclab is a sample set of web security test cases and toolkit to construct  tests for web security scanners and help investigations or discussions of particular types of issues.
+Webseclab contains a sample set of web security test cases and a toolkit to construct new ones.  It can be used for testing security scanners, to replicate or reconstruct issues, or to help with investigations or discussions of particular types of web security bugs.
 
 ### Install
 
-	$ go get github.com/yahoo/webseclab
+	$ go get github.com/yahoo/webseclab/...
 
 ### Run
 
 ```
 $GOPATH/bin/webseclab [-http=:8080]
 ```
+or simply ```webseclab``` if $GOPATH/bin is in your PATH.
 
 Run webseclab -help to view the options.
 

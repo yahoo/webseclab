@@ -2,9 +2,12 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-/* Package webseclab implements a special-purpose web framework to test web application security scanners.
+/*
+Package webseclab contains a sample set of tests for web security scanners and a tooolkit to create such tests.
 
-To run the webseclab, compile it and execute the binary:
+To install webseclab: go get github.com/yahoo/webseclab/...
+
+To run the webseclab, execute the binary:
 
 $ webseclab
 
