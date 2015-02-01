@@ -43,7 +43,7 @@ In all tests, excepts where specially mentioned, the attack input is assumed to 
 * xss/reflect/backslash1?in=xyz - Unicode escape sequences like \u0022 unescaped by the server to became the corresponding (dangerous) character (double quotes). 
 
 
-# Adding New Tests
+### Adding New Tests
 
 For most of the tests, you need to add a template that contains the "moustache" with {{.In}}.
 
