@@ -1,0 +1,17 @@
+{{ define "title" }}JavaScript injection in JS executable context - exploitable (js.3){{end}}
+
+{{template "header" .}}
+
+ <script language="javascript">
+var f = {
+        date: '',
+        week: '1',
+        bad: {{.In}},
+        phase: '2',
+      };
+</script>
+
+Hello!<BR> 
+This test demonstrates exploitable Injection into JS executable context.
+
+{{template "footer"}}

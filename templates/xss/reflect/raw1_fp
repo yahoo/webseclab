@@ -1,0 +1,10 @@
+{{ define "title" }}Reflected raw tags (raw.1){{end}}
+
+{{ template "header" }}
+
+Hello! This is a test for potential false positive on raw tags echoed.  In this case, the injection is echoed inside of a quoted Javascript string (see page source).
+
+<script  type="text/javascript">function foo() {a="some text with {{.In}} tag inside Javascript quoted string (false positive)"}</script>
+
+{{ template "footer" }}
+

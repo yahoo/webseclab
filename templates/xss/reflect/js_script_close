@@ -1,0 +1,28 @@
+{{ define "title" }}closing script tag injection in properly quoted strings {{end}}
+
+{{template "header" .}}
+
+ <script language="javascript">
+var f = {
+        node : '#mediasportsscoreboardgrandslam',
+        league : 'nfl',
+        team : '',
+        refresh: '1',
+        frequency: '15000',
+        date: '',
+        week: '1',
+        good: '{{.In}}',
+        phase: '2',
+        conf: '',
+        maxAge: '10',
+        division: '',
+        season: '2014',
+        xhrPath: ''
+      };
+</script>
+
+Hello!<BR> 
+This test demonstrates  injection of a script closing tag inside of a  Javascript properly-quoted string.
+
+
+{{template "footer"}}

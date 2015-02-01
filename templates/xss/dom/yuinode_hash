@@ -1,0 +1,19 @@
+{{ define "title" }}Webseclab - DOM XSS, YUI Node's setHTML using location.hash(yuinode_hash){{end}}
+
+{{template "header" }}
+
+XSS due to URL used in YUI Node's setHTML(). The attack works in Firefox and in the webkit browsers - NOT blocked by the XSS Auditor.<p>
+
+Exploit: http://10.89.11.247/xss/dom/yuinode_hash?#in=&lt;img src=foo onerror=alert(148)&gt; (remember to reload the page!)<p>
+
+<script src="http://yui.yahooapis.com/3.8.1/build/yui/yui.js"></script>
+Hello!<BR>The value of &quot;in&quot; hash parameter is: <div id="inparam">in placeholder</div> 
+<script>
+  YUI().use("console", "node", function(Y) {
+  var inparam = Y.one("#inparam");
+  var input = document.location.hash; 
+  inparam.setHTML(input);
+});
+</script>
+
+{{template "footer"}}

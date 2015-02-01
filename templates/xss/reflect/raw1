@@ -1,0 +1,8 @@
+{{ define "title" }}Reflected raw tags (raw.1){{end}}
+
+{{ template "header" }}
+
+Hello! The value of the raw cgi parameter &quot;in&quot; is: {{.InRaw}}
+
+{{ template "footer" }}
+

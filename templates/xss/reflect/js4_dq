@@ -1,0 +1,17 @@
+{{ define "title" }}JavaScript and double-quote injection in JS block (js.4){{end}}
+
+{{template "header" .}}
+
+ <script language="javascript">
+var f = {
+        date: "",
+        week: "1",
+        bad: "{{.In}}",
+        phase: "2",
+      };
+</script>
+
+Hello!<BR> 
+This test demonstrates exploitable Injection due to unsafe handling of double quotes into a Javascript block.
+
+{{template "footer"}}

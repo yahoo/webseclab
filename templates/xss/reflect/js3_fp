@@ -1,0 +1,28 @@
+{{ define "title" }}JavaScript injection in properly quoted strings - FP (js.3){{end}}
+
+{{/* {{template "header" .}} */}}
+
+ <script language="javascript">
+var f = {
+        node : '#mediasportsscoreboardgrandslam',
+        league : 'nfl',
+        team : '',
+        refresh: '1',
+        frequency: '15000',
+        date: '',
+        week: '1',
+        good: '{{.In}}',
+        phase: '2',
+        conf: '',
+        maxAge: '10',
+        division: '',
+        season: '2014',
+        xhrPath: ''
+      };
+</script>
+
+Hello!<BR> 
+This test demonstrates false positive on injection into Javascript properly-quoted string.
+
+
+{{template "footer"}}

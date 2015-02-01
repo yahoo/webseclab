@@ -1,0 +1,8 @@
+{{ define "title" }}Full Javascript Injection with Cookies (full.1){{end}}
+
+{{template "header" .}}
+
+Hello!<BR> 
+The value of cgi parameter &quot;in&quot; is: {{.In}}
+
+{{template "footer"}}

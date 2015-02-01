@@ -1,0 +1,18 @@
+{{ define "title" }}False-Positive example - injection into input field{{end}}
+
+{{template "header" .}}
+
+<form name="landingSearch" id="landingSearch" onSubmit="return isValidSearch();">
+<input type="hidden" name="page" value="answers" />
+<input type="hidden" name="startover" value="y" />
+<input type="hidden" name="y" value="PROD" />
+<input type="hidden" name="source" value="answers.landing_search" />
+<input type="hidden" name="locale" value="en_US" />
+<input id="searchInput" type="text" name="question_box" autocomplete="off" title="Search input" value="{{.In}}" onBlur="blurSearchHelp()" onfocus="focusSearchHelp();"/>
+</form>
+
+
+Hello!<BR> 
+This false positive test demonstrates non-exploitable injection of single quotes into a double-quoted property of the input field.
+
+{{template "footer"}}

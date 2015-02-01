@@ -1,0 +1,17 @@
+{{ define "title" }}JavaScript and single quote injection in JS block (js.6){{end}}
+
+{{template "header" .}}
+
+ <script language="javascript">
+var f = {
+        date: '',
+        week: '1',
+        bad: '{{.In}}',
+        phase: '2',
+      };
+</script>
+
+Hello!<BR> 
+This test demonstrates exploitable Injection due to unsafe handling of single quotes inside of a Javascript block.
+
+{{template "footer"}}

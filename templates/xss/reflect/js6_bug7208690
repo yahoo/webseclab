@@ -1,0 +1,569 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en" lang="en" id="Stencil">
+<head>
+<meta property="og:description" content="Yahoo首頁 'qwe&#39;};alert(142);(' search results"/>
+<meta property="og:image" content="https://s.yimg.com/pj/contact/201410242217/resource/img/og-help-logo.png  "/>
+<meta name="robots" content="noindex" />
+<!-- NEW CSS & JS -->
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="https://s.yimg.com/zz/combo?yui:3.10.1/cssgrids/cssgrids-min.css&yui:3.10.1/cssgrids-responsive/cssgrids-responsive-min.css&yui:3.10.1/cssreset/cssreset-min.css&yui:3.10.1/cssfonts/cssfonts-min.css&yui:3.10.1/cssbutton/cssbutton-min.css&yui:3.10.1/cssgrids-base/cssgrids-base-min.css&yui:3.10.1/cssgrids-units/cssgrids-units-min.css&yui:3.10.1/cssreset-context/cssreset-context-min.css">
+<!--[if gte IE 9]>
+<style type="text/css">
+            .gradient { filter: none; }
+          </style>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="https://s.yimg.com/pj/contact/201410242217/resource/css/styles.css"/>
+<!--[if IE]>
+<link rel="stylesheet" type="text/css" href="https://s.yimg.com/pj/contact/201410242217/resource/css/yhlp_ie.css" />
+<![endif]-->
+<!--[if IE 6]>
+<link rel="stylesheet" type="text/css" href="https://s.yimg.com/pj/contact/201410242217/resource/css/yhlp_ie6.css" />
+<![endif]-->
+<script src="https://s.yimg.com/pj/contact/201410242217/resource/js/inq_min.js" type="text/javascript"></script>
+<script src="https://s.yimg.com/pj/contact/201410242217/resource/js/jquery-ui.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://s.yimg.com/zz/combo?yui:2.7.0/build/yahoo-dom-event/yahoo-dom-event.js&yui:2.7.0/build/connection/connection-min.js&yui:2.7.0/build/datasource/datasource-min.js&yui:2.7.0/build/autocomplete/autocomplete-min.js&yui:2.7.0/build/container/container-min.js&yui:2.7.0/build/menu/menu-min.js&yui:2.7.0/build/get/get-min.js"></script>
+<script type="text/javascript">
+      if (top.location!= self.location) {
+        top.location = self.location.href;
+      }
+      </script>
+<!-- fix to defect 4598149 - YWA: Case Response/Closure Pages Report Instrumentation-->
+<title>Yahoo首頁 說明 搜尋結果</title>
+<script language="javascript" type="text/javascript">
+            if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {
+                
+                    document.write('<link rel=\"stylesheet\" href=\"https://s.yimg.com/pj/contact/201410242217/resource/css/iphone-sprite.css\" />');
+                
+            }
+        </script>
+</head>
+<body id="doc">
+<script type="text/javascript" src="https://s.yimg.com/mi/ywa.js"></script>
+<div id="hd">
+<link type='text/css' rel='stylesheet' href='https://s.yimg.com/zz/combo?kx/yucs/uh_common/meta/3/css/meta-min.css&kx/yucs/uh3s/uh/270/css/uh-center-aligned-min.css' /><style type="text/css">@font-face{font-family:Yglyphs-common;src:url(https://s.yimg.com/os/mit/ape/font/c023217/fonts/Yglyphs-common.eot);font-weight:400;font-style:normal}@font-face{font-family:Yglyphs-common;src:url(https://s.yimg.com/os/mit/ape/font/c023217/fonts/Yglyphs-common.eot);src:url(https://s.yimg.com/os/mit/ape/font/c023217/fonts/Yglyphs-common.eot?#iefix) format('embedded-opentype'),url(https://s.yimg.com/os/mit/ape/font/c023217/fonts/Yglyphs-common.woff) format('woff'),url(https://s.yimg.com/os/fontserver/0.1.8/Yglyphs-common.ttf) format('truetype'),url(https://s.yimg.com/os/mit/ape/font/c023217/fonts/Yglyphs-common.svg?#Yglyphs-common) format('svg');font-weight:400;font-style:normal}.Ycon{font-family:Yglyphs-common}.YconArrowDown{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x22c1;')}.YconArrowDown:before{content:'\22c1'}.YconArrowEnd{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x3e;')}.YconArrowEnd:before{content:'\3e'}.YconArrowOpenEnd{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x27e9;')}.YconArrowOpenEnd:before{content:'\27e9'}.YconArrowOpenStart{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x27e8;')}.YconArrowOpenStart:before{content:'\27e8'}.YconArrowStart{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x3c;')}.YconArrowStart:before{content:'\3c'}.YconArrowUp{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x22c0;')}.YconArrowUp:before{content:'\22c0'}.YconCircleSolid{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x25cf;')}.YconCircleSolid:before{content:'\25cf'}.YconEllipsis{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x2026;')}.YconEllipsis:before{content:'\2026'}.YconHome{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x2302;')}.YconHome:before{content:'\2302'}.YconLogoYahoo{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x59;')}.YconLogoYahoo:before{content:'\59'}.YconMail{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x2709;')}.YconMail:before{content:'\2709'}.YconMenu{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x2261;')}.YconMenu:before{content:'\2261'}.YconProfile{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x1f464;')}.YconProfile:before{content:'\1f464'}.YconSearch{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x1f50d;')}.YconSearch:before{content:'\1f50d'}.YconSettings{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x2699;')}.YconSettings:before{content:'\2699'}</style><link type="text/css" rel="stylesheet" href="https://s.yimg.com/os/stencil/3.0.1/desktop/styles-ltr.css" /><!-- meta --><div id="yucs-meta" data-authstate="signedin" data-cobrand="standard" data-crumb="ng44xSC03R8" data-mc-crumb="1JKCnxvQs5g" data-gta="hQ/qBOPmYSd" data-device="desktop" data-experience="uh304" data-firstname="Dmitri" data-flight="1416825058" data-forcecobrand="standard" data-guid="QZ5YYJ6AQMXCAACESMI33HWAHY" data-host="help.yahoo.com" data-https="1" data-languagetag="zh-tw" data-property="help" data-protocol="https" data-shortfirstname="Dmitri" data-shortuserid="dsavints_laptop" data-status="active" data-spaceid="1182477571" data-test_id="" data-userid="dsavints_laptop" data-stickyheader="true" data-headercollapse='' ></div><!-- /meta --><div id="UH" class="Row yucs yucs-cb-standard StencilRoot yucs-zh-tw yucs-help " role="banner" data-protocol='https' data-property="help" data-spaceid="1182477571" data-stencil="true"><style>#yucs-profile {padding-left: 0!important;}
+.yucs-trigger .Icon,
+.yucs-trigger b {
+    line-height: 22px !important;
+    height: 22px !important;
+}
+.yucs-trigger .Icon {
+   font-size: 22px !important;
+}
+.yucs-trigger .AlertBadge,
+.yucs-trigger .MailBadge {
+    line-height: 13px !important;
+    height: 13px !important;
+}
+.yucs-mail_link_att.yucs-property-frontpage #yucs-mail_link_id i.Icon {
+    text-indent: -9999em;
+}
+/* mail badge */
+.AlertBadge,
+.MailBadge {
+    padding: 3px 6px 2px 6px;
+    min-width: 6px;
+    max-width: 16px;
+    margin-left: -13px;
+
+}
+
+/* search box */
+
+#UHSearchBox {
+  border: 1px solid #ceced6 !important;
+  border-radius: 2px;
+  height: 34px;
+  *height: 18px;
+}
+#UHSearchBox:focus {
+border: 1px solid #7590f5 !important;
+  box-shadow: none !important;
+}
+/* buttons */
+#UHSearchWeb, #UHSearchProperty {
+  height: 32px !important;
+  line-height: 34px !important;
+-webkit-appearance: none;
+
+}
+
+#Stencil #UHSearchWeb,
+#Stencil #UHSearchProperty {
+    height: 30px;
+    box-sizing: content-box;
+    min-width: 92px;
+    padding-left: 14px;
+    padding-right: 14px;
+    *width: 100%;
+
+}
+.DarkTheme .yucs-trigger .Ycon {
+color: #fff;
+}</style><div id="yucs-disclaimer" class="yucs-disclaimer yucs-activate yucs-hide yucs-property-help yucs-fcb- " data-dsstext="Want a better search experience? {dssLink}Set your Search to Yahoo{linkEnd}" data-dsstext-mobile="Search Less, Find More" data-dsstext-mobile-ok="OK" data-dsstext-mobile-set-search="Set Search to Yahoo" data-ylt-link="https://search.yahoo.com/searchset;_ylt=As4OX90RZ7Km4DbAShs3FCoDLXtG?pn=" data-ylt-dssbarclose="/;_ylt=Aor91p7DMLcAFG2dLHQod4YDLXtG" data-ylt-dssbaropen="/;_ylt=AkvmNXm2oZGzDCoZL8ao6YsDLXtG" data-linktarget="_top" data-lang="zh-tw" data-property="help" data-device="Desktop" data-close-txt="關閉此視窗" data-maybelater-txt = "Maybe Later" data-killswitch = "0" data-host="help.yahoo.com" data-spaceid="1182477571" data-pn="TwSIZs0J/Dv" data-pn-en-ca-mobile="GCBDseCIXO2" data-pn-de-de-mobile="4aotfa78uHE" data-pn-es-es-mobile="WPfkt.P/TO9" data-pn-fr-fr-mobile="kVAkDBrkCTX" data-pn-en-in-mobile="ZD0s45a/IB." data-pn-it-it-mobile="okEK3KDjU4n" data-pn-en-us-mobile="TwSIZs0J/Dv" data-pn-en-sg-mobile="WOQYS4UvhMc" data-pn-en-gb-mobile="X/7NYJwiSZt" data-pn-en-us-tablet="MJQXiAEJpBH" data-news-search-yahoo-com="UjcDe4gGpKm" data-answers-search-yahoo-com="ce.X5g0kWZs" data-finance-search-yahoo-com="/fojH5HAbP7" data-images-search-yahoo-com="5JDhD8JASyl" data-video-search-yahoo-com="yMQ2BT.SIuo" data-sports-search-yahoo-com="4orVDWNT4ce" data-shopping-search-yahoo-com="HZLO0WdIZtK" data-shopping-yahoo-com="HZLO0WdIZtK" data-us-qa-trunk-news-search-yahoo-com ="UjcDe4gGpKm" data-dss=""></div> <div id="masterNav" class='yucs-ps' data-ylk="rspns:nav;act:click;t1:a1;t2:uh-d;t3:tb;t5:pty;slk:pty;elm:itm;elmt:pty;itc:0;"><ul id="Eyebrow" class="Mb-12 Lh-17 NavLinks Reset" role="navigation"><li id="yucs-top-home" class="Grid-U Mend-18 Pstart-10"><a href="https://tw.yahoo.com/" data-ylk="t5:home;slk:home;"><i id="my-home" class="Fl-start Mend-6 Ycon YconHome Fz-s Mt-neg-1"></i><b class="Mstart-neg-1">首頁</b></a></li><li id="yucs-top-mail" class="Grid-U Mend-18 Pstart-14"><a href="https://tw.mail.yahoo.com/" data-ylk="t5:mail;slk:mail;">信箱</a></li><li id="yucs-top-news" class="Grid-U Mend-18 Pstart-14"><a href="http://tw.news.yahoo.com/" data-ylk="t5:news;slk:news;">新聞</a></li><li id="yucs-top-finance" class="Grid-U Mend-18 Pstart-14"><a href="http://tw.finance.yahoo.com/" data-ylk="t5:finance;slk:finance;">股市</a></li><li id="yucs-top-weather" class="Grid-U Mend-18 Pstart-14"><a href="http://tw.weather.yahoo.com/" data-ylk="t5:weather;slk:weather;">氣象</a></li><li id="yucs-top-sports" class="Grid-U Mend-18 Pstart-14"><a href="http://tw.sports.yahoo.com/" data-ylk="t5:sports;slk:sports;">運動</a></li><li id="yucs-top-screen" class="Grid-U Mend-18 Pstart-14"><a href="https://tw.screen.yahoo.com/" data-ylk="t5:screen;slk:screen;">影音</a></li><li id="yucs-top-celebrity" class="Grid-U Mend-18 Pstart-14"><a href="https://tw.celebrity.yahoo.com" data-ylk="t5:celebrity;slk:celebrity;">名人娛樂</a></li><li id="yucs-top-flickr" class="Grid-U Mend-18 Pstart-14"><a href="https://www.flickr.com/" data-ylk="t5:flickr;slk:flickr;">Flickr</a></li><li id="yucs-top-buy" class="Grid-U Mend-18 Pstart-14"><a href="http://tw.buy.yahoo.com/" data-ylk="t5:buy;slk:buy;">購物中心</a></li><li id="yucs-top-mall" class="Grid-U Mend-18 Pstart-14"><a href="http://tw.mall.yahoo.com/" data-ylk="t5:mall;slk:mall;">商城</a></li><li id="yucs-top-bid" class="Grid-U Mend-18 Pstart-14"><a href="http://tw.bid.yahoo.com/" data-ylk="t5:bid;slk:bid;">拍賣</a></li><li id='yucs-more' class='Grid-U Pstart-10 Pend-6 Pos-r Z-1 MoreDropDown yucs-menu yucs-more-activate' data-ylt=""><a href="http://tw.everything.yahoo.com/" role="button" id='yucs-more-link' class='Pos-r Z-1 yucs-leavable rapidnofollow MouseOver Fl-start'  data-plugin="toggle" data-toggle='[{"target":"#yucs-top-menu .MoreDropDown-Box","click":{"toggle":{"classnames":"D-n"}}}, {"target-ancestor":".MoreDropDown","click":{"toggle":{"classnames":"MoreDropDown-on"}}}]' data-ylk="rspns:op;t5:more;slk:more;elmt:mu;itc:1;" style="padding:0;"><b class="Fl-start Lh-17 MouseOver-TextDecoration">更多</b><i class="Fz-m Va-m Lh-1 Mstart-2 Ycon YconArrowDown Ta-c NoTextDecoration Fl-end Mt-4"></i></a><div id='yucs-top-menu'><div class="Pos-a Start-0 T-100 MoreDropDown-Box D-n yui3-menu-content"><iframe frameborder="0" class="Pos-a Start-0 W-100 H-100 Bd-0" src="https://s.yimg.com/os/mit/media/m/base/images/transparent-95031.png"></iframe><ul class="yucs-leavable Pos-r Px-10"><li id='yucs-top-answers'><a class="D-b" href="https://tw.knowledge.yahoo.com/" data-ylk="t5:answers;slk:answers;t4:pty-mu;">知識+</a></li><li id='yucs-top-autos'><a class="D-b" href="http://tw.autos.yahoo.com/" data-ylk="t5:autos;slk:autos;t4:pty-mu;">汽車機車</a></li><li id='yucs-top-movies'><a class="D-b" href="http://tw.movies.yahoo.com/" data-ylk="t5:movies;slk:movies;t4:pty-mu;">電影</a></li><li id='yucs-top-dictionary'><a class="D-b" href="http://tw.dictionary.yahoo.com/" data-ylk="t5:dictionary;slk:dictionary;t4:pty-mu;">字典</a></li><li id='yucs-top-games'><a class="D-b" href="http://tw.games.yahoo.com/" data-ylk="t5:games;slk:games;t4:pty-mu;">遊戲</a></li><li id='yucs-top-travel'><a class="D-b" href="http://tw.travel.yahoo.com/" data-ylk="t5:travel;slk:travel;t4:pty-mu;">旅遊</a></li><li id='yucs-top-money'><a class="D-b" href="http://tw.money.yahoo.com/" data-ylk="t5:money;slk:money;t4:pty-mu;">理財</a></li><li id='yucs-top-homes'><a class="D-b" href="http://tw.house.yahoo.com/" data-ylk="t5:homes;slk:homes;t4:pty-mu;">房地產</a></li><li id='yucs-top-fashion'><a class="D-b" href="https://tw.fashion.yahoo.com/" data-ylk="t5:fashion;slk:fashion;t4:pty-mu;">時尚美妝</a></li><li id='yucs-top-discount'><a class="D-b" href="http://tw.discount.yahoo.net/" data-ylk="t5:discount;slk:discount;t4:pty-mu;">折扣+</a></li></ul></div></div></li></ul></div> <div id="uhWrapper" class="Ma Z-2 Pos-r" data-ylk="rspns:nav;act:click;t1:a1;t2:uh-d;itc:0;"> <table class="Ma My-0 W-100" role="presentation"> <tr role="presentation"> <td style="width:190px" role="presentation"><style>/** * IE7+ and non-retina display */.YLogoMY { background-repeat: no-repeat; background-image: url(https://s.yimg.com/rz/d/yahoo_help_zh-Hant-TW_s_f_pw_351x40_help.png); _background-image: url(https://s.yimg.com/rz/d/yahoo_help_zh-Hant-TW_s_f_pw_351x40_help.gif); /* IE6 */ width: 162px; }.DarkTheme .YLogoMY { background-position: -351px 0px !important;}/** * For 'retina' display */@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and ( min--moz-device-pixel-ratio: 2), only screen and ( -o-min-device-pixel-ratio: 2/1), only screen and ( min-device-pixel-ratio: 2), only screen and ( min-resolution: 192dpi), only screen and ( min-resolution: 2dppx) { .YLogoMY { background-image: url(https://s.yimg.com/rz/d/yahoo_help_zh-Hant-TW_s_f_pw_351x40_help_2x.png) !important; background-size: 702px 40px !important; }}</style><a class="YLogoMY Mx-a " data-ylk="slk:logo;t3:logo;t5:logo;elm:img;elmt:logo;" href="https://tw.help.yahoo.com/kb/helpcentral" target="_top" >服務中心</a></td> <td role="presentation"><form id="UHSearch" target="_top" autocomplete="off" data-vfr="uh3_help_vert_gs"data-webaction="https://tw.search.yahoo.com/search" action="https://help.yahoo.com/l/us/yahoo/helpcentral/vsp.html" data-webaction-tar="" data-verticalaction-tar=""  method="get"class="Reset UHSearch-Init"><table class="W-100 Reset H-100"> <tbody> <tr> <td class='W-100 Px-0'><input id="UHSearchBox" type="text" class="W-100 Fz-l Fw-200 M-0 P-4 Bdrs-0 Bxsh-n" style="border-color:#7590f5;" name="p" aria-describedby="UHSearchBox" data-ylk="slk:srchinpt-hddn;itc:1;" data-yltvsearch="https://help.yahoo.com/l/us/yahoo/helpcentral/vsp.html" data-yltvsearchsugg="/" data-satype="" data-gosurl="" data-pubid="" data-maxresults="10" data-resize=""> <div id="yucs-satray" class="sa-tray D-n Fz-s FancyBox Bdtrrs-0 Bdtlrs-0 Lh-15 NoLinkColor NoTextDecoration" data-wstext="Search Web for: " data-wsearch="https://tw.search.yahoo.com/search" data-vfr="uh3_help_vert_gs" data-vsearch="https://help.yahoo.com/l/us/yahoo/helpcentral/vsp.html" data-vstext= "Search News for: " > </div></td> <!-- ".Grid' is used here to kill white-space --> <td class="Grid W-10 Whs-nw Pstart-4 Pend-0 Bdcl-s"><style type="text/css">#UHSearchWeb, #UHSearchProperty{ height: 30px; min-width: 120px;} .ua-ie8 #UHSearchWeb, .ua-ie8 #UHSearchProperty, .ua-ie9 #UHSearchWeb, .ua-ie9 #UHSearchProperty{ height: 32px; min-width: 120px;}#UHSearchProperty, .Themable .ThemeReset #UHSearchProperty { background: #400090 !important; border: 0 !important; box-shadow: 0 2px #190130 !important;}</style><input id="UHSearchProperty" class="Grid-U Btn M-0" type="submit" data-vfr="uh3_help_vert_gs"data-vsearch="https://us.lrd.yahoo.com/_ylt=Auiae9i0i8ueCZo2Q_i3M7MDLXtG/SIG=12a1g2oq0/EXP=1418034658/**https%3A//help.yahoo.com/l/us/yahoo/helpcentral/vsp.html"value="搜尋說明" data-ylk="t3:srch;t5:srchvert;slk:srchvert;elm:btn;elmt:srch;tar:;"></td> <td class="Grid W-10 Whs-nw Pstart-4 Pend-0 Bdcl-s"><input id="UHSearchWeb" class="Grid-U Btn M-0 uh-ignore-rapid" type="submit" value="網頁搜尋" data-ylk="t3:srch;t5:srchweb;slk:srchweb;elm:btn;elmt:srch;tar:;"></td> <style type="text/css">  #UHSearchWeb, #UHSearchProperty{ height: 30px; } .ua-ie8 #UHSearchWeb, .ua-ie8 #UHSearchProperty, .ua-ie9 #UHSearchWeb, .ua-ie9 #UHSearchProperty{ height: 32px; } #UHSearchWeb, .Themable .ThemeReset #UHSearchWeb { background: #3775dd; border: 0; box-shadow: 0 2px #21487f; } </style> </tr> </tbody> </table> <input type="hidden" name="type" value="2button" data-ylk="slk:yhstype-hddn;itc:1;"/> <input type="hidden" id="fr" name="fr" data-ylk="slk:frcode-hddn;itc:1;" value="uh3_help_web_gs" /> </form><!-- /#uhSearchForm --></td> <td class="W-1" role="presentation" id="uhNavWrapper"> <ul class="Fl-end Mend-10 Grid Whs-nw My-6"> <li class="Grid-U Pos-r Pstart-4 Mend-20" id="yucs-profile" data-yltmenushown="/;_ylt=AmF.lUU1xaHLxSWo.vrBI8YDLXtG"> <a class="D-ib MouseOver NoTextDecoration yucs-trigger Lh-1"data-plugin='tooltip' data-trigger='mouseenter mouseleave click' data-tooltip='{"target-child":".Ycon","click":{"toggle":{"position":"bl","id":"yucs-profile-panel"}},"mouseenter":{"show":{"mouseover":true,"position":"bl","id":"yucs-profile-panel"}},"mouseleave":{"hide":{"id":"yucs-profile-panel"}}}'href="http://profile.yahoo.com/" target="_top" rel="nofollow" aria-label="社交名片" aria-haspopup="true" role="button" id="yui_3_10_3_1_1375219693637_127" data-ylk="t3:tl-lst;t5:usersigninst;slk:usersigninst;elm:tl;elmt:usr;"> <i class="Va-m W-a yucs-avatar yucs-av-activate yucs-menu_anchor Ycon YconProfile Fz-2xl Lh-1 C-p-blue" style="width: 22px; visibility: hidden;" data-user="Dmitri" data-property="help" data-bucket="1" data-prof="Avatar" data-crumb="ng44xSC03R8" data-guid="QZ5YYJ6AQMXCAACESMI33HWAHY"></i> <b class="Va-m MouseOver-TextDecoration Ell D-ib Lh-17" style="max-width: 86px;" title="您好， Dmitri">Dmitri</b></a><noscript class="yucs-noscript"><span class="Va-m MouseOver-TextDecoration">http://login.yahoo.com/config/login?logout=1&.direct=2&amp;.src=yhelp&amp;.intl=tw&amp;.lang=zh-TW&.done=https://tw.yahoo.com/</span></noscript> <div id="yucs-profile-panel" class="FancyBox Arrow NorthWest Px-10 Mt-10 Pos-a Lh-14 Start-0 Mstart-neg-20 Whs-nw D-n" aria-hidden="true"> <ul class="Pos-r Bleed Mb-0"> <li class="Py-8 Px-16 Bd-b"> <span class="Grid-U Ov-h W-100"> <b class="Dimmed D-b">用的登入身份是:</b><b class="Fw-b D-b Ell C-n">dsavints_laptop</b> </span> </li> </ul> <ul class="Pos-r Bleed My-0 NoLinkColor"> <li class="Py-8 Px-16 Bd-b"> <a class="D-b" href="http://profile.yahoo.com/" target="_top" data-ylk="t3:tl-lst;t4:usr-mu;t5:prfl;slk:prfl;elm:itm;elmt:prfl;">社交名片</a> </li> <li class="Py-8 Px-16"> <a id= "yucs-signout" class="D-b" target="_top" rel="nofollow" href="http://login.yahoo.com/config/login?logout=1&.direct=2&amp;.src=yhelp&amp;.intl=tw&amp;.lang=zh-TW&.done=https://tw.yahoo.com/" data-ylk="t3:tl-lst;t4:usr-mu;t5:usersigno;slk:usersigno;elm:itm;elmt:lgo;">登出</a> </li> </ul></div> </li> <li class="Grid-U Mend-20 Pos-r yucs-mail_link yucs-mailpreview-ancestor" id="yucs-mail"> <a id="yucs-mail_link_id" class="D-ib sp yltasis yucs-fc Pos-r MouseOver NoTextDecoration yucs-menu-link yucs-trigger Lh-1" href="https://tw.mail.yahoo.com/?.intl=tw&.lang=zh-TW" data-plugin='tooltip' data-trigger='mouseenter mouseleave' data-tooltip='{"target-child":".Ycon","mouseenter":{"show":{"mouseover":true,"position":"br","id":"yucs-mail-panel"}},"mouseleave":{"hide":{"id":"yucs-mail-panel"}}}' data-ylk="t3:tl-lst;t5:mailsigninst;slk:mailsigninst;elm:tl;elmt:mail;"> <b class="MailBadge yucs-activate yucs-mail-count D-n" data-uri-scheme="https" data-uri-path="mg.mail.yahoo.com/mailservices/v1/newmailcount" data-authstate="signedin" data-crumb="ng44xSC03R8" data-mc-crumb="1JKCnxvQs5g"></b> <i class="Va-m W-a Mend-2 Ycon YconMail C-p-blue Lh-1 Fz-2xl"></i> <b class="Va-m MouseOver-TextDecoration" title="Mail">信箱</b> </a> <div id="yucs-mail-panel" class="FancyBox Arrow NorthEast Mt-10 Pos-a Lh-14 End-0 Whs-nw D-n" aria-hidden="true" data-mail-txt="信箱" data-uri-scheme="https" data-uri-path="ucs.query.yahoo.com/v1/console/yql" data-mail-view="檢視所有 Yahoo 信件" data-mail-help-txt="服務說明" data-mail-help-url="http://help.cc.tw.yahoo.com/help_cp.html?product=29" data-mail-loading-txt="載入中..." data-languagetag="zh-tw" data-authstate="signedin" data-middleauth-signin-text="點選這裡檢視您的信件" data-popup-login-url="https://login.yahoo.com/config/login_verify2?.pd=c%3DOIVaOGq62e5hAP8Tv..nr5E3&.src=sc" data-middleauthtext="你有 {count} 封新信。" data-yltmessage-link="http://mrd.mail.yahoo.com/msg?mid={msgID}&fid=Inbox" data-yltviewall-link="https://tw.mail.yahoo.com/" data-yltpanelshown="/" data-ylterror="/" data-ylttimeout="/" data-generic-error="無法預覽您的信件。<br>前往電子信箱。" data-err-style="D-b Ta-c Fw-b Py-10 Fz-s BackgroundChange NoTextDecoration MouseOver" data-nosubject="[無主旨]" data-timestamp='short'><div class="yucs-mail-loading"></div></div></li> <li id="yucs-help" class=" yucs-activate yucs-help yucs-menu_nav Grid-U Pos-r"> <a id="yucs-help_button" class="D-ib yltasis yucs-trigger Lh-1 NoTextDecoration" href="#" title="服務說明" data-plugin='tooltip' data-trigger='mouseenter mouseleave click' data-tooltip='{"click":{"toggle":{"position":"bfr","id":"yucs-help_inner"}},"mouseenter":{"show":{"mouseover":true,"position":"bfr","id":"yucs-help_inner"}},"mouseleave":{"hide":{"id":"yucs-help_inner"}}}' aria-haspopup="true" role="button" data-ylk="rspns:op;t3:tl-lst;t4:cog-mu;t5:cogop;slk:cogop;elm:tl;elmt:cog;itc:1;"> <i class="Va-m W-a Fz-2xl Ycon YconSettings C-p-blue"></i> <b class="Hidden">服務說明</b> </a> <div id="yucs-help_inner" class="FancyBox Arrow Mt-10 Px-10 Pos-a Lh-14 End-0 Mend-neg-8 Whs-nw D-n yucs-menu yucs-hm-activate" data-yltmenushown="/" aria-hidden="true"> <ul id="yuhead-help-panel" class="Bleed Pos-r My-0 NoLinkColor"> <li class="Py-8 Px-10"><a class="yucs-acct-link D-b" href="https://edit.yahoo.com/mc2.0/eval_profile?.intl=tw&.lang=zh-TW&.done=https://help.yahoo.com/kb/index%3fpage=answers%26startover=y%26y=PROD_FRONT%26source=product.landing_search%26locale=zh_TW%26question_box=qwe%2527}%3balert(142)%3b(&amp;.src=yhelp&amp;.intl=tw&amp;.lang=zh-TW" target="_top" data-ylk="t3:tl-lst;t4:cog-mu;t5:acctinfo;slk:acctinfo;elm:itm;elmt:acctinfo;">帳號資料</a></li> <li class="Pb-8 Px-10"><a class="D-b" href="http://tw.help.yahoo.com/kb/helpcentral" rel="nofollow" data-ylk="t3:tl-lst;t4:cog-mu;t5:hlp;slk:hlp;elm:itm;elmt:hlp;">服務說明</a></li> </ul> </div></li> </ul> </td> </tr> </table> </div> <!-- /#UH --></div><style>#Stencil body{margin-top:6.5em!important;}#UH {position: fixed; width:100%;top:0;}#uhWrapper{width:1000px;}</style><div style="display:none;" data-uh-test=""></div>
+<div id="partner-div" partner-name="yahoo"></div>
+</div>
+<script type="text/javascript">
+    function isValidSearch() {
+        var txtSearchHelp = document.getElementById('searchInput').value;
+        return txtSearchHelp.trim().length > 0 && txtSearchHelp !='搜尋說明';
+    }
+    function blurSearchHelp()
+    {
+        if(document.getElementById('searchInput').value==''){
+            document.getElementById('searchInput').value='搜尋說明';
+        }
+    }
+    function focusSearchHelp()
+    {
+        if(document.getElementById('searchInput').value=='搜尋說明'){
+            document.getElementById('searchInput').value='';
+        }
+    }
+    
+</script>
+<div class="hsb">
+<form name="landingSearch" id="landingSearch" action="/kb/index" onSubmit="return isValidSearch();">
+<input type="hidden" name="page" value="answers" />
+<input type="hidden" name="startover" value="y" />
+<input type="hidden" name="y" value="PROD_FRONT" />
+<input type="hidden" name="source" value="answers.landing_search" />
+<input type="hidden" name="locale" value="zh_TW" />
+<input id="searchInput" type="text" name="question_box" autocomplete="off" title="搜尋輸入"
+                    value="qwe'};alert(142);(" onBlur="blurSearchHelp()" onfocus="focusSearchHelp();"/>
+<a href="#" title="點一下開始搜尋" onclick="if (isValidSearch()) document.landingSearch.submit();" id="srch-btn">搜尋說明</a>
+</form>
+</div>
+<div class="yui3-g-r help">
+<div class="content-wrap">
+<div class="yui3-u-3-4">
+<div class="help-breadcrumbs">
+<a href="https://tw.yahoo.com/" onClick="captureBreadCrumbClick('https://tw.yahoo.com/');">
+                        
+                        Yahoo首頁 
+                             
+                                </a> 
+                             &#187;
+                     
+                  
+               
+                
+        
+                
+                <a href="https://tw.help.yahoo.com/kb/yahoo-homepage" onClick="captureBreadCrumbClick('index?page=product&y=PROD_FRONT');"> 
+         
+                    Yahoo首頁 說明 
+        
+            </a> 
+        
+        
+        
+    &nbsp;&#187;&nbsp;搜尋結果</div>
+</div>
+<!-- Body -->
+<div class="yui3-u-3-4 border-padding">
+<script language="javascript">
+function loadProcessWizard(title, url) {
+  var horizontalPadding = 0;
+  var verticalPadding = 0;
+  $('<iframe id="processWizard" class="processWizard" src="' + url + '" />').dialog({
+      title: '',
+      autoOpen: true,
+      width: 804,
+      height: 504,
+      zIndex:99999,
+      modal: true,
+      resizable: true,
+      autoResize: true,
+      overlay: {
+          opacity: 1.0,
+          background: "#000"
+      }
+  }).width(800 - horizontalPadding).height(500 - verticalPadding);
+}
+
+function closeProcessWizard() {
+  $('iframe#processWizard').dialog('close');
+  location.reload();
+}
+</script>
+<table border="0" cellpadding="3" cellspacing="0" width="100%" class="im-table"><tbody><tr valign="middle"><td></td></tr></tbody></table>
+<div id="best-results" style="display:none;"></div>
+<div class="result">
+<div class="title"><a href="index?page=answerlink&y=PROD_FRONT&url=https%3A%2F%2Fhelp.yahoo.com%2Fkb%2Findex%3Fpage%3Dcontent%26id%3DSLN5506%26actp%3Dsearch%26viewlocale%3Dzh_TW&answerid=16777216&searchid=1416825058971" class="im-standard-subject">Internet Explorer 相容模式 </a></div>
+<div class="summary"><span class=snippetClass1> 功能表</span><span class=snippetClass3> (</span><span class=snippetClass1> 或者「工具」功能表未出現時，可按 Alt ...</span><span class=snippetClass3> )</span><span class=snippetClass1> ，查看「工具」功能表。 ...</span><span class=snippetClass1> {AGIF_GEN_IECOMVIEW.ZH_TW</span><span class=snippetClass3> }</span></div>
+</div>
+<div class="result">
+<div class="title"><a href="index?page=answerlink&y=PROD_FRONT&url=https%3A%2F%2Fhelp.yahoo.com%2Fkb%2Findex%3Fpage%3Dcontent%26id%3DSLN2617%26actp%3Dsearch%26viewlocale%3Dzh_TW&answerid=16777217&searchid=1416825058971" class="im-standard-subject">修正行動登入問題 </a></div>
+<div class="summary"><span class=snippetClass1> - 關閉您的手機，移除並重新插入電池</span><span class=snippetClass3> (</span><span class=snippetClass1> 如果電力不足</span><span class=snippetClass3> )</span><span class=snippetClass1> ，然後嘗試再次登入。 ...</span><span class=snippetClass1> - 關閉您的手機，移除並重新插入電池</span><span class=snippetClass3> (</span><span class=snippetClass1> 如果電力不足</span><span class=snippetClass3> )</span><span class=snippetClass1> ，然後嘗試再次登入。 ...</span><span class=snippetClass0> 影片： 修正登入問題</span><span class=snippetClass1> {VID_ACCT_TRBSHMOBSIGN_GRLINK.ZH_TW</span><span class=snippetClass3> }</span></div>
+</div>
+<div class="result">
+<div class="title"><a href="index?page=answerlink&y=PROD_FRONT&url=https%3A%2F%2Fhelp.yahoo.com%2Fkb%2Findex%3Fpage%3Dcontent%26id%3DSLN4525%26actp%3Dsearch%26viewlocale%3Dzh_TW%23Chrome&answerid=16777218&searchid=1416825058971" class="im-standard-subject">如何清除瀏覽器的快取和Cookie </a></div>
+<div class="summary"><span class=snippetClass1> ... 及線上應用程式</span><span class=snippetClass3> (</span><span class=snippetClass1> 如遊戲</span><span class=snippetClass3> )</span><span class=snippetClass1> 沒有回應</span><span class=snippetClass1> ... 登入資訊</span><span class=snippetClass3> (</span><span class=snippetClass1> 不論網站是否能辨識您</span><span class=snippetClass3> )</span><span class=snippetClass1> 、網站特 ...</span><span class=snippetClass1> ... 執行快速鍵</span><span class=snippetClass3> (</span><span class=snippetClass1> Ctrl</span><span class=snippetClass3> )</span><span class=snippetClass1> 以提取「 ...</span><span class=snippetClass1> ... zh_TW</span><span class=snippetClass3> }</span><span class=snippetClass1> 。</span><span class=snippetClass1> ... 執行快速鍵</span><span class=snippetClass3> (</span><span class=snippetClass1> C</span><span class=snippetClass3> (</span><span class=snippetClass1> 刪除</span><span class=snippetClass3> )</span><span class=snippetClass3> )</span><span class=snippetClass1> 以提取「 ...</span><span class=snippetClass1> ... zh_TW</span><span class=snippetClass3> }</span><span class=snippetClass1> 。</span><span class=snippetClass1> ... 執行快速鍵</span><span class=snippetClass3> (</span><span class=snippetClass1> C</span><span class=snippetClass3> (</span><span class=snippetClass1> 刪除</span><span class=snippetClass3> )</span><span class=snippetClass3> )</span><span class=snippetClass1> 以提取「清除瀏覽歷程記錄」快顯視窗。 ...</span><span class=snippetClass3> (</span><span class=snippetClass3> )</span><span class=snippetClass1> |重置Safari</span><span class=snippetClass1> PC：選擇編輯</span><span class=snippetClass3> (</span><span class=snippetClass3> )</span><span class=snippetClass1> |重置Safari ...</span><span class=snippetClass3> (</span><span class=snippetClass3> )</span><span class=snippetClass1> |設定 ...</span><span class=snippetClass1> 您也可以執行快速鍵</span><span class=snippetClass3> (</span><span class=snippetClass1> C ...</span><span class=snippetClass3> )</span><span class=snippetClass1> 以提取「清除瀏覽歷程記錄」分頁。</span></div>
+</div>
+<div class="result">
+<div class="title"><a href="index?page=answerlink&y=PROD_FRONT&url=https%3A%2F%2Fhelp.yahoo.com%2Fkb%2Findex%3Fpage%3Dcontent%26id%3DSLN5705%26actp%3Dsearch%26viewlocale%3Dzh_TW&answerid=16777219&searchid=1416825058971" class="im-standard-subject">拍攝 iOS 擷圖 </a></div>
+<div class="summary"><span class=snippetClass1> 使用 iOS 裝置</span><span class=snippetClass3> (</span><span class=snippetClass1> iPad、iPhone,、Pod Touch</span><span class=snippetClass3> )</span><span class=snippetClass1> 拍攝擷圖：</span><span class=snippetClass0> 瀏覽至您要擷取的畫面。</span><span class=snippetClass0> 同時按住裝置的「首頁」和「睡眠」按鈕。</span></div>
+</div>
+<div class="result">
+<div class="title"><a href="index?page=answerlink&y=PROD_FRONT&url=https%3A%2F%2Fhelp.yahoo.com%2Fkb%2Findex%3Fpage%3Dcontent%26id%3DSLN4556%26actp%3Dsearch%26viewlocale%3Dzh_TW&answerid=16777220&searchid=1416825058971" class="im-standard-subject">Yahoo奇摩支援的瀏覽器 </a></div>
+<div class="summary"><span class=snippetClass1> 瀏覽器</span><span class=snippetClass3> (</span><span class=snippetClass1> 不包括 beta 測試版</span><span class=snippetClass3> )</span><span class=snippetClass1> 一起使用效果最好。如</span><span class=snippetClass0> 如果您使用的是過時或不支援的瀏覽器，則會發現有些 Yahoo奇摩功能無法正常使用。</span></div>
+</div>
+<div class="result">
+<div class="title"><a href="index?page=answerlink&y=PROD_FRONT&url=https%3A%2F%2Fhelp.yahoo.com%2Fkb%2Findex%3Fpage%3Dcontent%26id%3DSLN8447%26actp%3Dsearch%26viewlocale%3Dzh_TW&answerid=16777221&searchid=1416825058971" class="im-standard-subject">張貼留言 </a></div>
+<div class="summary"><span class=snippetClass1> 若要張貼留言，請確定捲動到頁面最下方的「commenting」</span><span class=snippetClass3> (</span><span class=snippetClass1> 留言</span><span class=snippetClass3> )</span><span class=snippetClass1> 區段。您</span><span class=snippetClass0> 您需要登入 Yahoo奇摩帳號 才能張貼留言。</span></div>
+</div>
+<div class="result">
+<div class="title"><a href="index?page=answerlink&y=PROD_FRONT&url=https%3A%2F%2Fhelp.yahoo.com%2Fkb%2Findex%3Fpage%3Dcontent%26id%3DSLN14096%26actp%3Dsearch%26viewlocale%3Dzh_TW&answerid=16777222&searchid=1416825058971" class="im-standard-subject">在 Android 裝置上取得螢幕擷圖 </a></div>
+<div class="summary"><span class=snippetClass0> 取得螢幕擷圖</span><span class=snippetClass3> (</span><span class=snippetClass1> Android 4.0 和更新版本</span><span class=snippetClass3> )</span></div>
+</div>
+<div class="result">
+<div class="title"><a href="index?page=answerlink&y=PROD_FRONT&url=https%3A%2F%2Fhelp.yahoo.com%2Fkb%2Findex%3Fpage%3Dcontent%26id%3DSLN2927%26actp%3Dsearch%26viewlocale%3Dzh_TW&answerid=16777223&searchid=1416825058971" class="im-standard-subject">變更 Yahoo首頁背景色彩 </a></div>
+<div class="summary"><span class=snippetClass0> 備註︰</span><span class=snippetClass0> Yahoo首頁的主要文字區一律會以白色背景顯示，但你可以從六種不同顏色選擇一種作為網頁的主色。</span><span class=snippetClass1> 使用 My Yahoo奇摩 可以自訂網頁各種不同背景、相片和內容</span><span class=snippetClass3> (</span><span class=snippetClass1> 如新聞、部落格、運動、得分板、股價等</span><span class=snippetClass3> )</span><span class=snippetClass1> 。</span></div>
+</div>
+<div class="result">
+<div class="title"><a href="index?page=answerlink&y=PROD_FRONT&url=https%3A%2F%2Fhelp.yahoo.com%2Fkb%2Findex%3Fpage%3Dcontent%26id%3DSLN2937%26actp%3Dsearch%26viewlocale%3Dzh_TW&answerid=16777224&searchid=1416825058971" class="im-standard-subject">在您的瀏覽器中改變Yahoo奇摩網頁的字型大小 </a></div>
+<div class="summary"><span class=snippetClass0> 按住鍵盤的Control</span><span class=snippetClass3> (</span><span class=snippetClass1> Ctrl</span><span class=snippetClass3> )</span><span class=snippetClass1> 鍵，然後滾動滑鼠滾輪。</span><span class=snippetClass0> 另一種縮放瀏覽器顯示內容的捷徑是按下鍵盤上的 Ctrl +</span></div>
+</div>
+<div class="result">
+<div class="title"><a href="index?page=answerlink&y=PROD_FRONT&url=https%3A%2F%2Fhelp.yahoo.com%2Fkb%2Findex%3Fpage%3Dcontent%26id%3DSLN7875%26actp%3Dsearch%26viewlocale%3Dzh_TW&answerid=16777225&searchid=1416825058971" class="im-standard-subject">關於 Yahoo奇摩行動應用程式和服務 </a></div>
+<div class="summary"><span class=snippetClass0> Yahoo奇摩行動版網頁</span><span class=snippetClass0> 使用行動裝置的網頁瀏覽器，存取Yahoo奇摩行動版網頁，網址為： http://tw.m.yahoo.com/ 。</span><span class=snippetClass1> 如果您的裝置尚未安裝行動網頁瀏覽器，可以從裝置的應用程式商店下載</span><span class=snippetClass3> (</span><span class=snippetClass1> 建議使用 Opera Mini、 m.opera.com</span><span class=snippetClass3> )</span><span class=snippetClass1> 。</span></div>
+</div>
+</div>
+<!-- Quick Links -->
+<div class="yui3-u-1-4"  style="width: 22.5%;">
+<div class="quick-links-box" id="quick-links">
+<div class= "h3">
+            快速連結
+        </div>
+<ul>
+<li>
+<a href="https://edit.yahoo.com/forgotroot?.&intl=tw" title="開始使用密碼協尋工具" ywaactionid="" onclick="sendYWAAction('')">
+                            開始使用密碼協尋工具
+                        </a>
+</li>
+</ul>
+</div>
+<script>
+function sendYWAAction(actionnumber) {
+  var platform = "inquira";
+  var YWATracker = YWA.getTracker("1000379873063");
+  YWATracker.setCF(12, platform);
+  YWATracker.setCF(2, "zh-TW");
+  YWATracker.setAction(actionnumber);
+  YWATracker.setCF(64, document.getElementById("partner-div").getAttribute("partner-name"));
+  YWATracker.submit_action();
+}
+</script>
+</div> <!-- /yui3-u-1-4 -->
+</div>
+<!-- /Body -->
+<!--  Footer -->
+<div id="footer" class="yui3-g-r">
+<div class ="yui3-u-1">
+<!-- footer -->
+<footer class="ft" id="ft" >
+<p>
+<a id='privacy' href="https://info.yahoo.com/privacy/tw/yahoo/">隱私權</a>
+<b> | </b>
+<a id='terms' href="https://info.yahoo.com/legal/tw/yahoo/utos/zh-hant-tw/">服務條款</a>
+</p>
+</footer>
+<!-- footer -->
+</div>
+</div>
+<!-- /footer -->
+</div> <!-- /content-wrap -->
+</div> <!-- yui3-g-r-->
+<!-- Yahoo! Web Analytics - All rights reserved -->
+<script type="text/javascript">
+var platform = "inquira";
+
+function captureAction(actionnumber) {
+  var YWATracker = YWA.getTracker("1000379873063");
+  YWATracker.setCF(12, platform);
+  YWATracker.setCF(2, "zh-TW");
+  YWATracker.setAction(actionnumber);
+  YWATracker.submit_action();
+}
+
+function captureChangingTextSize(textSizeSelection) {
+  var YWATracker = YWA.getTracker("1000379873063");
+  YWATracker.setAction("17");
+  YWATracker.setCF(12, platform);
+  YWATracker.setCF(2, "zh-TW");
+  YWATracker.setCF(27, textSizeSelection);
+  YWATracker.submit_action();
+}
+
+function captureListBoxSelection(listBoxVersion) {
+  var YWATracker = YWA.getTracker("1000379873063");
+  YWATracker.setAction("16");
+  YWATracker.setCF(12, platform);
+  YWATracker.setCF(2, "zh-TW");
+  YWATracker.setCF(26, listBoxVersion);
+  YWATracker.submit_action();
+}
+
+function captureBreadCrumbClick(breadCrumbURL) {
+  var YWATracker = YWA.getTracker("1000379873063");
+  YWATracker.setAction("15");
+  YWATracker.setCF(12, platform);
+  YWATracker.setCF(2, "zh-TW");
+  YWATracker.setCF(25, breadCrumbURL);
+  YWATracker.setCF(64, document.getElementById("partner-div").getAttribute("partner-name"));
+  YWATracker.submit_action();
+}
+
+function captureArticleClick(articleCategory, article, articleTitle) {
+  var YWATracker = YWA.getTracker("1000379873063");
+  var idAndTitle = article + " - " + articleTitle;
+  YWATracker.setAction("11");
+  YWATracker.setCF(12, platform);
+  YWATracker.setCF(2, "zh-TW");
+  YWATracker.setCF(22, articleCategory);
+  YWATracker.setCF(23, article);
+  YWATracker.setCF(49, idAndTitle);
+  YWATracker.setCF(64, document.getElementById("partner-div").getAttribute("partner-name"));
+  YWATracker.submit_action();
+}
+
+function captureArticleClickWithBucketInfo(articleCategory, article, articleTitle) {
+      var YWATracker = YWA.getTracker("1000379873063");
+      var idAndTitle = article + " - " + articleTitle;
+      YWATracker.setAction("11");
+      YWATracker.setCF(12, platform);
+      YWATracker.setCF(2, "zh-TW");
+      YWATracker.setCF(3, "B");
+      YWATracker.setCF(22, articleCategory);
+      YWATracker.setCF(23, article);
+      YWATracker.setCF(49, idAndTitle);
+      YWATracker.setCF(64, document.getElementById("partner-div").getAttribute("partner-name"));
+      YWATracker.submit_action();   
+}
+
+function captureUpgradeVersion(messengerVersion) {
+  var YWATracker = YWA.getTracker("1000379873063");
+  YWATracker.setAction("14");
+  YWATracker.setCF(12, platform);
+  YWATracker.setCF(2, "zh-TW");
+  YWATracker.setCF(24, messengerVersion);
+  YWATracker.submit_action();
+}
+
+function captureRateArticle(starRating) {
+  var YWATracker = YWA.getTracker("1000379873063");
+  YWATracker.setAction("18");
+  YWATracker.setCF(12, platform);
+  YWATracker.setCF(2, "zh-TW");
+  YWATracker.setCF(29, starRating);
+  YWATracker.submit_action();
+}
+
+function captureContactUsInternalSearch(searchTerm) {
+  var YWATracker = YWA.getTracker("1000379873063");
+  YWATracker.setAction("INTERNAL_SEARCH");
+  YWATracker.setCF(12, platform);
+  YWATracker.setCF(2, "zh-TW");
+  YWATracker.setISK(searchTerm);
+  YWATracker.submit_action();
+}
+
+
+function captureRequestChatClick() {
+  var YWATracker = YWA.getTracker("1000379873063");
+  YWATracker.setAction("9"); 
+  YWATracker.setCF(12, platform);
+  YWATracker.setCF(2, "zh-TW");
+  YWATracker.setCF(56, "chatForm");
+  YWATracker.submit_action();
+}
+
+//-"Ask the Community" tab in contact forms
+function captureRequestCommunitiesClick() {
+  var YWATracker = YWA.getTracker("1000379873063");
+  YWATracker.setAction("36"); 
+  YWATracker.setCF(12, platform);
+  YWATracker.setCF(2, "zh-TW");
+  YWATracker.submit_action();
+}
+
+
+//-"Ask the Community" button in contact forms
+function captureCommunitiesButtonClick() {
+  var YWATracker = YWA.getTracker("1000379873063");
+  YWATracker.setAction("37"); 
+  YWATracker.setCF(12, platform);
+  YWATracker.setCF(2, "zh-TW");
+  YWATracker.submit_action();
+}
+
+function captureRequestEmailClick() {
+  var YWATracker = YWA.getTracker("1000379873063");
+  YWATracker.setAction("27"); 
+  YWATracker.setCF(12, platform);
+  YWATracker.setCF(2, "zh-TW");
+  YWATracker.setCF(55, "emailForm");
+  YWATracker.submit_action();
+}
+
+function captureEmailFormSendClick() {
+  var YWATracker = YWA.getTracker("1000379873063");
+  YWATracker.setAction("28"); 
+  YWATracker.setCF(12, platform);
+  YWATracker.setCF(2, "zh-TW");
+  YWATracker.submit_action();
+}
+
+function captureContactThankYouPageConversion() {
+  var YWATracker = YWA.getTracker("1000379873063");
+  YWATracker.setAction("29"); 
+  YWATracker.setCF(12, platform);
+  YWATracker.setCF(2, "zh-TW");
+  YWATracker.submit_action();
+}
+
+
+function captureYesIssueResolved() {
+  var YWATracker = YWA.getTracker("1000379873063");
+  YWATracker.setAction("57"); 
+  YWATracker.setCF(12, platform);
+  YWATracker.setCF(2, "zh-TW");
+  YWATracker.submit_action();
+}
+
+
+function captureNoIssueResolved() {
+  var YWATracker = YWA.getTracker("1000379873063");
+  YWATracker.setAction("58"); 
+  YWATracker.setCF(12, platform);
+  YWATracker.setCF(2, "zh-TW");
+  YWATracker.submit_action();
+}
+
+//defect #5834316 -- YWA for Phone
+function captureRequestPhoneClick() {
+    var YWATracker = YWA.getTracker("1000379873063");
+    YWATracker.setCF(12, platform);
+    YWATracker.setCF(2, "zh-TW");
+      YWATracker.setAction("50"); 
+      YWATracker.submit_action();
+}
+function captureSubmitPhoneForm() {
+    var YWATracker = YWA.getTracker("1000379873063");
+    YWATracker.setCF(12, platform);
+    YWATracker.setCF(2, "zh-TW");
+      YWATracker.setAction("44"); 
+      YWATracker.setCF(57, "phoneForm");
+      YWATracker.submit_action();
+}
+function capturePromoBannerDeflectionClick() {
+    var YWATracker = YWA.getTracker("1000379873063");
+    YWATracker.setCF(12, platform);
+    YWATracker.setCF(2, "zh-TW");
+      YWATracker.setAction("42"); 
+      YWATracker.submit_action();
+}
+function captureRequestSearchHelpClick() {
+    var YWATracker = YWA.getTracker("1000379873063");
+    YWATracker.setCF(12, platform);
+    YWATracker.setCF(2, "zh-TW");
+    YWATracker.setAction("43"); 
+      YWATracker.submit_action();
+    
+}
+function captureDisplayDeflectionArticle() {
+    var YWATracker = YWA.getTracker("1000379873063");
+    YWATracker.setCF(12, platform);
+    YWATracker.setCF(2, "zh-TW");
+    YWATracker.setAction("45"); 
+     YWATracker.submit_action();
+    
+}
+
+function captureHelpByTopicClick(product,version,topic) {
+    var YWATracker = YWA.getTracker("1000379873063");
+    YWATracker.setAction("52"); 
+    YWATracker.setCF(50, topic);
+    YWATracker.setCF(24, product);
+    YWATracker.setCF(28, version);
+    YWATracker.setCF(64, document.getElementById("partner-div").getAttribute("partner-name"));
+    YWATracker.submit_action();
+}
+
+function captureVHTRequestCallbackConfirmation() {
+    var YWATracker = YWA.getTracker("1000379873063");
+    YWATracker.setAction("53"); 
+    YWATracker.submit_action(); 
+}
+
+function captureVHTCancelCallback() {
+    var YWATracker = YWA.getTracker("1000379873063");
+    YWATracker.setAction("54"); 
+    YWATracker.submit_action(); 
+}
+
+function defaultYWATrackerSetUp() {
+    var YWATracker = YWA.getTracker("1000379873063");
+    YWATracker.setCF(12, platform);
+    YWATracker.setCF(2, "zh-TW");
+    return YWATracker;
+}
+    
+
+
+</script>
+<noscript>
+<div><img src="http://a.analytics.yahoo.com/p.pl?a=1000379873063&amp;js=no" width="1" height="1" alt="" /></div>
+</noscript>
+<script src="/kb/apps/help/resources/js/rapid_2.1.0.js "></script>
+<script>
+        var keys = {A_pn:'Yahoo奇摩服務說明 - 搜尋結果', A_id:'source=product.landing_search&question_box=qwe{{.In}}', A_pt:'zh_TW', intl:'zh_TW'};
+        var modules = {
+        'search-bar':'search_bar',
+        'portlet-download':'download_portlet',
+        'portlet-y-ansrs':'y!_answers_portlet',
+        'portlet-contact':'contact_y_button',
+        'portlet-videos':'tutorials_portlet',
+        'ft':'footer'
+    };
+    var conf = {spaceid:1182477571, tracked_mods:modules, keys:keys, client_only:1};
+    var ins = new YAHOO.i13n.Track(conf);
+    ins.init();
+     </script>
+<!-- Moving UH JS at the end  -->
+<script type="text/javascript" src="https://s.yimg.com/zz/combo?yui:3.17.2/build/yui/yui-min.js"></script>
+<script> YUI.applyConfig({ root:'yui:3.17.2/build/', allowRollup: true, combine: true, comboBase: 'https://s.yimg.com/zz/combo?', maxURLLength: 2000, groups: { gallery: { root: 'yui:gallery-2014.04.02-20-01/build/', combine: true, base: 'https://s.yimg.com/zz/combo?', comboBase: 'https://s.yimg.com/zz/combo?', patterns:  { 'gallery-': {} } } } }); </script>
+<script type="text/javascript" src="https://s.yimg.com/zz/combo?yui:3.5.1/build/yui/yui-min.js"></script>
+<script> YUI.applyConfig({ root:'yui:3.5.1/build/', allowRollup: true, combine: true, comboBase: 'https://s.yimg.com/zz/combo?', maxURLLength: 2000, groups: { gallery: { root: 'yui:gallery-2014.04.02-20-01/build/', combine: true, base: 'https://s.yimg.com/zz/combo?', comboBase: 'https://s.yimg.com/zz/combo?', patterns:  { 'gallery-': {} } } } }); </script>
+<script charset="utf-8" type="text/javascript" src="https://s.yimg.com/zz/combo?kx/yucs/uh3s/uh/280/js/scroll-handler-min.js" async></script>
+<script type="text/javascript" charset="utf-8"> YUI().use('node','node-focusmanager','node','event','substitute','cookie','event-resize','node','event','base','event-resize','event-hover','node-focusmanager','event-mouseenter','event-delegate','node','oop','dom-screen','node', 'event', 'querystring-stringify','node','event','jsonp','substitute','querystring-stringify','event','node-focusmanager','json','event-mouseenter','event-hover','oop','node','event-custom','cookie','substitute','classnamemanager','querystring-stringify', function(Y) {});</script>
+<script charset='utf-8' type='text/javascript' src='https://s.yimg.com/zz/combo?kx/yucs/uh3s/uh/224/js/uh-min.js&kx/yucs/uh3s/uh/57/js/persistence-min.js&kx/yucs/uh3s/uh/221/js/menu_group_plugin-min.js&kx/yucs/uh3s/uh/244/js/menu-plugin-min.js&kx/yucs/uh3s/uh/242/js/menu_handler_v2-min.js&kx/yucs/uh3s/uh/8/js/gallery-jsonp-min.js&kx/yucs/uh3s/uh/251/js/logo_debug-min.js&kx/yucs/uh3/uh/js/958/localeDateFormat-min.js&kx/yucs/uh3s/uh/74/js/timestamp_library-min.js&kx/yucs/uh3s/uh/241/js/usermenu_v2-min.js&kx/yucs/uh3/signout-link/10/js/signout-min.js&kx/yucs/uhc/meta/55/js/meta-min.js&kx/yucs/uh3/disclaimer/328/js/disclaimer_seed-min.js&kx/yucs/uh3s/top_bar/11/js/top_bar_v2-min.js&kx/yucs/uh3s/top-bar/27/js/home_menu-min.js&kx/yucs/uh3s/search/176/js/search-min.js&kx/ucs/common/js/131/jsonp-super-cached-min.js&kx/yucs/uh3s/avatar/27/js/avatar-min.js&kx/yucs/uh3s/mail-link/96/js/mailcount_ssl-min.js&kx/yucs/uh3s/help/30/js/help_menu_v4-min.js'></script>
+<script>
+    YUI().use('node', 'event', function(Y) {
+
+        Y.on('domready', function () {
+            var partner = Y.one('#partner-div').getAttribute('partner-name');
+            var YWATracker = YWA.getTracker("1000379873063");
+
+        
+            YWATracker.setCF(8, "Yahoo首頁");
+            YWATracker.setCF(9, "Yahoo首頁 search");
+            YWATracker.setCF(10, "APAC");
+            YWATracker.setCF(11, "tw");
+            YWATracker.setCF(12, "inquira");
+            YWATracker.setCF(3, "B");
+            YWATracker.setCF(2, "zh-TW");
+            YWATracker.setCF(1, "");
+            YWATracker.setCF(64, partner);
+            YWATracker.setCF(59, partner);
+            YWATracker.setAction("INTERNAL_SEARCH");
+            YWATracker.setDocumentName("Internal Search Results Page INQ");
+            YWATracker.setISK("qwe'};alert(142);(");
+            YWATracker.setISR("15");
+      
+            YWATracker.submit();
+        });
+    });
+    </script>
+</body>
+</html>

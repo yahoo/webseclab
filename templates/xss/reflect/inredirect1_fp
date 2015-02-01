@@ -1,0 +1,9 @@
+{{ define "title" }}Full Javascript Injection in a 302 redirect page{{end}}
+
+{{template "header" .}}
+
+Hello!<BR>
+This is a page the user should never see (and therefore not exploitable) as it is part of a 302 Redirect response! <p>
+The value of cgi parameter &quot;in&quot; is: {{.In}}
+
+{{template "footer"}}

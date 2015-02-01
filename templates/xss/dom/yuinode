@@ -1,0 +1,17 @@
+{{ define "title" }}Webseclab - DOM XSS, YUI Node'ssetHTML(yuinode){{end}}
+
+{{template "header" }}
+
+Potential XSS due to document.location.search used in YUI Node's setHTML(). The attack does not work in Firefox and Webkit browsers due to the browser's internal escaping of the search portion. (TODO: verify if works in IE) <p>
+
+<script src="http://yui.yahooapis.com/3.8.1/build/yui/yui.js"></script>Hello!<BR> 
+The value of &quot;in&quot; cgi parameter is:
+<div id='inparam'>in placeholder</div> 
+<script>YUI({filter: "raw", combine: false}).use("console", "node", function(Y) {
+  var inparam = Y.one("#inparam");
+  var input = document.location.search           
+  inparam.setHTML(input);
+});
+</script>
+
+{{template "footer"}}

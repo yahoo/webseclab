@@ -1,0 +1,12 @@
+{{ define "title" }}Reflected XSS in POST processing - entry page (post.1){{end}}
+
+{{template "header" }}
+
+<H2>Post Full Javascript injection test</H2>
+<p>
+<FORM method="POST" action="post1">
+<INPUT type="text" id="in" name="in" size="40" placeholder="enter you injection here">
+<INPUT type="Submit" value="Search!">
+</FORM>
+
+{{template "footer"}}

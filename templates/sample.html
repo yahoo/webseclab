@@ -1,0 +1,12 @@
+{{/* This is a comment for the human readers.  It does not affect the template */}}
+
+{{ define "title" }}Sample template title (will be used between title tags on the page){{end}}
+
+{{ template "header" }}
+
+This is a sample file demonstrating an injection by using .In inside of &quot;moustache&quot;: 
+{{.In}}.
+
+<div>Any HTML can go into this template.</div>
+
+{{ template "footer" }}

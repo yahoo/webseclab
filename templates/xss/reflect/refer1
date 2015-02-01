@@ -1,0 +1,10 @@
+{{/* .In needs to be set to the Referer header value! */}}
+
+{{ define "title" }}Unfiltered echoing of injection into Referer header (refer.1){{end}}
+
+{{ template "header" }}
+
+You have arrived following the referal of the site: {{.InRaw}} (unescaped version: {{.In}})
+
+{{template "footer"}}
+

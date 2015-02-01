@@ -1,0 +1,12 @@
+{{ define "title" }}Iinjection in Javascript with double quotes but not backslash escaped with backslash - exploitable (enc.2){{end}}
+
+{{template "header" .}}
+
+ <script language="javascript">
+var f = "{{.In}}";
+</script>
+
+Hello!<BR> 
+This test demonstrates injection in JS with double quotes but not backslash escaped with backslash.
+
+{{template "footer"}}

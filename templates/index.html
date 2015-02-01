@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<body>
+<H1>Web Application Security Lab</H1>
+{{if .In}}IP link: <A href="http://{{.In}}">http://{{.In}}</A>{{end}}
+<h2>Available tests:</h2>
+
+<UL>
+<li>
+<B>Raw HTML tags issues</B>
+<ul><li>
+<A href="xss/reflect/raw1?in=real">xss/reflect/raw1?in=xyz</A> - raw HTML tags echoed in HTML text context (IE-related). Check URL: <A href="/xss/reflect/raw1?in=<xss>">/xss/reflect/raw1?in=&lt;xss&gt;</A>
+<li>
+<A href="xss/reflect/raw1_fp?in=fp">xss/reflect/raw1_fp?in=xyz</A> - raw HTML tags echoed inside of a Javascript quoted string, with quotes stripped (false positive)
+	</ul>    
+<li>
+<B>Reflected Javascript</B> (injected Javascript echo):
+	<ul>
+		<li>
+<A href="xss/reflect/full1?in=change_me">xss/reflect/full1</A> - Javascript echoed (Full Javascript hack).
+		<li>
+<A href="xss/reflect/post1">xss/reflect/post1</A> - Javascript echoed from the POST parameters. (Splash page: <A href="xss/reflect/post1_splash">xss/reflect/post1_splash</A>)
+<li>
+<A href="xss/reflect/doubq1?in=change_me2">xss/reflect/doubq1?in=changeme2</A> - Double-quoted injection echoed unescaped.  PoE: /xss/reflect/doubq1?in=%253Cscript%253Ealert%28%252FXSS%252F%29%253C%252Fscript%253E
+
+<li>
+<A href="xss/reflect/rs1?in=change_me3">xss/reflect/rs1?in=change_me3</A> - Response-Splitting (injection of \r\n\r\n into HTTP Headers making part of the headers become the body).  PoE: /xss/reflect/rs1?in=xyz%0d%0a%0d%0a%3Cscript%3Ealert(/BAD_NEWS/)%3C/script%3E
+<li>
+  <A href="xss/reflect/inredirect1_fp">xss/reflect/inredirect1_fp</A> - Injection into a 302 redirect (FP check - no alert expected)
+<li>
+  <A href="xss/reflect/onmouseover?in=changeme4">xss/reflect/onmouseover?in=changeme4</A> - XSS due to attribute injections in tags (&quot;onmouseover&quot;).
+<li>
+  <A href="xss/reflect/onmouseover_unquoted?in=changeme5">xss/reflect/onmouseover_unquoted?in=changeme5</A> - XSS due to unquoted attribute injections in tags (&quot;onmouseover&quot;).
+<li>
+  <A href="xss/reflect/onmouseover_unquoted_fp?in=val5fp">xss/reflect/onmouseover_unquoted_fp?in=val5fp</A> - FP of XSS due to unquoted attribute injections in tags (&quot;onmouseover&quot;).  
+<li>
+  <A href="xss/reflect/onmouseover_div_unquoted?in=changeme6">xss/reflect/onmouseover_div_unquoted?in=changeme6</A> - XSS due to unquoted attribute injections in a div class (&quot;onmouseover&quot;).
+<li>
+  <A href="xss/reflect/onmouseover_div_unquoted_fp?in=val6fp">xss/reflect/onmouseover_div_unquoted_fp?in=val6fp</A> - FP of XSS due to unquoted attribute injections in tags (&quot;onmouseover&quot;).  
+<li>
+  <A href="xss/reflect/onmouseover_fp?in=ch01">xss/reflect/onmouseover_fp?in=ch01</A> - False Positive check for XSS due to attribute injections in tags (&quot;onmouseover&quot;).
+<li>
+<A href="xss/reflect/oneclick1?in=xyz">xss/reflect/oneclick1?in=xyz</A> -  JS injection into href source / &quot;oneclick&quot; XSS. 
+<li>
+<A href="xss/reflect/refer1">xss/reflect/refer1</A> - the Referer header echoed. You can set up a page pointing to &lt;WEBSECLAB_URL&gt;/misc/webseclab_refer.html?%3Cscript%3Ealert%28789%29%3C/script%3E as a starting point to set the referer.
+<li>
+<A href="xss/reflect/js3?in=js3">xss/reflect/js3?in=js3</A> - exploitable injection into JS executable context (unquoted input). Proof of Exploit: /xss/reflect/js3?in=1,x:alert(12345)
+<li>
+<A href="xss/reflect/js6_sq?in=js6">xss/reflect/js6_sq?in=js6</A> - exploitable Javascript and single quotes injection into a script block. Proof of Exploit: /xss/reflect/js6_sq?in=js6%27,x:alert(12345),y:%27
+<li>
+<A href="xss/reflect/js6_sq_combo1?in=js6">xss/reflect/js6_sq_combo1?in=js6</A> - exploitable Javascript and single quotes injection into a script block. Proof of Exploit: /xss/reflect/js6_sq?in=js6%27,x:alert(12345),y:%27  Additional scanner challenge: preceeded by a non-exploitable injection into a form's input field.
+<li>
+<A href="xss/reflect/js4_dq?in=js4_dq">xss/reflect/js4_dq?in=js4</A> - exploitable Javascript and double quotes injection into a script block. Proof of Exploit: /xss/reflect/js4_dq?in=js4%22,x:alert(12345),y:%22
+.
+
+<li>
+    <A href="xss/reflect/js_script_close?in=foo">xss/reflect/js_script_close?in=foo</A> - injection of &lt/script&gt; tag into a quoted Javascript string.  (Exploitable since browser parses script opening and closing tags first!)</A> 
+<li>    
+<A href="xss/reflect/js3_fp?in=js3fp">xss/reflect/js3_fp?in=js3_fp</A> - potential False Positive: non-exploitable injection into JavaScript fully quoted string.
+<li>
+<A href="xss/reflect/js3_notags?in=js3_notags">xss/reflect/js3_notags?in=js3notags</A> - exploitable injection into JS executable context, with HTML tags filtered out.
+<li>
+<A href="xss/reflect/js3_notags_fp?in=js3notagsfp">xss/reflect/js3_notags_fp?in=js3_fp</A> - potential False Positive: non-exploitable injection into JavaScript fully quoted string, with HTML tags filtered out.
+<li>
+<A href="xss/reflect/js3_search_fp?in=js3">xss/reflect/js3_search_fp?in=js3</A> - potential False Positive: non-exploitable injection into JavaScript quoted string.
+<li>
+<A href="xss/reflect/js4_dq_fp?in=js4_dq_fp">xss/reflect/js4_dq_fp?in=js4</A> - potential false positive: double-quotes and backslash characters are backslash-escaped resulting in valid Javascript.
+<li>
+<A href="xss/reflect/js6_sq_fp?in=js6fp">xss/reflect/js6_sq_fp?in=js6fp</A> - non-exploitable injection into a double-quoted property of the input tag. Check URL: /xss/reflect/js6_sq_fp?in=js6%27,x:alert(12345),y:%27
+<li>
+<A href="xss/reflect/enc2?in=enc2">xss/reflect/enc2?in=enc2</A> - double quotes escaped with a backslash but backslash itself is not - exploitable injection into Javascript strings.
+<li>
+<A href="xss/reflect/enc2_fp?in=enc2_fp">xss/reflect/enc2_fp?in=enc2_fp</A> - double quotes and backslashes are escaped with a backslash  - not exploitable (but still \u0022 is a better and safer way to escape double quotes).
+<li>
+<A href="xss/reflect/backslash1?in=xyz">xss/reflect/backslash1?in=xyz</A> - Unicode escape sequences like \u0022 unescaped by the server.
+</ul>
+<p>
+ <li><B>Miscellaneous scanner tests</B>
+  <ul>
+  <li><A href="/xss/reflect/full_cookies1?in=xyz">/xss/reflect/full_cookies1?in=xyz</A> - requires &quot;awesome&quot; in the Cookie header to access the vulnerable page, returns 400 Forbidden otherwise
+  <li><A href="/xss/reflect/full_headers1?in=xyz">/xss/reflect/full_headers1?in=xyz</A> - requires HTTP Header "X-Letmein: 1" to access the vulnerable page, returns 400 Forbidden otherwise
+  <li><A href="/xss/reflect/full_useragent1?in=xyz">/xss/reflect/full_useragent1?in=xyz</A> - requires User-Agent with &quot;Mobile"&quot; to access vulnerable page, returns 400 Forbidden otherwise
+  </ul>
+</ul>
+<BR>
+<A name="domxss">
+<li><B>DOM XSS</B>
+  <ul><li><A href="/xss/dom/domwrite?in=abc">/xss/dom/domwrite?in=abc</A> - DOM XSS due to document.write of location.href
+    <li><A href="/xss/dom/domwrite_hash?#in=xyz">/xss/dom/domwrite_hash?#in=xyz</A> - DOM XSS due to document.write of location.hash
+    <li><A href="/xss/dom/escurl?a=some_value">/xss/dom/escurl?a=some_value</A> - DOM XSS due to a URL unescaped in script and passed to document.write() 
+    <li><A href="/xss/dom/yuinode?in=xyz">/xss/dom/yuinode?in=xyz</A> - DOM XSS using YUI (location.search)
+    <li><A href="/xss/dom/yuinode_hash?#in=xyz">/xss/dom/yuinode_hash?#in=xyz</A> - DOM XSS using YUI (location.hash) 
+  </ul>
+</ul>
+<p/>
+  <p/>
+	</body>
+</html>
+

@@ -1,0 +1,16 @@
+{{ define "title" }}JavaScript and single quote injection in JS block (js.6){{end}}
+
+{{template "header" .}}
+
+<form>
+<input id="searchInput" type="text" name="question_box" autocomplete="off" title="Search input" value="{{.In}}" onBlur="blurSearchHelp()" onfocus="focusSearchHelp();"/>
+</form>
+
+<script>
+        var keys = {A_pn:'Yahoo Help - Search Results', A_id:'source=answers.landing_search&question_box={{.In}}', A_pt:'en_US', intl:'en_US'};
+</script>
+
+Hello!<BR> 
+This test demonstrates exploitable Injection due to unsafe handling of single quotes inside of a Javascript block.
+
+{{template "footer"}}

@@ -1,0 +1,10 @@
+{{define "title" }}Double-Encoded tags injection (doubq.1){{end}}
+
+{{template "header"}}
+
+Hello!<BR>
+The value of the cgi parameter &quot;in&quot; is: {{.In}}
+<p>
+This test echos unencoded version of double-encoded tags.
+
+{{template "footer"}}

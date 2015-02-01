@@ -1,0 +1,11 @@
+{{ define "title" }}JavaScript injection into href link source{{end}}
+{{ define "label" }}ybb_7210239{{end}}
+
+{{template "header" .}}
+
+<!-- global link start //-->
+This test demonstrates injection of Javascript into the href source of an html link (&lt;a&gt; element). <p />
+<a href="{{.In}}/*http://example.com" class="open" rel="nofollow">我要賣東西</a>
+<!-- global link end//-->
+
+{{template "footer"}}
