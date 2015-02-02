@@ -166,22 +166,29 @@ func CheckPath(path string) (err error) {
 // $GOPATH/src/github.com/yahoo/webselab/templates if $GOPATH is set
 // and the webseclab directory is present
 // or an empty string
-func TemplateBaseDefault() string {
+func TemplateBaseDefault() (s string, err error) {
 	pwd, err := filepath.Abs(filepath.Dir(os.Args[0]))
 	if err != nil {
 		log.Printf("Unable to get the current directory in TemplateBaseDefault, returning empty string: %s\n", err)
-		return ""
+		return "", err
 	}
 	if CheckPath(path.Join(pwd, "templates")) == nil {
-		return path.Join(pwd, "templates")
+		return path.Join(pwd, "templates"), nil
 	}
 	gopath := os.Getenv("GOPATH")
+
 	if gopath == "" {
-		return ""
+		return "", errors.New("No GOPATH in the environment in TemplateBaseDefault, bailing out")
+	}
+	// fix-up for the case (as with Travis) that GOPATH ends with the ':'
+	// - colon separator
+	if strings.HasSuffix(gopath, ":") {
+		gopath = gopath[:len(gopath)-1]
 	}
 	base := path.Join(gopath, "src/github.com/yahoo/webseclab/templates")
-	if CheckPath(base) == nil {
-		return base
+	err = CheckPath(base)
+	if err == nil {
+		return base, nil
 	}
-	return ""
+	return "", err
 }

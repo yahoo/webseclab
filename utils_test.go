@@ -8,6 +8,7 @@ import (
 	"os"
 	"path"
 	"path/filepath"
+	"strings"
 	"testing"
 )
 
@@ -33,9 +34,19 @@ func TestCheckPathReal(t *testing.T) {
 
 func TestTemplateBaseDefault(t *testing.T) {
 	t.Parallel()
-	base := TemplateBaseDefault()
-	want := path.Join(os.Getenv("GOPATH"), "src/github.com/yahoo/webseclab/templates")
+	base, err := TemplateBaseDefault()
+	if err != nil {
+		t.Errorf("Error in TemplateBaseDefault call: %s\n", err)
+		return
+	}
+	gopath := os.Getenv("GOPATH")
+	// fix-up for the case (as with Travis) that GOPATH ends with the ':'
+	// - colon separator
+	if strings.HasSuffix(gopath, ":") {
+		gopath = gopath[0 : len(gopath)-1]
+	}
+	want := path.Join(gopath, "src/github.com/yahoo/webseclab/templates")
 	if base != want {
-		t.Errorf("Expecting template base %s\n", want)
+		t.Errorf("Want template base %s, got %s\n", want, base)
 	}
 }
