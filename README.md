@@ -1,4 +1,4 @@
-### Webseclab
+### Webseclab [![Build Status](https://travis-ci.org/yahoo/webseclab.svg?branch=master)](https://travis-ci.org/yahoo/webseclab)
 
 Webseclab contains a sample set of web security test cases and a toolkit to construct new ones.  It can be used for testing security scanners, to replicate or reconstruct issues, or to help with investigations or discussions of particular types of web security bugs.
 
