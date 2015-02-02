@@ -33,7 +33,10 @@ func main() {
 		cpus = 2
 	}
 	runtime.GOMAXPROCS(cpus)
-	defaultBase := webseclab.TemplateBaseDefault()
+	defaultBase, err := webseclab.TemplateBaseDefault()
+	if err != nil {
+		panic(err)
+	}
 	base := flag.String("base", defaultBase, "base path for webseclab templates")
 	port := flag.String("http", ":8080", "port to run the webserver on")
 	cleanup := flag.Bool("cleanup", false, "cleanup only (terminate existing instance and exit)")
@@ -58,7 +61,7 @@ func main() {
 	if *cleanup {
 		return
 	}
-	err := webseclab.ParseTemplates(abspath)
+	err = webseclab.ParseTemplates(abspath)
 	if err != nil {
 		panic(err)
 	}
