@@ -18,7 +18,9 @@
 <B>Reflected Javascript</B> (injected Javascript echo):
 	<ul>
 		<li>
-<A href="xss/reflect/full1?in=change_me">xss/reflect/full1</A> - Javascript echoed (Full Javascript hack).
+<A href="xss/reflect/full1?in=change_me">xss/reflect/full1?in=change_me</A> - Javascript echoed (Full Javascript hack). PoE: /xss/reflect/full1?in=&lt;script&gt;alert(/XSS/)&lt;/script&gt;
+        <li>
+<A href="xss/reflect/basic?in=2change">xss/reflect/basic?in=2change</A> - similar to the above, no quotes needed in the injection. Echo of unfiltered input in a "normal" HTML context (not between tags, etc.). The example shows the minimal Webseclab template consisting of just &#x7b;&#x7b;.In&#x7d;&#x7d; &quot;moustache&quot; placeholder.  PoE: /xss/reflect/basic?in=&lt;script&gt;alert(/HACKED/)&lt;/script&gt;  or /xss/reflect/basic?in=&lt;img src=foo onerror=alert(12345)&gt;
 		<li>
 <A href="xss/reflect/post1">xss/reflect/post1</A> - Javascript echoed from the POST parameters. (Splash page: <A href="xss/reflect/post1_splash">xss/reflect/post1_splash</A>)
 <li>

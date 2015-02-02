@@ -21,6 +21,8 @@ In all tests, excepts where specially mentioned, the attack input is assumed to 
 
 * xss/reflect/raw1 - echoes "raw" tags = literal '&lt;' and '&gt;' sent by the browser (IE-related). Can be tested with curl (Firefox/Chrome/Safari escape tag characters when sending to the server)
 
+* xss/reflect/basic - echo of unfiltered input in a "normal" HTML context (not between tags, etc.). The example shows the minimal Webseclab template consisting of just {{.In}} placeholder.  PoE: /xss/reflect/basic?in=<script>alert(/HACKED/)</script>  or /xss/reflect/basic?in=<img src=foo onerror=alert(12345)>
+
 * xss/reflect/full1 - Javascript injection with closed quotes and a script tag echoed
 
 * xss/reflect/post1 - same as above with injection via POST "in" form field

@@ -7,7 +7,6 @@ package webseclab
 import (
 	"errors"
 	"fmt"
-	"io"
 	"log"
 	"net/http"
 	"net/url"
@@ -56,7 +55,7 @@ func (e ErrNotFound) Error() string {
 // DoTemplate opens the template file and processes the template with the passed input
 // if the URL Path ends with ".ok", it uses an HTML context-escaped template
 // (html/template - safe version), otherwise - text/template (exploitable)
-func DoTemplate(w io.Writer, path string, input *InData) (err error) {
+func DoTemplate(w http.ResponseWriter, path string, input *InData) (err error) {
 	if input == nil {
 		return errors.New("ERROR Internal - Nil passed to DoTemplate as InData")
 	}
@@ -85,12 +84,13 @@ func DoTemplate(w io.Writer, path string, input *InData) (err error) {
 	return doTextTemplate(w, fpath, input)
 }
 
-func doHtmlTemplate(w io.Writer, fpath string, input *InData) (err error) {
+func doHtmlTemplate(w http.ResponseWriter, fpath string, input *InData) (err error) {
 	// html/template - context-sensitive escaping
 	tmpl, ok := LookupHtmlTemplate(fpath)
 	if ok == false {
 		return errors.New("Error in DoTemplate - html template " + fpath + " not found.")
 	}
+	w.Header().Set("Content-type", "text/html; charset=utf-8")
 	parts := strings.Split(fpath, "/")
 	err = tmpl.ExecuteTemplate(w, parts[len(parts)-1], *input)
 	if err != nil {
@@ -100,12 +100,13 @@ func doHtmlTemplate(w io.Writer, fpath string, input *InData) (err error) {
 	return nil
 }
 
-func doTextTemplate(w io.Writer, fpath string, input *InData) (err error) {
+func doTextTemplate(w http.ResponseWriter, fpath string, input *InData) (err error) {
 	tmpl, ok := LookupTextTemplate(fpath)
 	if ok == false {
 		err := NewErrNotFound("Error in DoTemplate - text template " + fpath + " not found.")
 		return err
 	}
+	w.Header().Set("Content-type", "text/html; charset=utf-8")
 	parts := strings.Split(fpath, "/")
 	err = tmpl.ExecuteTemplate(w, parts[len(parts)-1], *input)
 	if err != nil {
