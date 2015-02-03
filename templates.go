@@ -45,9 +45,7 @@ func textTemplates() map[string]*tt.Template {
 func LookupHtmlTemplate(name string) (htmpl *ht.Template, ok bool) {
 	htmpl, ok = _ctx.tmplsH[name]
 	if ok == false {
-		if ok == false {
-			return nil, false
-		}
+		return nil, false
 	}
 	return htmpl, ok
 }
@@ -82,19 +80,10 @@ func ParseTemplates(base string, skiphtml ...string) error {
 	for _, filename := range tmplfiles {
 		htmpl := ht.New(filename)
 		ttmpl := tt.New(filename)
-		// HACK - for this specific demo case, need to pick up different template markers (TODO: generalize)
-		if strings.HasPrefix(filename, "bugs/7253173") {
-			ttmpl = ttmpl.Delims(`[[`, `]]`)
-		}
-		// do the same for the text version of template
 		ttmpl = tt.Must(ttmpl.ParseFiles(base+filename, base+"/common/header", base+"/common/footer"))
 		AddTextTemplate(filename, ttmpl)
-		if strings.HasPrefix(filename, "bugs/7253173") {
-			continue
-		}
 		htmpl = ht.Must(htmpl.ParseFiles(base+filename, base+"/common/header", base+"/common/footer"))
 		AddHtmlTemplate(filename, htmpl)
-
 	}
 	return nil
 }
