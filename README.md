@@ -4,6 +4,9 @@ Webseclab contains a sample set of web security test cases and a toolkit to cons
 
 ### Install
 
+If you don't have Go installed yet, grab the latest stable version from https://golang.org/dl/ and install following instructions on https://golang.org/doc/install.   
+
+Set GOPATH environment variable as described in [http://golang.org/doc/code.html#GOPATH](http://golang.org/doc/code.html#GOPATH) - for example `export GOPATH=$HOME/bin`.  (You may wish to add $GOPATH/bin to your PATH.) Then run:      
 	$ go get github.com/yahoo/webseclab/...
 
 ### Run
@@ -13,7 +16,7 @@ $GOPATH/bin/webseclab [-http=:8080]
 ```
 or simply ```webseclab``` if $GOPATH/bin is in your PATH.
 
-Run webseclab -help to view the options.
+Run webseclab -help to view the options.  
 
 ### Webseclab Tests
 
