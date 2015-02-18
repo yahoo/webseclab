@@ -23,6 +23,8 @@ Run webseclab -help to view the options.
 
 In all tests, excepts where specially mentioned, the attack input is assumed to be placed in the "in" CGI variable: &lt;url&gt;?in=&lt;attack_string&gt;. See the index page for PoEs (proof of exploits).
 
+#### Reflected XSS
+
 * xss/reflect/raw1 - echoes "raw" tags = literal '&lt;' and '&gt;' sent by the browser (IE-related). Can be tested with curl (Firefox/Chrome/Safari escape tag characters when sending to the server)
 
 * xss/reflect/basic - echo of unfiltered input in a "normal" HTML context (not between tags, etc.). The example shows the minimal Webseclab template consisting of just {{.In}} placeholder.  PoE: /xss/reflect/basic?in=<script>alert(/HACKED/)</script>  or /xss/reflect/basic?in=<img src=foo onerror=alert(12345)>
@@ -48,6 +50,14 @@ In all tests, excepts where specially mentioned, the attack input is assumed to 
 
 * xss/reflect/backslash1?in=xyz - Unicode escape sequences like \u0022 unescaped by the server to became the corresponding (dangerous) character (double quotes). 
 
+#### DOM XSS
+* xss/dom/domwrite?in=foo - passing the unescaped document.location value to document.write(), PoE: /xss/dom/domwrite?in=%3Cimg%20src=foo%20onerror=alert%28123%29%3E
+
+* xss/dom/domwrite_hash?#whatever - passing the unescaped document.hash value to document.write(). PoE: /xss/dom/domwrite_hash?#in=%3Cimg%20src=foo%20onerror=alert%281246%29%3E
+
+* xss/dom/yuinode_hash?#in=xyz - passing the hash value to YUI's setHTML function.  PoE (Firefox): /xss/dom/yuinode_hash?#in=xyz">/xss/dom/yuinode_hash?#in=xyz</A> - DOM XSS using YUI (location.hash) 
+
+* xss/dom/yuinode_hash_unencoded?#in=xyz - passing the unencoded hash value to YUI's setHTML function.  PoE (Firefox / Chrome): /xss/dom/yuinode_hash?#in=xyz">/xss/dom/yuinode_hash?#in=xyz</A> - DOM XSS using YUI (location.hash) 
 
 ### Adding New Tests
 

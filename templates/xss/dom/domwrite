@@ -1,10 +1,14 @@
 {{ define "title" }}Webseclab - DOM XSS, document.write (domwrite){{end}}
 
 {{template "header" }}
-
+<script>
+function doDecode(s) {
+	return decodeURIComponent(s)
+}
+</script>
 DOMXSS due to passing the unescaped document.location value to document.write(). <p>
 
 Hello!<BR>The value of &quot;lin&quot; parameter as part of the location.href is: 
-<script>document.write(document.location.href);</script> <p>
+<script>document.write(doDecode(document.location.href));</script> <p>
 
 {{template "footer"}}

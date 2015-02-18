@@ -9,7 +9,7 @@ The value of &quot;in&quot; cgi parameter is:
 <div id='inparam'>in placeholder</div> 
 <script>YUI({filter: "raw", combine: false}).use("console", "node", function(Y) {
   var inparam = Y.one("#inparam");
-  var input = document.location.search           
+  var input = document.location.search;          
   inparam.setHTML(input);
 });
 </script>
