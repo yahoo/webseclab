@@ -57,7 +57,7 @@ In all tests, excepts where specially mentioned, the attack input is assumed to 
 
 * xss/dom/yuinode_hash?#in=xyz - passing the hash value to YUI's setHTML function.  PoE (Firefox): /xss/dom/yuinode_hash?#in=xyz">/xss/dom/yuinode_hash?#in=xyz</A> - DOM XSS using YUI (location.hash) 
 
-* xss/dom/yuinode_hash_unencoded?#in=xyz - passing the unencoded hash value to YUI's setHTML function.  PoE (Firefox / Chrome): /xss/dom/yuinode_hash?#in=xyz">/xss/dom/yuinode_hash?#in=xyz</A> - DOM XSS using YUI (location.hash) 
+* xss/dom/yuinode_hash_unencoded?#in=xyz - passing the unencoded hash value to YUI's setHTML function.  PoE (Firefox / Chrome): /xss/dom/yuinode_hash?#in=xyz">/xss/dom/yuinode_hash?#in=xyz</A> - DOM XSS using YUI (decoded location.hash) 
 
 ### Adding New Tests
 
