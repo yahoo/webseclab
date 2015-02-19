@@ -4,7 +4,7 @@
 
 DOMXSS due to passing the unescaped document.hash value to document.write(). <p>
 
-Exploit: http://10.89.11.247/xss/dom/domwrite_hash#in=xyz&lt;img src=foo onerror=alert(1246)&gt; (need to reload page). <p>
+Exploit: /xss/dom/domwrite_hash#in=xyz&lt;img src=foo onerror=alert(1246)&gt; (need to reload page). <p>
 
 
 Hello!<BR>The value of in parameter in location.hash is:  

