@@ -84,6 +84,7 @@
 <li><B>DOM XSS</B>
   <ul><li><A href="/xss/dom/domwrite?in=abc">/xss/dom/domwrite?in=abc</A> - DOM XSS due to document.write of location.href
     <li><A href="/xss/dom/domwrite_hash?#in=xyz">/xss/dom/domwrite_hash?#in=xyz</A> - DOM XSS due to document.write of location.hash
+    <li><A href="/xss/dom/domwrite_hash_urlstyle#/foo/bar?in=xyz">/xss/dom/domwrite_hash_urlstyle#/foo/bar?in=xyz</A> - DOM XSS due to document.write of location.hash (URL-style value)
     <li><A href="/xss/dom/yuinode_hash?#in=xyz">/xss/dom/yuinode_hash?#in=xyz</A> - DOM XSS using YUI (location.hash) 
     <li><A href="/xss/dom/yuinode_hash_urlstyle#/foo/bar?in=xyz">/xss/dom/yuinode_hash_urlstyle#/foo/bar?in=xyz</A> - DOM XSS using YUI (location.hash - URL-style value)       
     <li><A href="/xss/dom/yuinode_hash_unencoded?#in=xyz">/xss/dom/yuinode_hash_unencoded?#in=xyz</A> - DOM XSS using YUI (unescaped location.hash) 

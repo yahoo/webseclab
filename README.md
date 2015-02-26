@@ -51,9 +51,11 @@ In all tests, excepts where specially mentioned, the attack input is assumed to 
 * xss/reflect/backslash1?in=xyz - Unicode escape sequences like \u0022 unescaped by the server to became the corresponding (dangerous) character (double quotes). 
 
 #### DOM XSS
-* xss/dom/domwrite?in=foo - passing the unescaped document.location value to document.write(), PoE: /xss/dom/domwrite?in=%3Cimg%20src=foo%20onerror=alert%28123%29%3E
+* xss/dom/domwrite?in=foo - passing the unescaped document.location value to document.write(), PoE (Firefox): /xss/dom/domwrite?in=%3Cimg%20src=foo%20onerror=alert%28123%29%3E
 
-* xss/dom/domwrite_hash?#whatever - passing the unescaped document.hash value to document.write(). PoE: /xss/dom/domwrite_hash?#in=%3Cimg%20src=foo%20onerror=alert%281246%29%3E
+* xss/dom/domwrite_hash?#whatever - passing the unescaped document.hash value to document.write(). PoE (Firefox): /xss/dom/domwrite_hash?#in=%3Cimg%20src=foo%20onerror=alert%281246%29%3E
+
+* xss/dom/domwrite_hash_urlstyle#/foo/bar?in=whatever - passing the unescaped document.hash URL-style value to document.write(). PoE (Firefox): /xss/dom/domwrite_hash_urlstyle#/foo/bar?in=%3Cimg%20src=foo%20onerror=alert%281246%29%3E
 
 * xss/dom/yuinode_hash?#in=xyz - passing the hash value to YUI's setHTML function.  PoE (Chrome/Firefox): /xss/dom/yuinode_hash?#in=xyz">/xss/dom/yuinode_hash?#in=xyz</A> - DOM XSS using YUI (location.hash) 
 

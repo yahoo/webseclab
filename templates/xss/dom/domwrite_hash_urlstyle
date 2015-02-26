@@ -1,0 +1,13 @@
+{{ define "title" }}Webseclab - DOM XSS domwrite_hash_urlstyle{{end}}
+
+{{template "header" }}
+
+DOMXSS due to passing the unescaped document.hash value to document.write(). <p>
+
+Exploit (Firefox): /xss/dom/domwrite_hash_urlstyle#/foo/bar?in=xyz&lt;img src=foo onerror=alert(1247)&gt; (need to reload page). <p>
+
+
+Hello!<BR>The value of in parameter in location.hash (URL-style value) is:  
+<script>document.write(document.location.hash);</script>
+
+{{template "footer"}}
