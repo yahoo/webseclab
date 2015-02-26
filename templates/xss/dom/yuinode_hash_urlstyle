@@ -4,7 +4,7 @@
 
 XSS due to the document.location.hash used in YUI Node's setHTML(). The attack works in Chrome and Firefox.<p>
 
-Exploit: /xss/dom/yuinode_hash?#in=&lt;img src=foo onerror=alert(148)&gt; (remember to reload the page!)<p>
+Exploit: /xss/dom/yuinode_hash_urlstyle#/foo/bar?in=&lt;img src=foo onerror=alert(149)&gt; (remember to reload the page!)<p>
 
 <script src="http://yui.yahooapis.com/3.8.1/build/yui/yui.js"></script>
 Hello!<BR>The value of &quot;in&quot; hash parameter is: <div id="inparam">in placeholder</div> 

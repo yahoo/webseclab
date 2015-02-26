@@ -55,7 +55,9 @@ In all tests, excepts where specially mentioned, the attack input is assumed to 
 
 * xss/dom/domwrite_hash?#whatever - passing the unescaped document.hash value to document.write(). PoE: /xss/dom/domwrite_hash?#in=%3Cimg%20src=foo%20onerror=alert%281246%29%3E
 
-* xss/dom/yuinode_hash?#in=xyz - passing the hash value to YUI's setHTML function.  PoE (Firefox): /xss/dom/yuinode_hash?#in=xyz">/xss/dom/yuinode_hash?#in=xyz</A> - DOM XSS using YUI (location.hash) 
+* xss/dom/yuinode_hash?#in=xyz - passing the hash value to YUI's setHTML function.  PoE (Chrome/Firefox): /xss/dom/yuinode_hash?#in=xyz">/xss/dom/yuinode_hash?#in=xyz</A> - DOM XSS using YUI (location.hash) 
+
+* xss/dom/yuinode_hash_urlstyle/#/foo/bar?in=xyz - passing the URL-style hash value to YUI's setHTML function.  PoE (Chrome/Firefox): /xss/dom/yuinode_hash_urlstyle/#/foo/bar?in=xyz">/xss/dom/yuinode_hash_urlstyle/#/foo/bar?in=xyz</A> - DOM XSS using YUI (location.hash, URL-style value) 
 
 * xss/dom/yuinode_hash_unencoded?#in=xyz - passing the unencoded hash value to YUI's setHTML function.  PoE (Firefox / Chrome): /xss/dom/yuinode_hash?#in=xyz">/xss/dom/yuinode_hash?#in=xyz</A> - DOM XSS using YUI (decoded location.hash) 
 
