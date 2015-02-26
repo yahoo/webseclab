@@ -155,7 +155,7 @@ func MakeStaticFunc(base string) LabHandler {
 
 // CheckPath checks if the given file path exists
 func CheckPath(path string) (err error) {
-	if _, err = os.Stat(path); os.IsNotExist(err) {
+	if _, err = os.Stat(path); err != nil {
 		return err
 	}
 	return nil
