@@ -130,8 +130,7 @@ func HandleFilterBased(w http.ResponseWriter, r *http.Request, filters []filter)
 			log.Printf("Error in %s: %s\n", r.URL.Path, err)
 			return &LabResp{Err: nil, Code: http.StatusInternalServerError}
 		}
-		tr := NewTransformer(filters...)
-		input.In = tr.Transform(unesc)
+		input.In = Transform(unesc, filters...)
 	}
 	err := DoTemplate(w, r.URL.Path, &input)
 	if err != nil {

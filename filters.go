@@ -8,22 +8,29 @@ type filter int16
 
 // constants for the most common filters
 const (
-	Invalid filter = iota
-	QuotesOff
-	QuotesCook
-	DoubleQuotesOff
-	DoubleQuotesCook
+	Invalid         filter = iota
+	BackslashEscape        // escape \ with a \
 	DoubleQuotesBackslashEscape
-	SingleQuotesOff
-	SingleQuotesCook
-	TagsOff
-	TagsCook
-	GreaterThanOff
+	DoubleQuotesCook
+	DoubleQuotesOff
 	GreaterThanCook
-	LessThanOff
+	GreaterThanOff
 	LessThanCook
-	SpacesOff
-	SpacesCook
+	LessThanOff
+	NoOp
 	ParensOff
-	BackslashEscape // escape \ with a \
+	QuotesCook
+	QuotesOff
+	SingleQuotesCook
+	SingleQuotesOff
+	SpacesCook
+	SpacesOff
+	ScriptOff
+	TagCharsOff
+	TagsCook
+	TagsOff
+	TagsOffExceptTextareaClose
+	TagsOffUntilTextareaClose
+	TextareaCloseOff
+	TextareaSafe
 )

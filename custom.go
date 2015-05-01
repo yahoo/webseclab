@@ -32,7 +32,7 @@ func CustomMap() (mp map[string]func(http.ResponseWriter, *http.Request) *LabRes
 	mp["/xss/reflect/rs1"] = XssRs
 	mp["/xss/reflect/post1"] = XssPost
 	mp["/xss/reflect/backslash1"] = XssBackslash
-	mp["/xss/reflect/raw1_fp"] = NoQuotesNoScript
+
 	return mp
 }
 
@@ -62,6 +62,12 @@ func FilterMap() (mp map[string][]filter) {
 	mp["/xss/reflect/oneclick1"] = []filter{QuotesOff, TagsOff}
 	mp["/misc/escapeexample_nogt"] = []filter{GreaterThanOff}
 	mp["/misc/escapeexample_nogt_noquotes"] = []filter{QuotesOff, GreaterThanOff}
+	mp["/xss/reflect/raw1_fp"] = []filter{QuotesOff, ScriptOff}
+
+	mp["/xss/reflect/textarea1"] = []filter{TagsOffUntilTextareaClose}
+	mp["/xss/reflect/textarea2"] = []filter{NoOp}
+	mp["/xss/reflect/textarea1_fp"] = []filter{TextareaCloseOff}
+	mp["/xss/reflect/textarea2_fp"] = []filter{TextareaSafe}
 	return
 }
 
@@ -226,53 +232,6 @@ func XssInRedirectFp(w http.ResponseWriter, r *http.Request) *LabResp {
 	return &LabResp{Err: nil, Code: http.StatusOK}
 }
 
-// NoScript removes open and closing script tags
-func NoScript(w http.ResponseWriter, r *http.Request) *LabResp {
-	var input InData
-	rawParams := make(map[string][]string)
-	ParseRawQuery(rawParams, r.URL.RawQuery)
-	inputRaw, ok := rawParams["in"]
-	if ok && len(inputRaw) > 0 {
-		input.InRaw = inputRaw[0]
-		unesc, err := url.QueryUnescape(input.InRaw)
-		if err != nil {
-			log.Printf("Error in NoScript / QueryUnescape: %s\n", err)
-			return &LabResp{Err: nil, Code: http.StatusInternalServerError}
-		}
-		input.In = StripScript(unesc)
-	}
-	err := DoTemplate(w, r.URL.Path, &input)
-	if err != nil {
-		log.Printf("Error in DoTemplate: %s\n", err)
-		return &LabResp{Err: nil, Code: http.StatusInternalServerError}
-	}
-	return &LabResp{Err: nil, Code: http.StatusOK}
-}
-
-// NoQuotesNoScript removes open and closing script tags as well as all quotes
-func NoQuotesNoScript(w http.ResponseWriter, r *http.Request) *LabResp {
-	var input InData
-	rawParams := make(map[string][]string)
-	ParseRawQuery(rawParams, r.URL.RawQuery)
-	inputRaw, ok := rawParams["in"]
-	if ok && len(inputRaw) > 0 {
-		input.InRaw = inputRaw[0]
-		unesc, err := url.QueryUnescape(input.InRaw)
-		if err != nil {
-			log.Printf("Error in NoScript / QueryUnescape: %s\n", err)
-			return &LabResp{Err: nil, Code: http.StatusInternalServerError}
-		}
-		unesc = NewTransformer(QuotesOff).Transform(unesc)
-		input.In = StripScript(unesc)
-	}
-	err := DoTemplate(w, r.URL.Path, &input)
-	if err != nil {
-		log.Printf("Error in DoTemplate: %s\n", err)
-		return &LabResp{Err: nil, Code: http.StatusInternalServerError}
-	}
-	return &LabResp{Err: nil, Code: http.StatusOK}
-}
-
 // XssEnc escapes quotes with backslash but does not escape backslash itself
 // allowing injection of an unescaped double quote
 func XssEnc(w http.ResponseWriter, r *http.Request) *LabResp {
@@ -288,7 +247,7 @@ func XssEnc(w http.ResponseWriter, r *http.Request) *LabResp {
 			log.Printf("Error in XssEnc2 / QueryUnescape: %s\n", err)
 			return &LabResp{Err: nil, Code: http.StatusInternalServerError}
 		}
-		input.In = NewTransformer(TagsOff, DoubleQuotesBackslashEscape).Transform(unesc)
+		input.In = Transform(unesc, TagsOff, DoubleQuotesBackslashEscape)
 	}
 	err := DoTemplate(w, r.URL.Path, input)
 	if err != nil {
@@ -311,7 +270,7 @@ func XssEncFp(w http.ResponseWriter, r *http.Request) *LabResp {
 			log.Printf("Error in XssEnc2 / QueryUnescape: %s\n", err)
 			return &LabResp{Err: nil, Code: http.StatusInternalServerError}
 		}
-		input.In = NewTransformer(TagsOff, QuotesOff).Transform(unesc)
+		input.In = Transform(unesc, TagsOff, QuotesOff)
 	}
 	err := DoTemplate(w, r.URL.Path, input)
 	if err != nil {
@@ -336,7 +295,7 @@ func XssDoubq(w http.ResponseWriter, r *http.Request) *LabResp {
 			fmt.Printf("ERROR in the first url.QueryUnescape on %s\n", inputRaw[0])
 			return &LabResp{Err: nil, Code: http.StatusBadRequest}
 		}
-		unesc1 = NewTransformer(TagsOff, QuotesOff).Transform(unesc1)
+		unesc1 = Transform(unesc1, TagsOff, QuotesOff)
 		unesc, err := url.QueryUnescape(unesc1)
 		if err != nil {
 			fmt.Printf("ERROR in the second url.QueryUnescape on %s\n", unesc1)
@@ -360,7 +319,7 @@ func XssBackslash(w http.ResponseWriter, r *http.Request) *LabResp {
 	inputRaw, ok := rawParams["in"]
 	if ok && len(inputRaw) > 0 {
 		input.InRaw = inputRaw[0]
-		input.In = NewTransformer(TagsOff, QuotesOff).Transform(input.InRaw)
+		input.In = Transform(input.InRaw, TagsOff, QuotesOff)
 		input.In = UnescapeUnicode(input.In)
 	}
 	err := DoTemplate(w, r.URL.Path, input)
