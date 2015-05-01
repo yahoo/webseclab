@@ -17,6 +17,14 @@
 <A href="xss/reflect/basic?in=2change">xss/reflect/basic?in=2change</A> - similar to the above, no quotes needed in the injection. Echo of unfiltered input in a "normal" HTML context (not between tags, etc.). The example shows the minimal Webseclab template consisting of just &#x7b;&#x7b;.In&#x7d;&#x7d; &quot;moustache&quot; placeholder.  PoE: /xss/reflect/basic?in=&lt;script&gt;alert(/HACKED/)&lt;/script&gt;  or /xss/reflect/basic?in=&lt;img src=foo onerror=alert(12345)&gt;
 		<li>
 <A href="xss/reflect/post1">xss/reflect/post1</A> - Javascript echoed from the POST parameters. (Splash page: <A href="xss/reflect/post1_splash">xss/reflect/post1_splash</A>)
+        <li>
+<A href="xss/reflect/textarea1?in=foo1">xss/reflect/textarea1?in=foo1</A> - Javascript echoed in the textarea element (textarea closing tag required to trigger). 
+        <li>
+<A href="xss/reflect/textarea2?in=foo2">xss/reflect/textarea2?in=foo2</A> - Javascript echoed in the textarea element (textarea closing tag required to trigger, all tags prior to the closing textarea are filtered). 
+ <li>
+<A href="xss/reflect/textarea1_fp?in=fp1">xss/reflect/textarea1_fp?in=fp1</A> - False Positive issue on injecting into the textarea block.
+ <li>
+<A href="xss/reflect/textarea2_fp?in=fp2">xss/reflect/textarea2_fp?in=fp2</A> - False Positive issue on injecting into the textarea block.
 <li>
 <A href="xss/reflect/doubq1?in=change_me2">xss/reflect/doubq1?in=changeme2</A> - Double-quoted injection echoed unescaped.  PoE: /xss/reflect/doubq1?in=%253Cscript%253Ealert%28%252FXSS%252F%29%253C%252Fscript%253E
 
