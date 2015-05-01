@@ -3,10 +3,9 @@
 {{template "header" .}}
 
 <H2>Update Your Preferences</H2><p>
-<FORM action="http://foobar.yahoo.com">
+<FORM>
 Homepage: <input value="{{.In}}" name="hp" size="40"><BR>
 <input type="submit" value="Change"></FORM>
-<p><A href="http://foobar.yahoo.com">Your homepage</A><BR>
 
 {{template "footer"}}
 
