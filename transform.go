@@ -16,90 +16,111 @@ import (
 // The second part are the functions that do transformations
 // beyond simple string substitution (regexp etc.)
 
-type transformerMap map[filter]*strings.Replacer
-
-var trMap transformerMap
-
-// initialize the main replacing functions
-func init() {
-	trMap = transformerMap(make(map[filter]*strings.Replacer))
-	trMap[QuotesOff] = strings.NewReplacer(`"`, "", `'`, "")
-	trMap[QuotesCook] = strings.NewReplacer(`"`, `&quot;`, `'`, `&#39;`)
-	trMap[DoubleQuotesOff] = strings.NewReplacer(`"`, "")
-	trMap[DoubleQuotesCook] = strings.NewReplacer(`"`, `&quot;`)
-	trMap[SingleQuotesOff] = strings.NewReplacer(`'`, "")
-	trMap[SingleQuotesCook] = strings.NewReplacer(`'`, `&#39;`)
-	trMap[BackslashEscape] = strings.NewReplacer(`\`, `\\`)
-	trMap[DoubleQuotesBackslashEscape] = strings.NewReplacer(`"`, `\"`)
-	trMap[TagsOff] = strings.NewReplacer(`<`, "", `>`, "")
-	trMap[TagsCook] = strings.NewReplacer(`<`, `&lt;`, `>`, `&gt;`)
-	trMap[GreaterThanOff] = strings.NewReplacer(`>`, "")
-	trMap[GreaterThanCook] = strings.NewReplacer(`>`, `&gt;`)
-	trMap[LessThanOff] = strings.NewReplacer(`<`, "")
-	trMap[LessThanCook] = strings.NewReplacer(`<`, `&lt;`)
-	trMap[SpacesOff] = strings.NewReplacer(` `, "")
-	trMap[SpacesCook] = strings.NewReplacer(` `, "&#20;")
-	trMap[ParensOff] = strings.NewReplacer(`(`, "", `)`, "")
-}
-
 // Transformer transforms a string by escaping, filtering or other modification
 type Transformer interface {
 	Transform(s string) string
 }
 
-type Filter struct {
-	options []filter
-	nested  *Transformer
+// StringsReplacer implements Transformer using embedded strings.Replacer
+type StringsReplacer struct {
+	strings.Replacer
 }
 
-func (f Filter) Transform(s string) string {
-	if f.nested != nil {
-		s = (*f.nested).Transform(s)
+// NewStringsReplacer creates a new StringsReplacer
+// using the list of old/new strings (as in strings.NewReplacer)
+func NewStringsReplacer(oldnew ...string) *StringsReplacer {
+	r := strings.NewReplacer(oldnew...)
+	return &StringsReplacer{*r}
+}
+
+// Tranform implements Transformer interface
+func (r *StringsReplacer) Transform(s string) string {
+	return r.Replace(s)
+}
+
+// RegexpMatchEraser implements Tranformer using the given regexp(s)
+type RegexpMatchEraser struct {
+	// slice to allow multiple regexps for removing strings
+	re []*regexp.Regexp
+}
+
+// NewRegexpMatchEraser accepts a regexp string parameter
+// returns a Transformer that removes the matching strings
+func NewRegexpMatchEraser(re ...string) *RegexpMatchEraser {
+	r := make([]*regexp.Regexp, 0)
+	for _, pattern := range re {
+		compiled := regexp.MustCompile(pattern)
+		r = append(r, compiled)
 	}
-	for _, opt := range f.options {
-		if tr, ok := trMap[opt]; ok {
-			s = tr.Replace(s)
-		} else {
-			log.Printf("ERROR in Transform - option %v is not in the trMap! Skipping.")
-		}
+	return &RegexpMatchEraser{r}
+}
+
+// Tranfrom erases matching strings based on embedded regexp(s)
+func (r *RegexpMatchEraser) Transform(s string) string {
+	for _, p := range r.re {
+		s = p.ReplaceAllLiteralString(s, "")
 	}
 	return s
 }
 
-type RegexpTransformer struct {
-	re     *regexp.Regexp
-	nested *Transformer
+type ReplaceFunction func(string) string
+
+func (f ReplaceFunction) Transform(s string) string {
+	return f(s)
 }
 
-// RegexpTransformer transforms a string by applying its regular expression
-func (r RegexpTransformer) Transform(s string) string {
-	if r.nested != nil {
-		s = (*r.nested).Transform(s)
+// identity function
+func id(s string) string {
+	return s
+}
+
+type transformerMap map[filter]Transformer
+
+var trMap transformerMap
+
+// initialize the main replacing functions
+func init() {
+	trMap = transformerMap(make(map[filter]Transformer))
+	trMap[BackslashEscape] = NewStringsReplacer(`\`, `\\`)
+	trMap[DoubleQuotesBackslashEscape] = NewStringsReplacer(`"`, `\"`)
+	trMap[DoubleQuotesCook] = NewStringsReplacer(`"`, `&quot;`)
+	trMap[DoubleQuotesOff] = NewStringsReplacer(`"`, "")
+	trMap[GreaterThanCook] = NewStringsReplacer(`>`, `&gt;`)
+	trMap[GreaterThanOff] = NewStringsReplacer(`>`, "")
+	trMap[LessThanCook] = NewStringsReplacer(`<`, `&lt;`)
+	trMap[LessThanOff] = NewStringsReplacer(`<`, "")
+	trMap[NoOp] = ReplaceFunction(id)
+	trMap[ParensOff] = NewStringsReplacer(`(`, "", `)`, "")
+	trMap[QuotesCook] = NewStringsReplacer(`"`, `&quot;`, `'`, `&#39;`)
+	trMap[QuotesOff] = NewStringsReplacer(`"`, "", `'`, "")
+	trMap[ScriptOff] = NewRegexpMatchEraser(`(?i)<script[^>]*>`, `</script>`)
+	trMap[SingleQuotesCook] = NewStringsReplacer(`'`, `&#39;`)
+	trMap[SingleQuotesOff] = NewStringsReplacer(`'`, "")
+	trMap[SpacesCook] = NewStringsReplacer(` `, "&#20;")
+	trMap[SpacesOff] = NewStringsReplacer(` `, "")
+	trMap[TagsCook] = NewStringsReplacer(`<`, `&lt;`, `>`, `&gt;`)
+	trMap[TagCharsOff] = NewStringsReplacer(`<`, "", `>`, "")
+	trMap[TagsOff] = ReplaceFunction(RemoveTags)
+	trMap[TagsOffExceptTextareaClose] = ReplaceFunction(RemoveTagsExceptTextareaClose)
+	trMap[TagsOffUntilTextareaClose] = ReplaceFunction(RemoveTagsUntilTextareaClose)
+	trMap[TextareaCloseOff] = NewRegexpMatchEraser(`(?i)</(textarea[^>]*)>`)
+	trMap[TextareaSafe] = ReplaceFunction(ReplaceTextareaSafe)
+}
+
+// Transform tranforms the string based on the given filter options (one or several)
+func Transform(s string, f ...filter) string {
+	if len(f) == 0 {
+		log.Printf("ERROR in Tranform(%s) - empty filter slice passed!\n", s)
 	}
-
-	return r.re.ReplaceAllLiteralString(s, "")
-}
-
-func NewTransformerRegexp(s string) Transformer {
-	re := regexp.MustCompile(s)
-	return RegexpTransformer{re, nil}
-}
-
-// NewTransformer takes a (possibly empty) list of filter options
-// and returns a corresponding Transformer
-func NewTransformer(fltr ...filter) Transformer {
-	f := Filter{}
-	f.options = make([]filter, 0)
-	for _, filter := range fltr {
-		f.options = append(f.options, filter)
+	for _, opt := range f {
+		if tr, ok := trMap[opt]; !ok {
+			log.Printf("ERROR in Transform(%s, %v) - option %v is not in the trMap! Skipping.\n", s, f, opt)
+			continue
+		} else {
+			s = tr.Transform(s)
+		}
 	}
-	return f
-}
-
-// StripScript removes opening and closing script tags
-func StripScript(s string) string {
-	tr := NewTransformerRegexp(`</?script[^>]*>`)
-	return tr.Transform(s)
+	return s
 }
 
 // UnescapeUnicode takes a string with Unicode escape sequences  \u22
@@ -150,4 +171,101 @@ func unescapeToHex(s string) (ret string) {
 		}
 	}
 	return
+}
+
+// RemoveTags removes the tags: foo<xss x=1>bar => foobar
+func RemoveTags(src string) string {
+	re := regexp.MustCompile(`(?i)(<([^>]+)>)`)
+	// be paranoid and do replacement recursevly, just in case
+	for {
+		copy := src
+		src = re.ReplaceAllString(src, " ")
+		if src == copy {
+			break
+		}
+	}
+	return re.ReplaceAllString(src, " ")
+}
+
+// RemoveTagsExceptTextareaClose removes all the tags except the closing textarea one
+func RemoveTagsExceptTextareaClose(src string) (out string) {
+	re := regexp.MustCompile(`(?i)(<([^>]+)>)`)
+	m := re.FindAllStringIndex(src, -1)
+	last := 0
+	// revisit once https://github.com/golang/go/issues/5690 is resolved
+	for i := 0; i < len(m); i++ {
+		// copy the substring from "last" until the current match
+		// - otherwise, skip the tag and add a space
+		out += src[last:m[i][0]]
+		if strings.HasPrefix(strings.ToLower(src[m[i][0]:m[i][1]]), "</textarea>") {
+			out += src[m[i][0]:m[i][1]]
+		} else {
+			out += " "
+		}
+		last = m[i][1]
+		// leave for debugging
+		// fmt.Printf("%d %s\n", i, src[m[i][0]:m[i][1]])
+	}
+	if last < len(src) {
+		out += src[last:len(src)]
+	}
+	// leave for debugging
+	// fmt.Printf("RemoveTagsUntilTextareaClose Out: %s\n", out)
+	return out
+}
+
+// RemoveTagsUntilTextareaClose removes all the tags before the closing textarea one
+func RemoveTagsUntilTextareaClose(src string) (out string) {
+	re := regexp.MustCompile(`(?i)(<([^>]+)>)`)
+	m := re.FindAllStringIndex(src, -1)
+	last := 0
+	// revisit once https://github.com/golang/go/issues/5690 is resolved
+	for i := 0; i < len(m); i++ {
+		// copy the substring from "last" until the current match
+		out += src[last:m[i][0]]
+		if strings.HasPrefix(strings.ToLower(src[m[i][0]:m[i][1]]), "</textarea>") {
+			out += src[m[i][0]:]
+			return out
+		}
+		// otherwise, skip the tag
+		last = m[i][1]
+		// leave for debugging
+		// fmt.Printf("%d %s\n", i, src[m[i][0]:m[i][1]])
+	}
+	if last < len(src) {
+		out += src[last:len(src)]
+	}
+	// leave for debugging
+	// fmt.Printf("RemoveTagsUntilTextareaClose Out: %s\n", out)
+	return out
+}
+
+// ReplaceTextareaSafe removes all the tags after the closing textarea one
+func ReplaceTextareaSafe(src string) (out string) {
+	re := regexp.MustCompile(`(?i)(<([^>]+)>)`)
+	m := re.FindAllStringIndex(src, -1)
+	last := 0
+	// revisit once https://github.com/golang/go/issues/5690 is resolved
+	for i := 0; i < len(m); i++ {
+		// copy the string until the current match
+		out += src[last:m[i][0]]
+		if strings.HasPrefix(strings.ToLower(src[m[i][0]:m[i][1]]), "</textarea>") {
+			out += src[m[i][0]:m[i][1]]
+			out += Transform(src[m[i][1]:], TagsOff)
+			last = len(src)
+			break
+		} else {
+			// copy verbatim before </textarea>
+			out += src[m[i][0]:m[i][1]]
+			last = m[i][1]
+		}
+		// leave for debugging
+		// fmt.Printf("%d %s\n", i, src[m[i][0]:m[i][1]])
+	}
+	if last < len(src) {
+		out += src[last:len(src)]
+	}
+	// leave for debugging
+	// fmt.Printf("TextareaSafe Out: %s\n", out)
+	return out
 }
