@@ -4,7 +4,7 @@
 
 <H2>Update Your Preferences</H2><p>
 <FORM>
-Homepage: <input value="{{.In}}" name="hp" size="40"><BR>
+Homepage: <input value="{{.In}}" name="in" size="40"><BR>
 <input type="submit" value="Change"></FORM>
 
 {{template "footer"}}
