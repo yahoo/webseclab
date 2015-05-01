@@ -10,6 +10,7 @@ type filter int16
 const (
 	Invalid         filter = iota
 	BackslashEscape        // escape \ with a \
+	BackslashEscapeDoubleQuotesAndBackslash
 	DoubleQuotesBackslashEscape
 	DoubleQuotesCook
 	DoubleQuotesOff

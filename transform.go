@@ -83,6 +83,7 @@ func init() {
 	trMap = transformerMap(make(map[filter]Transformer))
 	trMap[BackslashEscape] = NewStringsReplacer(`\`, `\\`)
 	trMap[DoubleQuotesBackslashEscape] = NewStringsReplacer(`"`, `\"`)
+	trMap[BackslashEscapeDoubleQuotesAndBackslash] = ReplaceFunction(backslashDoublequotes)
 	trMap[DoubleQuotesCook] = NewStringsReplacer(`"`, `&quot;`)
 	trMap[DoubleQuotesOff] = NewStringsReplacer(`"`, "")
 	trMap[GreaterThanCook] = NewStringsReplacer(`>`, `&gt;`)
@@ -268,4 +269,18 @@ func ReplaceTextareaSafe(src string) (out string) {
 	// leave for debugging
 	// fmt.Printf("TextareaSafe Out: %s\n", out)
 	return out
+}
+
+func backslashDoublequotes(in string) (out string) {
+	for _, r := range in {
+		switch r {
+		case '"':
+			out += `\"`
+		case '\\':
+			out += `\\`
+		default:
+			out += string(r)
+		}
+	}
+	return
 }
