@@ -21,17 +21,17 @@ import (
 // CustomMap returns a map of entrypoint to handling functions
 func CustomMap() (mp map[string]func(http.ResponseWriter, *http.Request) *LabResp) {
 	mp = make(map[string]func(http.ResponseWriter, *http.Request) *LabResp)
+	mp["/xss/reflect/backslash1"] = XssBackslash
 	mp["/xss/reflect/doubq1"] = XssDoubq
 	mp["/xss/reflect/enc2"] = XssEnc
 	mp["/xss/reflect/enc2_fp"] = XssEncFp
-	mp["/xss/reflect/inredirect1_fp"] = XssInRedirectFp
 	mp["/xss/reflect/full_cookies1"] = XssFullCookies
 	mp["/xss/reflect/full_headers1"] = XssFullHeaders
 	mp["/xss/reflect/full_useragent1"] = XssFullUseragent
+	mp["/xss/reflect/inredirect1_fp"] = XssInRedirectFp
+	mp["/xss/reflect/post1"] = XssPost
 	mp["/xss/reflect/refer1"] = XssReferer
 	mp["/xss/reflect/rs1"] = XssRs
-	mp["/xss/reflect/post1"] = XssPost
-	mp["/xss/reflect/backslash1"] = XssBackslash
 
 	return mp
 }
@@ -39,34 +39,33 @@ func CustomMap() (mp map[string]func(http.ResponseWriter, *http.Request) *LabRes
 // FilterMap returns a map of entrypoint to a slice of filtering options
 func FilterMap() (mp map[string][]filter) {
 	mp = make(map[string][]filter)
-	mp["/xss/reflect/onmouseover"] = []filter{TagsOff}
-	mp["/xss/reflect/onmouseover_fp"] = []filter{TagsOff, SpacesOff}
-	mp["/xss/reflect/enc2"] = []filter{TagsOff, DoubleQuotesBackslashEscape}
-	mp["/xss/reflect/enc2_fp"] = []filter{TagsOff, DoubleQuotesBackslashEscape, BackslashEscape}
-	mp["/xss/reflect/onmouseover_unquoted"] = []filter{TagsOff, QuotesOff}
-	mp["/xss/reflect/onmouseover_unquoted_fp"] = []filter{TagsOff, QuotesOff, SpacesOff}
-	mp["/xss/reflect/onmouseover_div_unquoted"] = []filter{TagsOff, QuotesOff}
-	mp["/xss/reflect/onmouseover_div_unquoted_fp"] = []filter{TagsOff, QuotesOff, SpacesOff}
-	mp["/xss/reflect/js3"] = []filter{TagsOff, QuotesOff}
-	mp["/xss/reflect/js6_sq"] = []filter{TagsOff, DoubleQuotesOff}
-	mp["/xss/reflect/js6_sq_combo1"] = []filter{TagsOff, DoubleQuotesOff}
-	mp["/xss/reflect/js6_bug7208690"] = []filter{TagsOff, DoubleQuotesOff}
-	mp["/xss/reflect/js6_sq_fp"] = []filter{TagsOff, DoubleQuotesOff}
-	mp["/xss/reflect/js4_dq"] = []filter{TagsOff, SingleQuotesOff}
-	mp["/xss/reflect/js3_fp"] = []filter{TagsOff, QuotesOff}
-	mp["/xss/reflect/js3_search_fp"] = []filter{TagsOff, QuotesOff}
-	mp["/xss/reflect/js3_notags"] = []filter{TagsOff, QuotesOff}
-	mp["/xss/reflect/js3_notags_fp"] = []filter{TagsOff, QuotesOff}
-	mp["/xss/reflect/js_script_close"] = []filter{QuotesOff}
-	mp["/xss/reflect/js4_dq_fp"] = []filter{DoubleQuotesBackslashEscape, BackslashEscape}
-	mp["/xss/reflect/oneclick1"] = []filter{QuotesOff, TagsOff}
 	mp["/misc/escapeexample_nogt"] = []filter{GreaterThanOff}
 	mp["/misc/escapeexample_nogt_noquotes"] = []filter{QuotesOff, GreaterThanOff}
+	mp["/xss/reflect/enc2"] = []filter{TagsOff, DoubleQuotesBackslashEscape}
+	mp["/xss/reflect/enc2_fp"] = []filter{TagsOff, DoubleQuotesBackslashEscape, BackslashEscape}
+	mp["/xss/reflect/js3"] = []filter{TagsOff, QuotesOff}
+	mp["/xss/reflect/js3_fp"] = []filter{TagsOff, QuotesOff}
+	mp["/xss/reflect/js3_notags"] = []filter{TagsOff, QuotesOff}
+	mp["/xss/reflect/js3_notags_fp"] = []filter{TagsOff, QuotesOff}
+	mp["/xss/reflect/js3_search_fp"] = []filter{TagsOff, QuotesOff}
+	mp["/xss/reflect/js4_dq"] = []filter{TagsOff, SingleQuotesOff}
+	mp["/xss/reflect/js4_dq_fp"] = []filter{TagsOff, DoubleQuotesBackslashEscape, BackslashEscape}
+	mp["/xss/reflect/js6_bug7208690"] = []filter{TagsOff, DoubleQuotesOff}
+	mp["/xss/reflect/js6_sq"] = []filter{TagsOff, DoubleQuotesOff}
+	mp["/xss/reflect/js6_sq_combo1"] = []filter{TagsOff, DoubleQuotesOff}
+	mp["/xss/reflect/js6_sq_fp"] = []filter{TagsOff, DoubleQuotesOff}
+	mp["/xss/reflect/js_script_close"] = []filter{QuotesOff}
+	mp["/xss/reflect/oneclick1"] = []filter{QuotesOff, TagsOff}
+	mp["/xss/reflect/onmouseover"] = []filter{TagsOff}
+	mp["/xss/reflect/onmouseover_div_unquoted"] = []filter{TagsOff, QuotesOff}
+	mp["/xss/reflect/onmouseover_div_unquoted_fp"] = []filter{TagsOff, QuotesOff, SpacesOff}
+	mp["/xss/reflect/onmouseover_fp"] = []filter{TagsOff, SpacesOff}
+	mp["/xss/reflect/onmouseover_unquoted"] = []filter{TagsOff, QuotesOff}
+	mp["/xss/reflect/onmouseover_unquoted_fp"] = []filter{TagsOff, QuotesOff, SpacesOff}
 	mp["/xss/reflect/raw1_fp"] = []filter{QuotesOff, ScriptOff}
-
 	mp["/xss/reflect/textarea1"] = []filter{TagsOffUntilTextareaClose}
-	mp["/xss/reflect/textarea2"] = []filter{NoOp}
 	mp["/xss/reflect/textarea1_fp"] = []filter{TextareaCloseOff}
+	mp["/xss/reflect/textarea2"] = []filter{NoOp}
 	mp["/xss/reflect/textarea2_fp"] = []filter{TextareaSafe}
 	return
 }
