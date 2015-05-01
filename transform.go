@@ -104,7 +104,7 @@ func init() {
 	trMap[TagsOff] = ReplaceFunction(RemoveTags)
 	trMap[TagsOffExceptTextareaClose] = ReplaceFunction(RemoveTagsExceptTextareaClose)
 	trMap[TagsOffUntilTextareaClose] = ReplaceFunction(RemoveTagsUntilTextareaClose)
-	trMap[TextareaCloseOff] = NewRegexpMatchEraser(`(?i)</(textarea[^>]*)>`)
+	trMap[TextareaCloseOff] = ReplaceFunction(removeTextareaClose)
 	trMap[TextareaSafe] = ReplaceFunction(ReplaceTextareaSafe)
 }
 
@@ -269,6 +269,12 @@ func ReplaceTextareaSafe(src string) (out string) {
 	// leave for debugging
 	// fmt.Printf("TextareaSafe Out: %s\n", out)
 	return out
+}
+
+func removeTextareaClose(in string) (out string) {
+	re := regexp.MustCompile(`(?i)(</textarea\s*>)`)
+	out = re.ReplaceAllLiteralString(in, "")
+	return
 }
 
 func backslashDoublequotes(in string) (out string) {
