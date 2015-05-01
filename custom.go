@@ -49,7 +49,7 @@ func FilterMap() (mp map[string][]filter) {
 	mp["/xss/reflect/js3_notags_fp"] = []filter{TagsOff, QuotesOff}
 	mp["/xss/reflect/js3_search_fp"] = []filter{TagsOff, QuotesOff}
 	mp["/xss/reflect/js4_dq"] = []filter{TagsOff, SingleQuotesOff}
-	mp["/xss/reflect/js4_dq_fp"] = []filter{TagsOff, DoubleQuotesBackslashEscape, BackslashEscape}
+	mp["/xss/reflect/js4_dq_fp"] = []filter{TagsOff, BackslashEscapeDoubleQuotesAndBackslash}
 	mp["/xss/reflect/js6_bug7208690"] = []filter{TagsOff, DoubleQuotesOff}
 	mp["/xss/reflect/js6_sq"] = []filter{TagsOff, DoubleQuotesOff}
 	mp["/xss/reflect/js6_sq_combo1"] = []filter{TagsOff, DoubleQuotesOff}

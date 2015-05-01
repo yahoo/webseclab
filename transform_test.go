@@ -124,6 +124,14 @@ func TestQuotesBackslashQuoteFullEscape(t *testing.T) {
 	}
 }
 
+func TestBackslashDoublequotesEscape(t *testing.T) {
+	t.Parallel()
+	s := `str with "quotes" and \ backslash and both \"`
+	want := `str with \"quotes\" and \\ backslash and both \\\"`
+	if res := Transform(s, BackslashEscapeDoubleQuotesAndBackslash); res != want {
+		t.Errorf("Error in transform: want %s got %s; original: %s\n", want, res, s)
+	}
+}
 func TestScriptOff(t *testing.T) {
 	t.Parallel()
 	s := `str<script>alert(123)</script>`
