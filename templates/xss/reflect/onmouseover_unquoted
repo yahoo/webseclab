@@ -3,7 +3,7 @@
 {{template "header" .}}
 
 <H2>Update Your Preferences</H2><p>
-<FORM">
+<FORM>
 Homepage: <input value={{.In}} name="in" size="40"><BR>
 <input type="submit" value="Change"></FORM>
 
