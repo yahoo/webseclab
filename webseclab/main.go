@@ -39,6 +39,7 @@ func main() {
 	}
 	base := flag.String("base", defaultBase, "base path for webseclab templates")
 	port := flag.String("http", ":8080", "port to run the webserver on")
+	noindex := flag.Bool("noindex", false, "do not serve the top index page (/ and /index.html)")
 	cleanup := flag.Bool("cleanup", false, "cleanup only (terminate existing instance and exit)")
 	flag.Parse()
 	fmt.Printf("Using %s as the template base, change it with -base command-line option (run 'webseclab -help' for usage help)\n", *base)
@@ -72,11 +73,13 @@ func main() {
 
 	fmt.Printf("Webseclab starts to listen on %s\n", *port)
 
-	http.HandleFunc("/index.html", webseclab.MakeIndexFunc(*base, "/index.html"))
+	if !*noindex {
+		http.HandleFunc("/index.html", webseclab.MakeIndexFunc(*base, "/index.html"))
+	}
 	http.HandleFunc("favicon.ico", func(w http.ResponseWriter, r *http.Request) {
 		return
 	})
-	http.Handle("/", webseclab.MakeMainHandler(*base))
+	http.Handle("/", webseclab.MakeMainHandler(*base, *noindex))
 	http.HandleFunc("/exit", webseclab.MakeExitFunc(ln))
 	http.HandleFunc("/ruok", webseclab.Ruok)
 

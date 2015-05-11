@@ -98,13 +98,20 @@ func MakeIndexFunc(base, page string) func(http.ResponseWriter, *http.Request) {
 // and those requiring custom processing.  For standard processing, it unescapes input and prepars an instance of Indata
 // which is then passed to the template execution.  For URLs found in the map of custom processing,
 // the corresponding function is called.
-func MakeMainHandler(base string) LabHandler {
+func MakeMainHandler(base string, noindex bool) LabHandler {
 	return func(w http.ResponseWriter, r *http.Request) *LabResp {
 		// routing - handle a special case, path = "/" (=> index.html)
 		// dump, _ := httputil.DumpRequest(r, true)
 		// fmt.Printf("DEBUG request dump: %q\n", dump)
 		indexFn := MakeIndexFunc(base, "index.html")
 		if r.URL.Path == "/" || r.URL.Path == "/index.html" {
+			if noindex {
+				return &LabResp{
+					Err:  errors.New("index page is prevented with -noindex option"),
+					Code: http.StatusForbidden,
+				}
+
+			}
 			indexFn(w, r)
 			return &LabResp{Err: nil, Code: http.StatusOK}
 		}
