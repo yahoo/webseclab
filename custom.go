@@ -97,9 +97,9 @@ func XssRs(w http.ResponseWriter, r *http.Request) *LabResp {
 	defer conn.Close()
 	bufrw.WriteString("HTTP/1.1 200\n")
 	bufrw.WriteString("Content-type: text/html; charset=utf-8\n")
-	bufrw.WriteString("X-Test: filtered value in the HTTP header: " + safe + "\n")
+	bufrw.WriteString("X-Test: filtered value in the HTTP header (CR and LF removed): " + safe + "\n")
 	if !strings.HasSuffix(r.URL.Path, ".ok") {
-		bufrw.WriteString("X-Foo-Unsafe: unfiltered value in the HTTP header: " + in + "\n")
+		bufrw.WriteString("X-Foo-Unsafe: unfiltered value in the HTTP header (CR and LF not removed): " + in + "\n")
 	}
 	bufrw.WriteString("X-Hopefully-Header: with the correct input handling , this should still be in the HTTP header\n")
 	bufrw.WriteByte(10)
