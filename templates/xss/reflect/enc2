@@ -1,4 +1,4 @@
-{{ define "title" }}Iinjection in Javascript with double quotes but not backslash escaped with backslash - exploitable (enc.2){{end}}
+{{ define "title" }}Injection in Javascript with double quotes but not backslash escaped with backslash - exploitable (enc.2){{end}}
 
 {{template "header" .}}
 
