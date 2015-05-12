@@ -27,9 +27,9 @@ In all tests, excepts where specially mentioned, the attack input is assumed to 
 
 * xss/reflect/raw1 - echoes "raw" tags = literal '&lt;' and '&gt;' sent by the browser (IE-related). Can be tested with curl (Firefox/Chrome/Safari escape tag characters when sending to the server)
 
-* xss/reflect/basic - echo of unfiltered input in a "normal" HTML context (not between tags, etc.). The example shows the minimal Webseclab template consisting of just {{.In}} placeholder.  PoE: /xss/reflect/basic?in=<script>alert(/HACKED/)</script>  or /xss/reflect/basic?in=<img src=foo onerror=alert(12345)>
+* xss/reflect/basic - echo of unfiltered input in a "normal" HTML context (not between tags, etc.). The example shows the minimal Webseclab template consisting of just {{.In}} placeholder.  PoE: /xss/reflect/basic?in=&lt;script&gt;alert(/HACKED/)&lt;/script&gt;  or /xss/reflect/basic?in=&lt;img src=foo onerror=alert(12345)&gt;
 
-* xss/reflect/basic_in_tag - echo of unfiltered input inside of a "regular" HTML tag (<B>) PoE: /xss/reflect/basic_in_tag?in=<script>alert(/HACKED/)</script>  or /xss/reflect/basic_in_tag?in=<img src=foo onerror=alert(12345)>
+* xss/reflect/basic_in_tag - echo of unfiltered input inside of a "regular" HTML tag (&lt;B&gt;) PoE: /xss/reflect/basic_in_tag?in=&lt;script&gt;alert(/HACKED/)&lt;/script&gt;  or /xss/reflect/basic_in_tag?in=&lt;img src=foo onerror=alert(12345)&gt;
 
 * xss/reflect/full1 - Javascript injection with closed quotes and a script tag echoed
 
