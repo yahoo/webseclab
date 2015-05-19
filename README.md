@@ -33,7 +33,7 @@ In all tests, excepts where specially mentioned, the attack input is assumed to 
 
 * xss/reflect/full1 - Javascript injection with closed quotes and a script tag echoed
 
-* xss/reflect/post1 - same as above with injection via POST "in" form field
+* xss/reflect/post1 - same as above with injection via POST "in" form field (only POST method is allowed). xss/reflect/post1_splash can be used as a starting page with the action URL of xss/reflect/post1.
 
 * xss/reflect/doubq1 - injection of double-escaped tags such as: xss/reflect/doubq1?in=%253Cscript%253Ealert%28%252FXSS%252F%29%253C%252Fscript%253E
 

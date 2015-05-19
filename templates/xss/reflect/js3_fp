@@ -2,6 +2,7 @@
 
 {{/* {{template "header" .}} */}}
 
+<!doctype html>
  <script language="javascript">
 var f = {
         node : '#mediasportsscoreboardgrandslam',
