@@ -1,10 +1,10 @@
 {{ define "title" }}Onmouseover attribute injection{{end}}
 
-{{template "header" .}}
+<!doctype html><html><head><title>{{ template "title" }}</title></head><body>
 
 Hello!<BR> 
 <div class={{.In}}>123</div>
 
 This examples inject user input into the class attribute of a div, the quotes and tag characters are filtered out.
 
-{{template "footer"}}
+</body></html>

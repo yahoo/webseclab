@@ -1,6 +1,6 @@
 {{ define "title" }}JavaScript and double-quote injection in JS block (js.4){{end}}
 
-{{template "header" .}}
+<!doctype html><html><head><title>{{ template "title" }}</title></head><body>
 
  <script language="javascript">
 var f = {
@@ -14,4 +14,4 @@ var f = {
 Hello!<BR> 
 This test demonstrates exploitable Injection due to unsafe handling of double quotes into a Javascript block.
 
-{{template "footer"}}
+</body></html>

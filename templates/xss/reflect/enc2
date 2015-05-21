@@ -1,6 +1,6 @@
 {{ define "title" }}Injection in Javascript with double quotes but not backslash escaped with backslash - exploitable (enc.2){{end}}
 
-{{template "header" .}}
+<!doctype html><html><head><title>{{ template "title" }}</title></head><body>
 
  <script language="javascript">
 var f = "{{.In}}";
@@ -9,4 +9,4 @@ var f = "{{.In}}";
 Hello!<BR> 
 This test demonstrates injection in JS with double quotes but not backslash escaped with backslash.
 
-{{template "footer"}}
+</body></html>

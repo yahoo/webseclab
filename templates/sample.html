@@ -2,11 +2,11 @@
 
 {{ define "title" }}Sample template title (will be used between title tags on the page){{end}}
 
-{{ template "header" }}
+<!doctype html><html><head><title>{{ template "title" }}</title></head><body>
 
 This is a sample file demonstrating an injection by using .In inside of &quot;moustache&quot;: 
 {{.In}}.
 
 <div>Any HTML can go into this template.</div>
 
-{{ template "footer" }}
+</body></html>
