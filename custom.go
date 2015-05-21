@@ -59,7 +59,6 @@ func FilterMap() (mp map[string][]filter) {
 	mp["/xss/reflect/onmouseover"] = []filter{TagsOff}
 	mp["/xss/reflect/onmouseover_div_unquoted"] = []filter{TagsOff, QuotesOff}
 	mp["/xss/reflect/onmouseover_div_unquoted_fp"] = []filter{TagsOff, QuotesOff, SpacesOff}
-	mp["/xss/reflect/onmouseover_fp"] = []filter{TagsOff, DoubleQuotesBackslashEscape}
 	mp["/xss/reflect/onmouseover_unquoted"] = []filter{TagsOff, QuotesOff}
 	mp["/xss/reflect/onmouseover_unquoted_fp"] = []filter{TagsOff, QuotesOff, SpacesOff}
 	mp["/xss/reflect/raw1_fp"] = []filter{QuotesOff, ScriptOff}
