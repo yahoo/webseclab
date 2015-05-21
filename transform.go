@@ -11,8 +11,8 @@ import (
 	"strings"
 )
 
-// File has two parts - one related to the map of filter fields to
-// the replacers (for more standard replacements).
+// This file has two parts - one related to the map of
+// filter fields to the replacers (for more standard replacements).
 // The second part are the functions that do transformations
 // beyond simple string substitution (regexp etc.)
 

@@ -4,18 +4,11 @@
 
 package webseclab
 
-import (
-	"os"
-	"testing"
-)
+import "testing"
 
 func TestParseTemplates(t *testing.T) {
 	t.Parallel()
-	pwd, err := os.Getwd()
-	if err != nil {
-		panic(err)
-	}
-	if err := ParseTemplates(pwd + "/templates"); err != nil {
+	if err := parseTemplates(); err != nil {
 		t.Errorf("Error in ParseTemplates (text: %s\n", err)
 		return
 	}

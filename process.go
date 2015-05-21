@@ -86,13 +86,13 @@ func DoTemplate(w http.ResponseWriter, path string, input *InData) (err error) {
 
 func doHtmlTemplate(w http.ResponseWriter, fpath string, input *InData) (err error) {
 	// html/template - context-sensitive escaping
+	fmt.Printf("DMDEBUG - fpath=%s\n", fpath)
 	tmpl, ok := LookupHtmlTemplate(fpath)
 	if ok == false {
 		return errors.New("Error in DoTemplate - html template " + fpath + " not found.")
 	}
 	w.Header().Set("Content-type", "text/html; charset=utf-8")
-	parts := strings.Split(fpath, "/")
-	err = tmpl.ExecuteTemplate(w, parts[len(parts)-1], *input)
+	err = tmpl.ExecuteTemplate(w, fpath, *input)
 	if err != nil {
 		log.Printf("Error in DoTemplate (html) - tmpl.Execute: %s\n", err)
 		return err
@@ -107,8 +107,7 @@ func doTextTemplate(w http.ResponseWriter, fpath string, input *InData) (err err
 		return err
 	}
 	w.Header().Set("Content-type", "text/html; charset=utf-8")
-	parts := strings.Split(fpath, "/")
-	err = tmpl.ExecuteTemplate(w, parts[len(parts)-1], *input)
+	err = tmpl.ExecuteTemplate(w, fpath, *input)
 	if err != nil {
 		log.Printf("Error in DoTemplate (text) - tmpl.Execute's err: %s\n", err)
 		return err

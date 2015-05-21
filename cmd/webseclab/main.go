@@ -9,11 +9,9 @@ package main
 import (
 	"flag"
 	"fmt"
-	"log"
 	"net"
 	"net/http"
 	"os"
-	"path"
 	"runtime"
 
 	"github.com/yahoo/webseclab"
@@ -26,6 +24,10 @@ func (fn indexHandler) ServerHTTP(w http.ResponseWriter, r *http.Request) {
 	return
 }
 
+const notice = `Attention: Webseclab is purposedly INSECURE software intended for testing and education.  Use it at your own risk and be careful! Hit Ctrl-C now if you don't understand the risks invovled.
+
+Webseclab executable includes the Go runtime which is covered by the Go license that can be found in http://golang.org/LICENSE.  See https://github.com/yahoo/webseclab for the Webseclab source code, license, and additional information.`
+
 func main() {
 	// use up to 2 CPUs, not more
 	cpus := runtime.NumCPU()
@@ -33,38 +35,21 @@ func main() {
 		cpus = 2
 	}
 	runtime.GOMAXPROCS(cpus)
-	defaultBase, err := webseclab.TemplateBaseDefault()
-	if err != nil {
-		panic(err)
-	}
-	base := flag.String("base", defaultBase, "base path for webseclab templates")
+
 	port := flag.String("http", ":8080", "port to run the webserver on")
 	noindex := flag.Bool("noindex", false, "do not serve the top index page (/ and /index.html)")
 	cleanup := flag.Bool("cleanup", false, "cleanup only (terminate existing instance and exit)")
+	version := flag.Bool("version", false, "display version number and exit")
 	flag.Parse()
-	fmt.Printf("Using %s as the template base, change it with -base command-line option (run 'webseclab -help' for usage help)\n", *base)
-	var abspath string
-	if path.IsAbs(*base) {
-		abspath = *base
-	} else {
-		pwd, err := os.Getwd()
-		if err != nil {
-			panic(err)
-		}
-		abspath = path.Join(pwd, *base)
+	if *version {
+		fmt.Println(webseclab.WEBSECLAB_VERSION)
+		os.Exit(0)
 	}
-	if err := webseclab.CheckPath(abspath); err != nil {
-		log.Printf("Unable to open base %s: %s\n", abspath, err)
-		os.Exit(1)
-	}
+	fmt.Println(notice, "\n")
 	// if there is another webseclab server running, tell it to quit and make way for us
 	webseclab.KillPredecessor(*port)
 	if *cleanup {
 		return
-	}
-	err = webseclab.ParseTemplates(abspath)
-	if err != nil {
-		panic(err)
 	}
 	ln, err := net.Listen("tcp", *port)
 	if err != nil {
@@ -74,12 +59,12 @@ func main() {
 	fmt.Printf("Webseclab starts to listen on %s\n", *port)
 
 	if !*noindex {
-		http.HandleFunc("/index.html", webseclab.MakeIndexFunc(*base, "/index.html"))
+		http.HandleFunc("/index.html", webseclab.MakeIndexFunc("/index.html"))
 	}
 	http.HandleFunc("favicon.ico", func(w http.ResponseWriter, r *http.Request) {
 		return
 	})
-	http.Handle("/", webseclab.MakeMainHandler(*base, *noindex))
+	http.Handle("/", webseclab.MakeMainHandler(*noindex))
 	http.HandleFunc("/exit", webseclab.MakeExitFunc(ln))
 	http.HandleFunc("/ruok", webseclab.Ruok)
 
