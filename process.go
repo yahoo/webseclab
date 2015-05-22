@@ -86,7 +86,6 @@ func DoTemplate(w http.ResponseWriter, path string, input *InData) (err error) {
 
 func doHtmlTemplate(w http.ResponseWriter, fpath string, input *InData) (err error) {
 	// html/template - context-sensitive escaping
-	fmt.Printf("DMDEBUG - fpath=%s\n", fpath)
 	tmpl, ok := LookupHtmlTemplate(fpath)
 	if ok == false {
 		return errors.New("Error in DoTemplate - html template " + fpath + " not found.")

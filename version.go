@@ -4,4 +4,4 @@
 
 package webseclab
 
-const WEBSECLAB_VERSION = "0.8.0"
+const WEBSECLAB_VERSION = "0.8.1"
