@@ -1,6 +1,6 @@
 {{ define "title" }}JavaScript and single quote injection in JS block (js.6){{end}}
 
-{{template "header" .}}
+<!doctype html><html><head><title>{{ template "title" }}</title></head><body>
 
 <form>
 <input id="searchInput" type="text" name="question_box" autocomplete="off" title="Search input" value="{{.In}}" onBlur="blurSearchHelp()" onfocus="focusSearchHelp();"/>
@@ -13,4 +13,4 @@
 Hello!<BR> 
 This test demonstrates exploitable Injection due to unsafe handling of single quotes inside of a Javascript block.
 
-{{template "footer"}}
+</body></html>

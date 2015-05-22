@@ -1,6 +1,6 @@
 {{ define "title" }}Reflected XSS in textarea (textarea_fp1){{end}}
 
-{{template "header" }}
+<!doctype html><html><head><title>{{ template "title" }}</title></head><body>
 
 <H2>Textarea injection test (False Positive)</H2>
 This test requires a closing textarea tag to break out of the field context and trigger a subsequent exploit.  
@@ -12,4 +12,4 @@ This test requires a closing textarea tag to break out of the field context and 
 </FORM>
 <p>Random padding to invite scanners not to skip me: <BR>
 <i>ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </i>
-{{template "footer"}}
+</body></html>

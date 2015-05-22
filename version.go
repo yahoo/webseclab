@@ -4,4 +4,4 @@
 
 package webseclab
 
-// TODO: test of killPredecessor
+const WEBSECLAB_VERSION = "0.8.0"

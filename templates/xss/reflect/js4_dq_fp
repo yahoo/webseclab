@@ -1,6 +1,6 @@
 {{ define "title" }}JavaScript and double-quote injection in JS block (js.4){{end}}
 
-{{template "header" .}}
+<!doctype html><html><head><title>{{ template "title" }}</title></head><body>
 
  <script language="javascript">
 var f = {
@@ -14,4 +14,4 @@ var f = {
 Hello!<BR> 
 This test demonstrates a false positive related to injection of double quotes into a Javascript block.  It is a false positive since double quotes and backslashes are escaped.
 
-{{template "footer"}}
+</body></html>

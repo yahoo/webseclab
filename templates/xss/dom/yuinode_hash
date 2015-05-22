@@ -1,6 +1,6 @@
 {{ define "title" }}Webseclab - DOM XSS, YUI Node's setHTML using location.hash(yuinode_hash){{end}}
 
-{{template "header" }}
+<!doctype html><html><head><title>{{ template "title" }}</title></head><body>
 
 XSS due to the document.location.hash used in YUI Node's setHTML(). The attack works in Chrome and Firefox.<p>
 
@@ -16,4 +16,4 @@ Hello!<BR>The value of &quot;in&quot; hash parameter is: <div id="inparam">in pl
 });
 </script>
 
-{{template "footer"}}
+</body></html>

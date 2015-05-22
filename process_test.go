@@ -2,8 +2,6 @@ package webseclab
 
 import (
 	"net/http"
-	"os"
-	"path"
 	"testing"
 )
 
@@ -14,11 +12,7 @@ type dohandler func(w http.ResponseWriter, fpath string, input *InData) (err err
 
 // read the templates
 func init() {
-	pwd, err := os.Getwd()
-	if err != nil {
-		panic(err)
-	}
-	err = ParseTemplates(path.Join(pwd, "templates"))
+	err := parseTemplates()
 	if err != nil {
 		panic(err)
 	}

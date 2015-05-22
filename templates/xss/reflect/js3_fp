@@ -1,6 +1,6 @@
 {{ define "title" }}JavaScript injection in properly quoted strings - FP (js.3){{end}}
 
-{{/* {{template "header" .}} */}}
+{{/* <!doctype html><html><head><title>{{ template "title" }}</title></head><body> */}}
 
 <!doctype html>
  <script language="javascript">
@@ -26,4 +26,4 @@ Hello!<BR>
 This test demonstrates false positive on injection into Javascript properly-quoted string.
 
 
-{{template "footer"}}
+</body></html>

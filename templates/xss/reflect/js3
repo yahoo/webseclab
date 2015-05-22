@@ -1,6 +1,6 @@
 {{ define "title" }}JavaScript injection in JS executable context - exploitable (js.3){{end}}
 
-{{template "header" .}}
+<!doctype html><html><head><title>{{ template "title" }}</title></head><body>
 
  <script language="javascript">
 var f = {
@@ -14,4 +14,4 @@ var f = {
 Hello!<BR> 
 This test demonstrates exploitable Injection into JS executable context.
 
-{{template "footer"}}
+</body></html>

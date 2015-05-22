@@ -65,7 +65,9 @@ In all tests, excepts where specially mentioned, the attack input is assumed to 
 
 * xss/dom/yuinode_hash_unencoded?#in=xyz - passing the unencoded hash value to YUI's setHTML function.  PoE (Firefox / Chrome): /xss/dom/yuinode_hash?#in=xyz">/xss/dom/yuinode_hash?#in=xyz</A> - DOM XSS using YUI (decoded location.hash) 
 
-### Adding New Tests
+### Modifying Tests
+
+When modifying, adding or deleting any tests, you need to rerun ```go generate```.
 
 For most of the tests, you need to add a template that contains the "moustache" with {{.In}}.
 
@@ -80,4 +82,4 @@ to the map in the FilterMap function in custom.go.  For example:
 
 To add a new fully custom testcase, add a template (if needed),
 add a mapping of the entrypoint to the handling function to CustomMap in custom.go and implement the custom function with the signature: func(http.ResponseWriter, *http.Request).  For example, for a test case with XSS injection through the Morse code, you could add:  
-```mp["/xss/reflect/morse"] = XssUnsafeMorse```  
+```mp["/xss/reflect/morse"] = XssUnsafeMorse```.  See entrypoints and implementing functions in CustomMap in custom.go.  

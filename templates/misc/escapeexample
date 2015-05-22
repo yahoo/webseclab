@@ -1,10 +1,10 @@
 {{ define "title" }}Escape example{{end}}
 
-{{template "header" .}}
+<!doctype html><html><head><title>{{ template "title" }}</title></head><body>
 
 Hello!<BR> 
 <div class={{.In}}>123</div>
 
 This examples inject unfiltered user input into the class attribute of a div.
 
-{{template "footer"}}
+</body></html>

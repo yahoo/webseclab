@@ -1,6 +1,6 @@
 {{ define "title" }}Reflected XSS in POST processing (post.1){{end}}
 
-{{template "header" }}
+<!doctype html><html><head><title>{{ template "title" }}</title></head><body>
 
 <H2>Post Full Javascript injection test</H2>
 <p>
@@ -9,5 +9,5 @@
 <INPUT type="Submit" value="Search!">
 </FORM>
 
-{{template "footer"}}
+</body></html>
 

@@ -1,6 +1,6 @@
 {{ define "title" }}Webseclab - DOM XSS, YUI Node'ssetHTML(yuinode){{end}}
 
-{{template "header" }}
+<!doctype html><html><head><title>{{ template "title" }}</title></head><body>
 
 Potential XSS due to document.location.search used in YUI Node's setHTML(). The attack does not work in Firefox and Webkit browsers due to the browser's internal escaping of the search portion. (TODO: verify if works in IE) <p>
 
@@ -14,4 +14,4 @@ The value of &quot;in&quot; cgi parameter is:
 });
 </script>
 
-{{template "footer"}}
+</body></html>

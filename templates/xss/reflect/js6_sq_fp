@@ -1,6 +1,6 @@
 {{ define "title" }}False-Positive example - injection into input field{{end}}
 
-{{template "header" .}}
+<!doctype html><html><head><title>{{ template "title" }}</title></head><body>
 
 <form name="landingSearch" id="landingSearch" onSubmit="return isValidSearch();">
 <input type="hidden" name="page" value="answers" />
@@ -15,4 +15,4 @@
 Hello!<BR> 
 This false positive test demonstrates non-exploitable injection of single quotes into a double-quoted property of the input field.
 
-{{template "footer"}}
+</body></html>
