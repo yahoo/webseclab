@@ -26,7 +26,7 @@ func TestIsSafeHost(t *testing.T) {
 	}
 }
 
-func TestIpRegexp(t *testing.T) {
+func TestIPRegexp(t *testing.T) {
 	t.Parallel()
 	var validIP = regexp.MustCompile(`^([\d]{1,3}\.){3}[\d]{1,3}(:\d+)?$`)
 	// var validIP = regexp.MustCompile(`^[:digit]+\.[:digit]+\.[:digit]+`)
@@ -38,17 +38,17 @@ func TestIpRegexp(t *testing.T) {
 	}
 }
 
-func TestIsIp(t *testing.T) {
+func TestIsIP(t *testing.T) {
 	t.Parallel()
-	if IsIp("127.0.0.1") == false {
+	if IsIP("127.0.0.1") == false {
 		t.Errorf("Regexp did not match quad-pair IP string with no port")
 	}
-	if IsIp("www.example.com") == true {
+	if IsIP("www.example.com") == true {
 		t.Errorf("Regexp matched domain that is not a quad-pair IP")
 	}
 }
 
-func TestIsIpUrl(t *testing.T) {
+func TestIsIPUrl(t *testing.T) {
 	t.Parallel()
 	var table = []struct {
 		in   string
@@ -65,8 +65,8 @@ func TestIsIpUrl(t *testing.T) {
 			t.Errorf("Error parsing URL %s: %s\n", i.in, err)
 			return
 		}
-		if i.want != IsIpUrl(u) {
-			t.Errorf("Wrong result in IsIpURL on %s: want %t\n", u.String(), i.want)
+		if i.want != IsIPUrl(u) {
+			t.Errorf("Wrong result in IsIPURL on %s: want %t\n", u.String(), i.want)
 		}
 	}
 }
@@ -80,7 +80,7 @@ func TestIsIpUrl(t *testing.T) {
 // 		t.Errorf("Error parsing URL %s: %s\n", s, err)
 // 		return
 // 	}
-// 	ipurl, err := GetIpUrl(u.Host, u)
+// 	ipurl, err := GetIPUrl(u.Host, u)
 // 	if err != nil {
 // 		t.Errorf("Error getting IP quad URL for %s: %s\n", s, err)
 // 		return
@@ -90,7 +90,7 @@ func TestIsIpUrl(t *testing.T) {
 // 	}
 // }
 
-// func TestGetIpUrlWithPort(t *testing.T) {
+// func TestGetIPUrlWithPort(t *testing.T) {
 // 	t.Parallel()
 // 	s := "http://example.yahoo.com:8088"
 // 	want := "http://93.184.216.34:8088"
@@ -99,7 +99,7 @@ func TestIsIpUrl(t *testing.T) {
 // 		t.Errorf("Error parsing URL %s: %s\n", s, err)
 // 		return
 // 	}
-// 	ipurl, err := GetIpUrl(u.Host, u)
+// 	ipurl, err := GetIPUrl(u.Host, u)
 // 	if err != nil {
 // 		t.Errorf("Error getting IP quad URL for %s: %s\n", s, err)
 // 		return

@@ -29,29 +29,29 @@ func IsSafeHost(s string) bool {
 	if domain == "localhost" {
 		return true
 	}
-	return IsIp(s)
+	return IsIP(s)
 }
 
 // IsIP checks if the argument is a IP quad pair such as 101.02.03.04 (with optional port ex. :8080)
-func IsIp(s string) bool {
+func IsIP(s string) bool {
 	p := regexp.MustCompile(`^([\d]{1,3}\.){3}[\d]{1,3}(:\d+)?$`)
 	return p.MatchString(s)
 }
 
 // isIPUrl checks if the URL is a IP quad pair such as 101.02.03.04 (with optional port ex. :8080)
-func IsIpUrl(u *url.URL) bool {
-	return IsIp(u.Host)
+func IsIPUrl(u *url.URL) bool {
+	return IsIP(u.Host)
 }
 
-// GetIpURL returns a corresponding IP-quad URL if a FQDN is used
+// GetIPURL returns a corresponding IP-quad URL if a FQDN is used
 // if there are multiple results from LookupHost, the first one is returned
-func GetIpUrl(host string, link *url.URL) (*url.URL, error) {
-	if IsIpUrl(link) {
+func GetIPUrl(host string, link *url.URL) (*url.URL, error) {
+	if IsIPUrl(link) {
 		return link, nil
 	}
 	var domain, port string
 	if host == "" && link.Host == "" {
-		return link, errors.New("Error in GetIpUrl - no host available (neither in host param nor inside of Url). Host = " + host + ", url = " + link.String())
+		return link, errors.New("Error in GetIPUrl - no host available (neither in host param nor inside of Url). Host = " + host + ", url = " + link.String())
 	}
 	if host != "" {
 		link.Host = host
@@ -66,23 +66,23 @@ func GetIpUrl(host string, link *url.URL) (*url.URL, error) {
 	} else {
 		domain = link.Host
 	}
-	ipquads, err := net.LookupHost(domain)
+	ipQuads, err := net.LookupHost(domain)
 	if err != nil {
-		log.Printf("ERROR in IpCheck - unable to lookup the IP of %s, error: %s\n", link.Host, err)
+		log.Printf("ERROR in IPheck - unable to lookup the IP of %s, error: %s\n", link.Host, err)
 		return link, errors.New("Internal error - DNS lookup unavailable")
 	}
-	if len(ipquads) == 0 {
+	if len(ipQuads) == 0 {
 		log.Printf("ERROR in IpCheck - unable to lookup the IP of %s, error: %s\n", link.Host, err)
 		return link, errors.New("Internal error - DNS lookup unavailable")
 	}
 	if len(port) == 0 {
-		link.Host = ipquads[0]
+		link.Host = ipQuads[0]
 	} else {
 		// special case for localhost testing
-		if ipquads[0] != "::1" {
-			link.Host = ipquads[0] + ":" + port
+		if ipQuads[0] != "::1" {
+			link.Host = ipQuads[0] + ":" + port
 		} else {
-			link.Host = ipquads[1] + ":" + port
+			link.Host = ipQuads[1] + ":" + port
 		}
 	}
 	if link.Scheme == "" {

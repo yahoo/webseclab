@@ -78,9 +78,9 @@ func MakeMainHandler(noindex bool) LabHandler {
 		// be paranoid about the non-IP domains to protect cookies against XSS
 		safe := IsSafeHost(r.Host)
 		if safe == false {
-			ipurl, err := GetIpUrl(r.Host, r.URL)
+			ipurl, err := GetIPUrl(r.Host, r.URL)
 			if err != nil {
-				return &LabResp{Err: errors.New("ERROR in GetIpUrl(" + r.URL.String() + "): " + err.Error()),
+				return &LabResp{Err: errors.New("ERROR in GetIPUrl(" + r.URL.String() + "): " + err.Error()),
 					Code: http.StatusInternalServerError}
 			}
 			return &LabResp{Err: errors.New(r.Host + " - not an IP quad pair"),
@@ -134,8 +134,8 @@ func MakeIndexFunc(page string) func(http.ResponseWriter, *http.Request) {
 		var data = &InData{}
 		// for UI, find out an Ip quad-pair link if we are not on a such already
 		// this is done to protect cookies of our domain against XSS (see ip.go)
-		if IsIp(r.Host) == false {
-			iplink, err := GetIpUrl(r.Host, r.URL)
+		if IsIP(r.Host) == false {
+			iplink, err := GetIPUrl(r.Host, r.URL)
 			if err != nil {
 				w.WriteHeader(http.StatusInternalServerError)
 				w.Write([]byte(`Internal Server Error`))
