@@ -12,7 +12,7 @@ func TestParseRawQuery(t *testing.T) {
 	m := make(map[string][]string)
 	ParseRawQuery(m, query)
 	// fmt.Printf("Result: %v\n", m)
-	if _, ok := m["b"]; ok == false {
+	if _, ok := m["b"]; !ok {
 		t.Error("No key/value pair for 'b' - want 'b' => 02'")
 	}
 }
@@ -23,17 +23,18 @@ func TestParseRawQueryMultValues(t *testing.T) {
 	m := make(map[string][]string)
 	ParseRawQuery(m, query)
 	// fmt.Printf("Result: %v\n", m)
-	if el, ok := m["b"]; ok == false {
+	var el []string
+	var ok bool
+	if el, ok = m["b"]; !ok {
 		t.Error("No key/value pair for 'b' - want 'b' => 02'")
 		return
-	} else {
-		if len(el) != 3 {
-			t.Errorf("Wrong value of elements for key 'b' - expected 3, got: %d\n", len(el))
-			return
-		}
-		if el[2] != "02c" {
-			t.Errorf("Unexpected value for the 3rd value of key 'b' - want 02c, got %s\n", el[2])
-		}
+	}
+	if len(el) != 3 {
+		t.Errorf("Wrong value of elements for key 'b' - expected 3, got: %d\n", len(el))
+		return
+	}
+	if el[2] != "02c" {
+		t.Errorf("Unexpected value for the 3rd value of key 'b' - want 02c, got %s\n", el[2])
 	}
 }
 
@@ -44,7 +45,7 @@ func TestParseRawQueryClosingScriptTag(t *testing.T) {
 	m := make(map[string][]string)
 	ParseRawQuery(m, query)
 	// fmt.Printf("Result: %v\n", m)
-	if _, ok := m["c"]; ok == false {
+	if _, ok := m["c"]; !ok {
 		t.Error("No key/value pair for 'c' - want 'c' => " + inj)
 		return
 	}

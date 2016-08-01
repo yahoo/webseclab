@@ -27,7 +27,7 @@ with the template containing the "moustache" with: {{.In}}
 
 To add a new "filter-based" case, add a template as above and add
 a mapping of the corresponding entrypoint (such as /xss/newfile )
-to the map in the FilterMap function.
+to the map in the filterMap function.
 
 To add a new fully custom testcase, add a template (if needed),
 add the mapping of entrypoint to the handling function to CustomMap

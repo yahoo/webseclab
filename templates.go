@@ -26,7 +26,7 @@ type TemplateData struct {
 // or nil and false if no template for the given name was found
 func LookupTextTemplate(name string) (ttmpl *tt.Template, ok bool) {
 	ttmpl, ok = _ctx.tmplsT[name]
-	if ok == false {
+	if ok {
 		return nil, false
 	}
 	return ttmpl, ok
@@ -41,18 +41,18 @@ func textTemplates() map[string]*tt.Template {
 	return _ctx.tmplsT
 }
 
-// LookupHtmlTemplate returns a pointer to the parsed template and true if lookup successful,
+// LookupHTMLTemplate returns a pointer to the parsed template and true if lookup successful,
 // or nil and false if no template for the given name was found
-func LookupHtmlTemplate(name string) (htmpl *ht.Template, ok bool) {
+func LookupHTMLTemplate(name string) (htmpl *ht.Template, ok bool) {
 	htmpl, ok = _ctx.tmplsH[name]
-	if ok == false {
+	if !ok {
 		return nil, false
 	}
 	return htmpl, ok
 }
 
-// AddHtmlTemplate adds template record for the given string
-func AddHtmlTemplate(name string, htmpl *ht.Template) {
+// AddHTMLTemplate adds template record for the given string
+func AddHTMLTemplate(name string, htmpl *ht.Template) {
 	_ctx.tmplsH[name] = htmpl
 }
 
@@ -74,7 +74,7 @@ func parseTemplates() error {
 		hTmpl = ht.Must(hTmpl.Parse(templstr))
 		ht.Must(hTmpl.Parse(header))
 		ht.Must(hTmpl.Parse(footer))
-		AddHtmlTemplate(path, hTmpl)
+		AddHTMLTemplate(path, hTmpl)
 	}
 	return nil
 }

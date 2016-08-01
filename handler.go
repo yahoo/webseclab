@@ -77,8 +77,8 @@ func MakeMainHandler(noindex bool) LabHandler {
 		}
 		// be paranoid about the non-IP domains to protect cookies against XSS
 		safe := IsSafeHost(r.Host)
-		if safe == false {
-			ipurl, err := GetIPUrl(r.Host, r.URL)
+		if !safe {
+			ipurl, err := GetIPURL(r.Host, r.URL)
 			if err != nil {
 				return &LabResp{Err: errors.New("ERROR in GetIPUrl(" + r.URL.String() + "): " + err.Error()),
 					Code: http.StatusInternalServerError}
@@ -94,8 +94,8 @@ func MakeMainHandler(noindex bool) LabHandler {
 		if ok {
 			return handler(w, r)
 		}
-		filtermap := FilterMap()
-		filters, ok := filtermap[r.URL.Path]
+		filterMap := filterMap()
+		filters, ok := filterMap[r.URL.Path]
 		if ok {
 			return HandleFilterBased(w, r, filters)
 		}
@@ -103,13 +103,14 @@ func MakeMainHandler(noindex bool) LabHandler {
 	}
 }
 
-// ack to a ping: "ruok" => "imok\n" (for /ruok monitoring entrypoint)
+// Ruok replies with an ack to a ping:
+// "ruok" => "imok\n" (for /ruok monitoring entrypoint).
 func Ruok(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-type", "text/plain; charset=utf-8")
 	fmt.Fprintf(w, "imok\n")
 }
 
-// MakeExitFunc creates an /exit handler
+// MakeExitFunc creates an /exit handler.
 func MakeExitFunc(ln net.Listener) func(http.ResponseWriter, *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		parts := strings.Split(r.RemoteAddr, ":")
@@ -134,8 +135,8 @@ func MakeIndexFunc(page string) func(http.ResponseWriter, *http.Request) {
 		var data = &InData{}
 		// for UI, find out an Ip quad-pair link if we are not on a such already
 		// this is done to protect cookies of our domain against XSS (see ip.go)
-		if IsIP(r.Host) == false {
-			iplink, err := GetIPUrl(r.Host, r.URL)
+		if !IsIP(r.Host) {
+			iplink, err := GetIPURL(r.Host, r.URL)
 			if err != nil {
 				w.WriteHeader(http.StatusInternalServerError)
 				w.Write([]byte(`Internal Server Error`))
@@ -154,7 +155,8 @@ func MakeIndexFunc(page string) func(http.ResponseWriter, *http.Request) {
 	}
 }
 
-// MakeStaticFunc
+// MakeStaticFunc creates a "static function" processing a template
+// with empty data input.
 func MakeStaticFunc() LabHandler {
 	return func(w http.ResponseWriter, r *http.Request) *LabResp {
 		err := DoTemplate(w, r.URL.Path, &InData{})

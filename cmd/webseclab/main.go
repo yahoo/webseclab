@@ -26,7 +26,8 @@ func (fn indexHandler) ServerHTTP(w http.ResponseWriter, r *http.Request) {
 
 const notice = `Attention: Webseclab is purposedly INSECURE software intended for testing and education.  Use it at your own risk and be careful! Hit Ctrl-C now if you don't understand the risks invovled.
 
-Webseclab executable includes the Go runtime which is covered by the Go license that can be found in http://golang.org/LICENSE.  See https://github.com/yahoo/webseclab for the Webseclab source code, license, and additional information.`
+Webseclab executable includes the Go runtime which is covered by the Go license that can be found in http://golang.org/LICENSE.  See https://github.com/yahoo/webseclab for the Webseclab source code, license, and additional information.
+`
 
 func main() {
 	// use up to 2 CPUs, not more
@@ -42,10 +43,10 @@ func main() {
 	version := flag.Bool("version", false, "display version number and exit")
 	flag.Parse()
 	if *version {
-		fmt.Println(webseclab.WEBSECLAB_VERSION)
+		fmt.Println(webseclab.WebseclabVersion)
 		os.Exit(0)
 	}
-	fmt.Println(notice, "\n")
+	fmt.Println(notice)
 	// if there is another webseclab server running, tell it to quit and make way for us
 	webseclab.KillPredecessor(*port)
 	if *cleanup {

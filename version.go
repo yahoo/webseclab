@@ -4,4 +4,5 @@
 
 package webseclab
 
-const WEBSECLAB_VERSION = "0.8.1"
+// WebseclabVersion is used for command-line display, etc.
+const WebseclabVersion = "0.9.0"

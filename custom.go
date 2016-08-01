@@ -21,23 +21,23 @@ import (
 // CustomMap returns a map of entrypoint to handling functions
 func CustomMap() (mp map[string]func(http.ResponseWriter, *http.Request) *LabResp) {
 	mp = make(map[string]func(http.ResponseWriter, *http.Request) *LabResp)
-	mp["/xss/reflect/backslash1"] = XssBackslash
-	mp["/xss/reflect/doubq1"] = XssDoubq
-	mp["/xss/reflect/enc2"] = XssEnc
-	mp["/xss/reflect/enc2_fp"] = XssEncFp
-	mp["/xss/reflect/full_cookies1"] = XssFullCookies
-	mp["/xss/reflect/full_headers1"] = XssFullHeaders
-	mp["/xss/reflect/full_useragent1"] = XssFullUseragent
-	mp["/xss/reflect/inredirect1_fp"] = XssInRedirectFp
-	mp["/xss/reflect/post1"] = XssPost
-	mp["/xss/reflect/refer1"] = XssReferer
-	mp["/xss/reflect/rs1"] = XssRs
+	mp["/xss/reflect/backslash1"] = XSSBackslash
+	mp["/xss/reflect/doubq1"] = XSSDoubq
+	mp["/xss/reflect/enc2"] = XSSEnc
+	mp["/xss/reflect/enc2_fp"] = XSSEncFp
+	mp["/xss/reflect/full_cookies1"] = XSSFullCookies
+	mp["/xss/reflect/full_headers1"] = XSSFullHeaders
+	mp["/xss/reflect/full_useragent1"] = XSSFullUseragent
+	mp["/xss/reflect/inredirect1_fp"] = XSSInRedirectFp
+	mp["/xss/reflect/post1"] = XSSPost
+	mp["/xss/reflect/refer1"] = XSSReferer
+	mp["/xss/reflect/rs1"] = XSSRs
 
 	return mp
 }
 
-// FilterMap returns a map of entrypoint to a slice of filtering options
-func FilterMap() (mp map[string][]filter) {
+// filterMap returns a map of entrypoint to a slice of filtering options
+func filterMap() (mp map[string][]filter) {
 	mp = make(map[string][]filter)
 	mp["/misc/escapeexample_nogt"] = []filter{GreaterThanOff}
 	mp["/misc/escapeexample_nogt_noquotes"] = []filter{QuotesOff, GreaterThanOff}
@@ -69,8 +69,8 @@ func FilterMap() (mp map[string][]filter) {
 	return
 }
 
-// XssRs filters output to produce request splitting (injection of HEAD/BODY separator)
-func XssRs(w http.ResponseWriter, r *http.Request) *LabResp {
+// XSSRs filters output to produce request splitting (injection of HEAD/BODY separator).
+func XSSRs(w http.ResponseWriter, r *http.Request) *LabResp {
 	r.Header.Write(os.Stdout)
 	in := r.FormValue("in")
 	if in == "" {
@@ -117,9 +117,9 @@ func XssRs(w http.ResponseWriter, r *http.Request) *LabResp {
 	return &LabResp{Err: nil, Code: http.StatusOK}
 }
 
-// XssFullCookies is a wrapper around standard handler (non-filtered output echo)
+// XSSFullCookies is a wrapper around standard handler (non-filtered output echo)
 // but requires the presence of a cookie with value "awesome"
-func XssFullCookies(w http.ResponseWriter, r *http.Request) *LabResp {
+func XSSFullCookies(w http.ResponseWriter, r *http.Request) *LabResp {
 	for _, ck := range r.Cookies() {
 		if strings.Contains(ck.Value, "awesome") {
 			return DoLabTestStandard(w, r)
@@ -129,9 +129,9 @@ func XssFullCookies(w http.ResponseWriter, r *http.Request) *LabResp {
 		Code: http.StatusForbidden}
 }
 
-// XssFullCookies is a wrapper around standard handler (non-filtered output echo)
-// but requires the presence of HTTP Header X-Letmein with the value 1
-func XssFullHeaders(w http.ResponseWriter, r *http.Request) *LabResp {
+// XSSFullHeaders is a wrapper around standard handler (non-filtered output echo)
+// but requires the presence of HTTP Header X-Letmein with the value 1.
+func XSSFullHeaders(w http.ResponseWriter, r *http.Request) *LabResp {
 	if r.Header.Get("X-Letmein") != "1" {
 		return &LabResp{Err: errors.New("Missing or invalid value of the X-Letmein HTTP Header - please set to 1 and try again."),
 			Code: http.StatusForbidden}
@@ -139,19 +139,19 @@ func XssFullHeaders(w http.ResponseWriter, r *http.Request) *LabResp {
 	return DoLabTestStandard(w, r)
 }
 
-// XssFullUseragent is a wrapper around standard handler (non-filtered output echo)
+// XSSFullUseragent is a wrapper around standard handler (non-filtered output echo)
 // but requires the presence of a Header "User-Agent" with substring "Mobile" in the value
-func XssFullUseragent(w http.ResponseWriter, r *http.Request) *LabResp {
+func XSSFullUseragent(w http.ResponseWriter, r *http.Request) *LabResp {
 	ua := r.Header.Get("User-Agent")
-	if strings.Contains(ua, "Mobile") == false {
+	if !strings.Contains(ua, "Mobile") {
 		return &LabResp{Err: errors.New("Access requires forward-looking thinking - please add Mobile to the User-Agent header and try again."),
 			Code: http.StatusForbidden}
 	}
 	return DoLabTestStandard(w, r)
 }
 
-// XssPost handles POST input
-func XssPost(w http.ResponseWriter, r *http.Request) *LabResp {
+// XSSPost handles POST input.
+func XSSPost(w http.ResponseWriter, r *http.Request) *LabResp {
 	var inp InData
 	if r.Method == "GET" {
 		err := DoTemplate(w, r.URL.Path, &InData{In: "wrong Method - expecting POST"})
@@ -175,7 +175,7 @@ func XssPost(w http.ResponseWriter, r *http.Request) *LabResp {
 	rawParams := make(map[string][]string)
 	ParseRawQuery(rawParams, bodyUnescaped)
 
-	if in, ok := rawParams["in"]; ok == true {
+	if in, ok := rawParams["in"]; ok {
 		inp.In = in[0]
 	}
 
@@ -187,8 +187,8 @@ func XssPost(w http.ResponseWriter, r *http.Request) *LabResp {
 	return &LabResp{Err: nil, Code: http.StatusOK}
 }
 
-// XssRefer copies and echoes the Referer header
-func XssReferer(w http.ResponseWriter, r *http.Request) *LabResp {
+// XSSReferer copies and echoes the Referer header.
+func XSSReferer(w http.ResponseWriter, r *http.Request) *LabResp {
 	inp := &InData{} // placeholder
 	referer := r.Header.Get("Referer")
 	inp.InRaw = referer
@@ -207,7 +207,8 @@ func XssReferer(w http.ResponseWriter, r *http.Request) *LabResp {
 	return &LabResp{Err: nil, Code: http.StatusOK}
 }
 
-func XssInRedirectFp(w http.ResponseWriter, r *http.Request) *LabResp {
+// XSSInRedirectFp issues a redirect to Yahoo homepage.
+func XSSInRedirectFp(w http.ResponseWriter, r *http.Request) *LabResp {
 	w.Header().Set("Location", "https://www.yahoo.com")
 	w.WriteHeader(http.StatusFound)
 	input := &InData{}
@@ -230,9 +231,9 @@ func XssInRedirectFp(w http.ResponseWriter, r *http.Request) *LabResp {
 	return &LabResp{Err: nil, Code: http.StatusOK}
 }
 
-// XssEnc escapes quotes with backslash but does not escape backslash itself
+// XSSEnc escapes quotes with backslash but does not escape backslash itself
 // allowing injection of an unescaped double quote
-func XssEnc(w http.ResponseWriter, r *http.Request) *LabResp {
+func XSSEnc(w http.ResponseWriter, r *http.Request) *LabResp {
 	w.Header().Set("Content-type", "text/html; charset=utf-8")
 	input := &InData{}
 	rawParams := make(map[string][]string)
@@ -255,8 +256,8 @@ func XssEnc(w http.ResponseWriter, r *http.Request) *LabResp {
 	return &LabResp{Err: nil, Code: http.StatusOK}
 }
 
-// XssEncFp escapes quotes and backslash with backslash preventing injection
-func XssEncFp(w http.ResponseWriter, r *http.Request) *LabResp {
+// XSSEncFp escapes quotes and backslash with backslash preventing injection
+func XSSEncFp(w http.ResponseWriter, r *http.Request) *LabResp {
 	input := &InData{}
 	rawParams := make(map[string][]string)
 	ParseRawQuery(rawParams, r.URL.RawQuery)
@@ -278,8 +279,8 @@ func XssEncFp(w http.ResponseWriter, r *http.Request) *LabResp {
 	return &LabResp{Err: nil, Code: http.StatusOK}
 }
 
-// XssDoubq double-unencodes the "in" cgi parameter
-func XssDoubq(w http.ResponseWriter, r *http.Request) *LabResp {
+// XSSDoubq double-unencodes the "in" cgi parameter.
+func XSSDoubq(w http.ResponseWriter, r *http.Request) *LabResp {
 	input := &InData{}
 	rawParams := make(map[string][]string)
 	ParseRawQuery(rawParams, r.URL.RawQuery)
@@ -309,8 +310,9 @@ func XssDoubq(w http.ResponseWriter, r *http.Request) *LabResp {
 	return &LabResp{Err: nil, Code: http.StatusOK}
 }
 
-// special function that uses UnescapeUnicode to convert \u{dd} into the {dd} ASCII character
-func XssBackslash(w http.ResponseWriter, r *http.Request) *LabResp {
+// XSSBackslash is a special function that uses UnescapeUnicode to convert
+// \u{dd} into the {dd} ASCII character.
+func XSSBackslash(w http.ResponseWriter, r *http.Request) *LabResp {
 	input := &InData{}
 	rawParams := make(map[string][]string)
 	ParseRawQuery(rawParams, r.URL.RawQuery)
