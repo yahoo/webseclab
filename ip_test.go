@@ -21,7 +21,7 @@ func TestIsSafeHost(t *testing.T) {
 	if !IsSafeHost("127.0.0.1") {
 		t.Error("IsSafeHost must return true for '127.0.0.1', got false")
 	}
-	if !IsSafeHost("example.com") {
+	if IsSafeHost("example.com") {
 		t.Error("IsSafeHost must return false for a FQDN , got true")
 	}
 }

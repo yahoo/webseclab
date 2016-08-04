@@ -26,7 +26,7 @@ type TemplateData struct {
 // or nil and false if no template for the given name was found
 func LookupTextTemplate(name string) (ttmpl *tt.Template, ok bool) {
 	ttmpl, ok = _ctx.tmplsT[name]
-	if ok {
+	if !ok {
 		return nil, false
 	}
 	return ttmpl, ok
