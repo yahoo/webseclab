@@ -97,7 +97,7 @@ func getTemplateFiles(base string) (files []string, err error) {
 			strings.HasSuffix(path, "common/header") {
 			return nil
 		}
-		if f.IsDir() == false {
+		if !f.IsDir() {
 			files = append(files, strings.TrimPrefix(path, base))
 		}
 		return err

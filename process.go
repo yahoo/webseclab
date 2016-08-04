@@ -13,6 +13,8 @@ import (
 	"strings"
 )
 
+// DoLabTestStandard is a processor for the typical GET request with
+// key-value pairs in the URL query string.
 func DoLabTestStandard(w http.ResponseWriter, r *http.Request) *LabResp {
 	// split r.URL.RawQuery into a param map
 	rawParams := make(map[string][]string)
@@ -31,7 +33,7 @@ func DoLabTestStandard(w http.ResponseWriter, r *http.Request) *LabResp {
 	if err != nil {
 		httpcode := http.StatusInternalServerError
 		log.Printf("Error returned from DoTemplate: %s\n", err)
-		if _, ok := err.(ErrNotFound); ok {
+		if _, ok := err.(errNotFound); ok {
 			httpcode = http.StatusNotFound
 		}
 		return &LabResp{Err: err, Code: httpcode}
@@ -39,16 +41,16 @@ func DoLabTestStandard(w http.ResponseWriter, r *http.Request) *LabResp {
 	return &LabResp{Err: nil, Code: http.StatusOK}
 }
 
-type ErrNotFound struct {
+type errNotFound struct {
 	text string
 }
 
-func NewErrNotFound(text string) (e ErrNotFound) {
-	e = ErrNotFound{text: text}
+func newErrNotFound(text string) (e errNotFound) {
+	e = errNotFound{text: text}
 	return
 }
 
-func (e ErrNotFound) Error() string {
+func (e errNotFound) Error() string {
 	return e.text
 }
 
@@ -79,15 +81,15 @@ func DoTemplate(w http.ResponseWriter, path string, input *InData) (err error) {
 		if ok {
 			return doTextTemplate(w, fpath+".ok", input)
 		}
-		return doHtmlTemplate(w, fpath, input)
+		return doHTMLTemplate(w, fpath, input)
 	}
 	return doTextTemplate(w, fpath, input)
 }
 
-func doHtmlTemplate(w http.ResponseWriter, fpath string, input *InData) (err error) {
+func doHTMLTemplate(w http.ResponseWriter, fpath string, input *InData) (err error) {
 	// html/template - context-sensitive escaping
-	tmpl, ok := LookupHtmlTemplate(fpath)
-	if ok == false {
+	tmpl, ok := LookupHTMLTemplate(fpath)
+	if !ok {
 		return errors.New("Error in DoTemplate - html template " + fpath + " not found.")
 	}
 	w.Header().Set("Content-type", "text/html; charset=utf-8")
@@ -101,8 +103,8 @@ func doHtmlTemplate(w http.ResponseWriter, fpath string, input *InData) (err err
 
 func doTextTemplate(w http.ResponseWriter, fpath string, input *InData) (err error) {
 	tmpl, ok := LookupTextTemplate(fpath)
-	if ok == false {
-		err := NewErrNotFound("Error in DoTemplate - text template " + fpath + " not found.")
+	if !ok {
+		err := newErrNotFound("Error in DoTemplate - text template " + fpath + " not found.")
 		return err
 	}
 	w.Header().Set("Content-type", "text/html; charset=utf-8")

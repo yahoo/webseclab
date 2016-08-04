@@ -21,7 +21,7 @@ func init() {
 // Test that doHtmlTemplate sets correct content-type
 func TestTemplateContentType(t *testing.T) {
 	t.Parallel()
-	funcs := [...]dohandler{doHtmlTemplate, doTextTemplate}
+	funcs := [...]dohandler{doHTMLTemplate, doTextTemplate}
 	funcnames := [...]string{`doHtmlTemplate`, `doTextTemplate`}
 	for i, f := range funcs {
 		w := newMockResponseWriter()

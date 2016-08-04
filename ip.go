@@ -17,7 +17,7 @@ import (
 	"strings"
 )
 
-// IsSafe check if the host is an IP quad pair or localhost
+// IsSafeHost checks if the host is an IP quad pair or localhost.
 func IsSafeHost(s string) bool {
 	var domain string
 	if strings.ContainsRune(s, ':') {
@@ -38,15 +38,15 @@ func IsIP(s string) bool {
 	return p.MatchString(s)
 }
 
-// isIPUrl checks if the URL is a IP quad pair such as 101.02.03.04 (with optional port ex. :8080)
-func IsIPUrl(u *url.URL) bool {
+// IsIPURL checks if the URL is a IP quad pair such as 101.02.03.04 (with optional port ex. :8080)
+func IsIPURL(u *url.URL) bool {
 	return IsIP(u.Host)
 }
 
 // GetIPURL returns a corresponding IP-quad URL if a FQDN is used
 // if there are multiple results from LookupHost, the first one is returned
-func GetIPUrl(host string, link *url.URL) (*url.URL, error) {
-	if IsIPUrl(link) {
+func GetIPURL(host string, link *url.URL) (*url.URL, error) {
+	if IsIPURL(link) {
 		return link, nil
 	}
 	var domain, port string

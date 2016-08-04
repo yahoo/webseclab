@@ -9,13 +9,13 @@ import (
 	tt "text/template"
 )
 
-type Ctx struct {
+type ctx struct {
 	tmplsH map[string]*ht.Template
 	tmplsT map[string]*tt.Template
 }
 
 // package global
-var _ctx Ctx
+var _ctx ctx
 
 func init() {
 	_ctx.tmplsH = make(map[string]*ht.Template)

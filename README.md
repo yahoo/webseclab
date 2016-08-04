@@ -76,7 +76,7 @@ template under templates directory (for example templates/xss/newfile) with the 
 
 To add a new "filter-based" case, add a template as above and add
 a mapping of the corresponding entrypoint (such as /xss/newfile )
-to the map in the FilterMap function in custom.go.  For example:  
+to the map in the filterMap function in custom.go.  For example:  
 ```mp["/xss/reflect/newtest"] = []filter{TagsOff, SingleQuotesOff, GreaterThanOff}```  
  for a test with the corresponding input filtering.  See filters.go for the list of the available filters.
 

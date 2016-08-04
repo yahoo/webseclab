@@ -12,16 +12,16 @@ import (
 
 func TestIsSafeHost(t *testing.T) {
 	t.Parallel()
-	if IsSafeHost("localhost") != true {
+	if !IsSafeHost("localhost") {
 		t.Error("IsSafeHost must return true for 'localhost', got false")
 	}
-	if IsSafeHost("localhost:8088") != true {
+	if !IsSafeHost("localhost:8088") {
 		t.Error("IsSafeHost must return true for 'localhost', got false")
 	}
-	if IsSafeHost("127.0.0.1") != true {
+	if !IsSafeHost("127.0.0.1") {
 		t.Error("IsSafeHost must return true for '127.0.0.1', got false")
 	}
-	if IsSafeHost("example.com") != false {
+	if IsSafeHost("example.com") {
 		t.Error("IsSafeHost must return false for a FQDN , got true")
 	}
 }
@@ -30,25 +30,25 @@ func TestIPRegexp(t *testing.T) {
 	t.Parallel()
 	var validIP = regexp.MustCompile(`^([\d]{1,3}\.){3}[\d]{1,3}(:\d+)?$`)
 	// var validIP = regexp.MustCompile(`^[:digit]+\.[:digit]+\.[:digit]+`)
-	if validIP.MatchString("127.0.0.1") == false {
+	if !validIP.MatchString("127.0.0.1") {
 		t.Errorf("Regexp did not match quad-pair IP string with no port")
 	}
-	if validIP.MatchString("127.0.0.1:8080") == false {
+	if !validIP.MatchString("127.0.0.1:8080") {
 		t.Errorf("Regexp did not match quad-pair IP string with port")
 	}
 }
 
 func TestIsIP(t *testing.T) {
 	t.Parallel()
-	if IsIP("127.0.0.1") == false {
+	if !IsIP("127.0.0.1") {
 		t.Errorf("Regexp did not match quad-pair IP string with no port")
 	}
-	if IsIP("www.example.com") == true {
+	if IsIP("www.example.com") {
 		t.Errorf("Regexp matched domain that is not a quad-pair IP")
 	}
 }
 
-func TestIsIPUrl(t *testing.T) {
+func TestIsIPURL(t *testing.T) {
 	t.Parallel()
 	var table = []struct {
 		in   string
@@ -65,7 +65,7 @@ func TestIsIPUrl(t *testing.T) {
 			t.Errorf("Error parsing URL %s: %s\n", i.in, err)
 			return
 		}
-		if i.want != IsIPUrl(u) {
+		if i.want != IsIPURL(u) {
 			t.Errorf("Wrong result in IsIPURL on %s: want %t\n", u.String(), i.want)
 		}
 	}

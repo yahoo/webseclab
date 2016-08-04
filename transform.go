@@ -33,21 +33,22 @@ func NewStringsReplacer(oldnew ...string) *StringsReplacer {
 	return &StringsReplacer{*r}
 }
 
-// Tranform implements Transformer interface
+// Transform implements the Transformer interface by calling
+// string replacement function.
 func (r *StringsReplacer) Transform(s string) string {
 	return r.Replace(s)
 }
 
-// RegexpMatchEraser implements Tranformer using the given regexp(s)
+// RegexpMatchEraser implements Tranformer using the given regexp(s).
 type RegexpMatchEraser struct {
 	// slice to allow multiple regexps for removing strings
 	re []*regexp.Regexp
 }
 
 // NewRegexpMatchEraser accepts a regexp string parameter
-// returns a Transformer that removes the matching strings
+// returns a Transformer that removes the matching strings.
 func NewRegexpMatchEraser(re ...string) *RegexpMatchEraser {
-	r := make([]*regexp.Regexp, 0)
+	var r []*regexp.Regexp
 	for _, pattern := range re {
 		compiled := regexp.MustCompile(pattern)
 		r = append(r, compiled)
@@ -55,7 +56,7 @@ func NewRegexpMatchEraser(re ...string) *RegexpMatchEraser {
 	return &RegexpMatchEraser{r}
 }
 
-// Tranfrom erases matching strings based on embedded regexp(s)
+// Transform erases matching strings based on embedded regexp(s).
 func (r *RegexpMatchEraser) Transform(s string) string {
 	for _, p := range r.re {
 		s = p.ReplaceAllLiteralString(s, "")
@@ -63,8 +64,11 @@ func (r *RegexpMatchEraser) Transform(s string) string {
 	return s
 }
 
+// ReplaceFunction is the type alias for the Transformer interface.
 type ReplaceFunction func(string) string
 
+// Transform satisfies the Transformer interface by
+// applying the functor on the string parameter.
 func (f ReplaceFunction) Transform(s string) string {
 	return f(s)
 }
