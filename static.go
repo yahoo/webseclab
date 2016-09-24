@@ -2,6 +2,7 @@
 
 package webseclab
 
+// Templates contains all the webseclab Go templates as strings.
 var Templates = map[string]string{
 	"index.html": `<!doctype html>
 <html>

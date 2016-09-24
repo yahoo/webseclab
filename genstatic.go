@@ -48,6 +48,7 @@ func makestatic() error {
 	defer f.Close()
 	w := bufio.NewWriter(f)
 	fmt.Fprintf(w, "%v\n\npackage webseclab\n\n", warning)
+	fmt.Fprintf(w, "// Templates contains all the webseclab Go templates as strings.\n")
 	fmt.Fprintf(w, "var Templates = map[string]string{\n")
 	base := "templates/"
 	files, err := getTemplateFiles(base)
