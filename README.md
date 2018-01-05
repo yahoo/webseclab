@@ -1,4 +1,6 @@
-### Webseclab [![Build Status](https://travis-ci.org/yahoo/webseclab.svg?branch=master)](https://travis-ci.org/yahoo/webseclab)
+### Webseclab
+
+[![Build Status](https://travis-ci.org/yahoo/webseclab.svg?branch=master)](https://travis-ci.org/yahoo/webseclab) [![GoDoc](https://godoc.org/github.com/yahoo/webseclab?status.svg)](https://godoc.org/github.com/yahoo/webseclab)
 
 Webseclab contains a sample set of web security test cases and a toolkit to construct new ones.  It can be used for testing security scanners, to replicate or reconstruct issues, or to help with investigations or discussions of particular types of web security bugs.
 
@@ -6,7 +8,7 @@ Webseclab contains a sample set of web security test cases and a toolkit to cons
 
 If you don't have Go installed yet, grab the latest stable version from https://golang.org/dl/ and install following instructions on https://golang.org/doc/install.   
 
-Set GOPATH environment variable as described in [http://golang.org/doc/code.html#GOPATH](http://golang.org/doc/code.html#GOPATH) - for example `export GOPATH=$HOME/bin`.  (You may wish to add $GOPATH/bin to your PATH.) Then run:    
+Set GOPATH environment variable as described in [http://golang.org/doc/code.html#GOPATH](http://golang.org/doc/code.html#GOPATH) - for example `export GOPATH=$HOME/go`.  (You may wish to add $GOPATH/go/bin to your PATH.) Then run:
   
 	$ go get github.com/yahoo/webseclab/...
 
