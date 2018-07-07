@@ -9,7 +9,8 @@ import (
 	"strings"
 )
 
-// ParseRawQuery copied from net/url parseQuery but without unescaping keys/values
+// ParseRawQuery is copied from net/url parseQuery
+// but without unescaping keys/values.
 func ParseRawQuery(m map[string][]string, query string) {
 	for query != "" {
 		key := query
@@ -27,7 +28,6 @@ func ParseRawQuery(m map[string][]string, query string) {
 		}
 		m[key] = append(m[key], value)
 	}
-	return
 }
 
 // Input extracts the escaped and "raw" values of in parameters

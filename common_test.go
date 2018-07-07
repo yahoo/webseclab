@@ -26,5 +26,4 @@ func (r mockResponseWriter) Write([]byte) (int, error) {
 }
 
 func (r mockResponseWriter) WriteHeader(int) {
-	return
 }

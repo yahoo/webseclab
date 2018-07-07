@@ -151,7 +151,6 @@ func MakeIndexFunc(page string) func(http.ResponseWriter, *http.Request) {
 			w.Write([]byte(`Internal Server Error`))
 			return
 		}
-		return
 	}
 }
 

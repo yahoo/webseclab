@@ -125,7 +125,7 @@ func XSSFullCookies(w http.ResponseWriter, r *http.Request) *LabResp {
 			return DoLabTestStandard(w, r)
 		}
 	}
-	return &LabResp{Err: errors.New("Sorry your cookies are no good - please put the word awesome into a cookie value and try again."),
+	return &LabResp{Err: errors.New("sorry your cookies are no good - please put the word awesome into a cookie value and try again"),
 		Code: http.StatusForbidden}
 }
 
@@ -133,7 +133,7 @@ func XSSFullCookies(w http.ResponseWriter, r *http.Request) *LabResp {
 // but requires the presence of HTTP Header X-Letmein with the value 1.
 func XSSFullHeaders(w http.ResponseWriter, r *http.Request) *LabResp {
 	if r.Header.Get("X-Letmein") != "1" {
-		return &LabResp{Err: errors.New("Missing or invalid value of the X-Letmein HTTP Header - please set to 1 and try again."),
+		return &LabResp{Err: errors.New("missing or invalid value of the X-Letmein HTTP Header - please set to 1 and try again"),
 			Code: http.StatusForbidden}
 	}
 	return DoLabTestStandard(w, r)
@@ -144,7 +144,7 @@ func XSSFullHeaders(w http.ResponseWriter, r *http.Request) *LabResp {
 func XSSFullUseragent(w http.ResponseWriter, r *http.Request) *LabResp {
 	ua := r.Header.Get("User-Agent")
 	if !strings.Contains(ua, "Mobile") {
-		return &LabResp{Err: errors.New("Access requires forward-looking thinking - please add Mobile to the User-Agent header and try again."),
+		return &LabResp{Err: errors.New("access requires forward-looking thinking - please add Mobile to the User-Agent header and try again"),
 			Code: http.StatusForbidden}
 	}
 	return DoLabTestStandard(w, r)

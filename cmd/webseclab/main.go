@@ -21,7 +21,6 @@ type indexHandler func(http.ResponseWriter, *http.Request) error
 
 func (fn indexHandler) ServerHTTP(w http.ResponseWriter, r *http.Request) {
 	fn(w, r)
-	return
 }
 
 const notice = `Attention: Webseclab is purposedly INSECURE software intended for testing and education.  Use it at your own risk and be careful! Hit Ctrl-C now if you don't understand the risks invovled.
@@ -63,7 +62,6 @@ func main() {
 		http.HandleFunc("/index.html", webseclab.MakeIndexFunc("/index.html"))
 	}
 	http.HandleFunc("favicon.ico", func(w http.ResponseWriter, r *http.Request) {
-		return
 	})
 	http.Handle("/", webseclab.MakeMainHandler(*noindex))
 	http.HandleFunc("/exit", webseclab.MakeExitFunc(ln))
