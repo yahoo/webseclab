@@ -16,18 +16,18 @@ import (
 // The second part are the functions that do transformations
 // beyond simple string substitution (regexp etc.)
 
-// Transformer transforms a string by escaping, filtering or other modification
+// Transformer transforms a string by escaping, filtering or other modification.
 type Transformer interface {
 	Transform(s string) string
 }
 
-// StringsReplacer implements Transformer using embedded strings.Replacer
+// StringsReplacer implements Transformer using embedded strings.Replacer.
 type StringsReplacer struct {
 	strings.Replacer
 }
 
 // NewStringsReplacer creates a new StringsReplacer
-// using the list of old/new strings (as in strings.NewReplacer)
+// using the list of old/new strings (as in strings.NewReplacer).
 func NewStringsReplacer(oldnew ...string) *StringsReplacer {
 	r := strings.NewReplacer(oldnew...)
 	return &StringsReplacer{*r}
@@ -212,7 +212,7 @@ func RemoveTagsExceptTextareaClose(src string) (out string) {
 		// fmt.Printf("%d %s\n", i, src[m[i][0]:m[i][1]])
 	}
 	if last < len(src) {
-		out += src[last:len(src)]
+		out += src[last:]
 	}
 	// leave for debugging
 	// fmt.Printf("RemoveTagsUntilTextareaClose Out: %s\n", out)
@@ -238,7 +238,7 @@ func RemoveTagsUntilTextareaClose(src string) (out string) {
 		// fmt.Printf("%d %s\n", i, src[m[i][0]:m[i][1]])
 	}
 	if last < len(src) {
-		out += src[last:len(src)]
+		out += src[last:]
 	}
 	// leave for debugging
 	// fmt.Printf("RemoveTagsUntilTextareaClose Out: %s\n", out)
@@ -268,7 +268,7 @@ func ReplaceTextareaSafe(src string) (out string) {
 		// fmt.Printf("%d %s\n", i, src[m[i][0]:m[i][1]])
 	}
 	if last < len(src) {
-		out += src[last:len(src)]
+		out += src[last:]
 	}
 	// leave for debugging
 	// fmt.Printf("TextareaSafe Out: %s\n", out)
