@@ -23,14 +23,14 @@ type Transformer interface {
 
 // StringsReplacer implements Transformer using embedded strings.Replacer.
 type StringsReplacer struct {
-	strings.Replacer
+	*strings.Replacer
 }
 
 // NewStringsReplacer creates a new StringsReplacer
 // using the list of old/new strings (as in strings.NewReplacer).
 func NewStringsReplacer(oldnew ...string) *StringsReplacer {
 	r := strings.NewReplacer(oldnew...)
-	return &StringsReplacer{*r}
+	return &StringsReplacer{r}
 }
 
 // Transform implements the Transformer interface by calling
@@ -155,7 +155,7 @@ func unescapeUnicodeHelper(s string) string {
 		log.Printf("ERROR in unescapeUnicode(%s) - parsed value >= 128 %d\n", s, i)
 		return s
 	}
-	return string(i)
+	return string(rune(i))
 }
 
 func percentToSlash(s string) string {

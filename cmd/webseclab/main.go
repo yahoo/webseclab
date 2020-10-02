@@ -17,11 +17,11 @@ import (
 	"github.com/yahoo/webseclab"
 )
 
-type indexHandler func(http.ResponseWriter, *http.Request) error
+// type indexHandler func(http.ResponseWriter, *http.Request) error
 
-func (fn indexHandler) ServerHTTP(w http.ResponseWriter, r *http.Request) {
-	fn(w, r)
-}
+// func (fn indexHandler) ServerHTTP(w http.ResponseWriter, r *http.Request) {
+// 	fn(w, r)
+// }
 
 const notice = `Attention: Webseclab is purposedly INSECURE software intended for testing and education.  Use it at your own risk and be careful! Hit Ctrl-C now if you don't understand the risks invovled.
 
